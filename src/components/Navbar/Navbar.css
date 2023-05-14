@@ -1,0 +1,120 @@
+.nav-left{
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+.nav-left .app-name{
+    font-size: 1.8rem;
+    font-family: 'Bree Serif', serif;
+}
+.nav-left img{
+    width: 2rem;
+    height: 2rem;
+}
+.nav-search{
+    grid-area: search;
+    width: 1fr;
+    padding: 0.2rem;
+    margin: 0.5rem;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+}
+.nav-search input{
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 0.5rem;
+    background-color: var(--secondary-color);
+}
+.nav-right{
+    grid-area: icons;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+.nav-right .nav-icon{
+    padding: 0.5rem;
+    align-self: center;
+    position: relative;
+}
+.nav-icon p{
+    position: absolute;
+    padding: 0.1rem 0.4rem;
+    border-radius: 50%;
+    top: 0.15rem;
+    left: 1.2rem;
+    background-color: var(--ternary-color);
+    color: white;
+    font-size: 0.7rem;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "logo icons"
+        "search search";
+}
+@media (min-width: 768px){
+    .navbar{
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "logo search icons";
+    }
+    .nav-left img{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .nav-left .app-name{
+        font-size: 2rem;
+    }
+    .nav-right .nav-icon{
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+    }
+    .nav-icon:hover{
+        background-color: lightgrey;
+        cursor: pointer;
+    }
+}
+@media (min-width: 1024px){
+    .navbar{
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "logo search icons";
+    }
+    .nav-left img{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .nav-left .app-name{
+        font-size: 2rem;
+    }
+    .nav-right .nav-icon{
+        padding: 0.7rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+    }
+    .nav-icon:hover{
+        background-color: lightgrey;
+        cursor: pointer;
+    }
+    .nav-icon P{
+        left: 1.5rem;
+    }
+}

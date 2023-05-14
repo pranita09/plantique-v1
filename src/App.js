@@ -1,43 +1,35 @@
-import "./App.css";
-import logo from "./logo.png";
+import './App.css';
+import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home/Home';
+import {Routes, Route} from 'react-router-dom';
+import ProductListing from './pages/ProductListing/ProductListing';
+import Cart from './pages/Cart/Cart';
+import Wishlist from './pages/Wishlist/Wishlist';
+import SignIn from './pages/SignIn/SignIn';
+import SignUp from './pages/SignUp/SignUp';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
+import SingleProduct from './pages/SingleProduct/SingleProduct';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/store' element={<ProductListing />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/pagenotfound' element={<PageNotFound />} />
+        <Route path='/product/:productID' element={<SingleProduct />}/>
+        <Route path='/*' element={<PageNotFound/>} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
