@@ -22,7 +22,7 @@ const ProductCard = () =>{
                 <h3>{title}</h3>
                 <div className='star'>
                     <StarRoundedIcon />
-                    <p className='star-value'> {startRating}.0</p>
+                    <p className='star-value'> {startRating}</p>
                 </div>
                 <div className='price-delivery-tags'>
                     <div className='prices'>
