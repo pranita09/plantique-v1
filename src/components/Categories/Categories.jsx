@@ -1,11 +1,5 @@
 import './Categories.css';
-
-const categoryImages = [
-    '/images/category-img-1.jpg',
-    '/images/category-img-2.jpg',
-    '/images/category-img-3.jpg',
-    '/images/category-img-4.jpg'
-]
+import { categories } from '../../backend/db/categories';
 
 const CategoryCard = ({catImg}) =>{
     return(
@@ -23,8 +17,8 @@ const Categories = () =>{
                 <p>Gardening is not just a activity - for some, it is a stress release. For others, it is an escape into a world filled with hope and joy.</p>
                 <div className='category-cards'>
                     {
-                        categoryImages.map((catImg, index) => (
-                            <CategoryCard key={index} catImg={catImg}/>
+                        categories.map(({_id, img}) => (
+                            <CategoryCard key={_id} catImg={img}/>
                         ))
                     }
                 </div>
