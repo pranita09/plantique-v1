@@ -26,8 +26,8 @@ const ProductCard = () =>{
                 </div>
                 <div className='price-delivery-tags'>
                     <div className='prices'>
-                        <p className='old-price'>{price}</p>
-                        <p className='new-price'>{discount}</p>
+                        <p className='old-price'>₹{price}</p>
+                        <p className='new-price'>₹{discount}</p>
                     </div>
                     <div className='delivery'>
                         <p>Fast Delivery</p>
