@@ -1,3 +1,4 @@
+import './ProductCard.css';
 import { products } from "../../backend/db/products";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
@@ -8,35 +9,32 @@ const ProductCard = () =>{
     const {_id, title, imgSrc, price, discount, startRating, inStock, fastDelivery, onSale } = prod;
     return(
         <div className="product-card">
-            <img src={imgSrc} alt={title} />
-            <div>
+            <div className='product-img'>
+                <img src={imgSrc} alt={title} />
+            </div>
+            <div className='sale'>
                 <p>Sale</p>
             </div>
-            <div>
+            <div className='wishlist-btn'>
                 <FavoriteBorderRoundedIcon/>
             </div>
-            <div>
-
-            </div>
-            <h3>{title}</h3>
-            <div>
-                <StarRoundedIcon />
-                <p> {startRating}</p>
-            </div>
-            <div>
-                <div>
-                    <p>{price}</p>
-                    <p>{discount}</p>
+            <div className='card-details'>
+                <h3>{title}</h3>
+                <div className='star'>
+                    <StarRoundedIcon />
+                    <p className='star-value'> {startRating}.0</p>
                 </div>
-                <div>
-                    <p>Fast Delivery</p>
+                <div className='price-delivery-tags'>
+                    <div className='prices'>
+                        <p className='old-price'>{price}</p>
+                        <p className='new-price'>{discount}</p>
+                    </div>
+                    <div className='delivery'>
+                        <p>Fast Delivery</p>
+                    </div>
                 </div>
-            </div>
-            <div>
                 <button>Add To Cart</button>
-                <button>Out of Stock</button>
             </div>
-
         </div>
     )
 }

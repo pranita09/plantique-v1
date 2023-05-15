@@ -14,9 +14,10 @@ code {
     monospace;
 }
 :root{
-  --primary-color: #439452;
+  --primary-color: #fed02f;
   --secondary-color: #f5dbcb;
   --ternary-color: #1b4b33;
+  --price-color: #149253;
 }
 *{
   box-sizing: border-box;

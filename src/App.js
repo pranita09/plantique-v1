@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import SingleProduct from './pages/SingleProduct/SingleProduct';
+import MockMan from 'mockman-js';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/pagenotfound' element={<PageNotFound />} />
         <Route path='/product/:productID' element={<SingleProduct />}/>
+        <Route path='/mockman' element={<MockMan />} />
         <Route path='/*' element={<PageNotFound/>} />
       </Routes>
       <Footer />
