@@ -9,21 +9,6 @@ export const products = [
   // flowering plants
   {
     _id: uuid(),
-    title: "Anthurium Red Mini Plant",
-    imgSrc: "/images/products/anthurium-red-mini-plant-medium.jpg",
-    price: 1100,
-    discount: 1000,
-    startRating: 4.0,
-    size: "Medium",
-    inStock: true,
-    fastDelivery: true,
-    onSale: false,
-    category: 'Flowers',
-    qty: 1,
-    wishlist: false
-  },
-  {
-    _id: uuid(),
     title: "Kalanchoe Plant - Yellow",
     imgSrc: "/images/products/kalanchoe-plant-yellow.jpg",
     price: 400,
@@ -127,6 +112,21 @@ export const products = [
     qty: 1,
     wishlist: false
   },
+  {
+    _id: uuid(),
+    title: "Anthurium Red Mini Plant",
+    imgSrc: "/images/products/anthurium-red-mini-plant-medium.jpg",
+    price: 1100,
+    discount: 1000,
+    startRating: 4.0,
+    size: "Medium",
+    inStock: true,
+    fastDelivery: true,
+    onSale: false,
+    category: 'Flowers',
+    qty: 1,
+    wishlist: false
+  },
 
   // Indoor Plants
 
@@ -163,7 +163,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Ficus Bonsai Plant",
-    imgSrc: "/images/products/aglaonema-red-plant.jpg",
+    imgSrc: "/images/products/ficus-bonsai-plant.jpg",
     price: 1100,
     discount: 1000,
     startRating: 4.5,
@@ -277,7 +277,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Philodendron Melinonii Green",
-    imgSrc: "/images/products/philodendron-melinonni-green.jpg",
+    imgSrc: "/images/products/philodendron-melinonii-green.jpg",
     price: 500,
     discount: 300,
     startRating: 3.0,
@@ -324,8 +324,8 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Green Fern Plant",
-    imgSrc: "/images/products/green-fern-plant.jpg",
+    title: "Green Fern Plant - Mini",
+    imgSrc: "/images/products/green-fern-plant-mini.jpg",
     price: 200,
     discount: 150,
     startRating: 4.5,
@@ -340,7 +340,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Earth Star Plant",
-    imgSrc: "/images/products/earth-start-plant-pink.jpg",
+    imgSrc: "/images/products/earth-star-plant-pink.jpg",
     price: 400,
     discount: 200,
     startRating: 4.5,
