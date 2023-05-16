@@ -21,8 +21,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--secondary-color);
-    border-radius: 0 0 0 5px;
 }
 .product-img{
     width: 100%;
