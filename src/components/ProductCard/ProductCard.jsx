@@ -1,20 +1,17 @@
 import './ProductCard.css';
-import { products } from "../../backend/db/products";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
-const ProductCard = () =>{
-    const prod = products[0];
-    const {_id, title, imgSrc, price, discount, startRating, inStock, fastDelivery, onSale } = prod;
+const ProductCard = ({product}) =>{
+    const {_id, title, imgSrc, price, discount, startRating, inStock, fastDelivery, onSale } = product;
     return(
         <div className="product-card">
             <div className='product-img'>
                 <img src={imgSrc} alt={title} />
             </div>
-            <div className='sale'>
+            { onSale && <div className='sale'>
                 <p>Sale</p>
-            </div>
+            </div>}
             <div className='wishlist-btn'>
                 <FavoriteBorderRoundedIcon/>
             </div>
@@ -29,9 +26,9 @@ const ProductCard = () =>{
                         <p className='old-price'>₹{price}</p>
                         <p className='new-price'>₹{discount}</p>
                     </div>
-                    <div className='delivery'>
+                    { fastDelivery && <div className='delivery'>
                         <p>Fast Delivery</p>
-                    </div>
+                    </div>}
                 </div>
                 <button>Add To Cart</button>
             </div>

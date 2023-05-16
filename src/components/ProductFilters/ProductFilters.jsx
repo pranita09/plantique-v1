@@ -1,20 +1,17 @@
 import './ProductFilters.css';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { products } from '../../backend/db/products';
-import { useState } from 'react';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import { useProducts } from '../../contexts/products-context';
 
 const ProductFilters = () =>{
 
-    const [showFilter, setShowFilter] = useState(false);
+    const { showFilter, toggleFilter} = useProducts();
 
     const productCategories = products.reduce((acc, {category})=> acc.includes(category) ? [...acc] : [...acc, category],[])
 
     const productSizes = products.reduce((acc, {size})=> acc.includes(size) ? [...acc] : [...acc, size],[]);
 
-    const toggleFilter = () =>{
-        setShowFilter((showFilter)=> !showFilter)
-    }
 
     return(
         <div className={`product-sidebar ${showFilter} ? "show-filter" : null `}>

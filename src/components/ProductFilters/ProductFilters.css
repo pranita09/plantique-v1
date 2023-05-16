@@ -2,9 +2,9 @@
     position: sticky;
     top: 0.3rem;
     left: 0;
-    border-right: 1px solid;
     margin-bottom: 1rem;
     padding: 1rem;
+    overflow-y: scroll;
 }
 .filter-title-bar{
     display: flex;
