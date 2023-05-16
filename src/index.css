@@ -18,6 +18,7 @@ code {
   --secondary-color: #f5dbcb;
   --ternary-color: #1b4b33;
   --price-color: #149253;
+  --text-secondary-color: #545963;
 }
 *{
   box-sizing: border-box;
