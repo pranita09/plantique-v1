@@ -30,7 +30,7 @@ const ProductCard = ({product}) =>{
                         <p>Fast Delivery</p>
                     </div>}
                 </div>
-                <button>Add To Cart</button>
+                { inStock ? <button className='add-to-cart-btn'>Add To Cart</button> : <button disabled className='out-of-stock-btn'>Out of Stock</button>}
             </div>
         </div>
     )

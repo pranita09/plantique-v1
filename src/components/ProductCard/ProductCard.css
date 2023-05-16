@@ -87,7 +87,7 @@
     border-radius: 2px;
     transition: 0.4s ease;
 }
-.card-details button:hover{
+.card-details .add-to-cart-btn:hover{
     background-color: white;
     outline: 1px solid var(--price-color);
     color: var(--price-color);
