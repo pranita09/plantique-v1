@@ -1,0 +1,22 @@
+.filters-footer-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    color: var(--price-color);
+    z-index: 10;
+}
+.filters{
+    font-size: 1.375rem;
+    font-weight: 700;
+}
+/* @media screen and (max-width: 750px) {
+    .productlist-footer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--background-color);
+    }
+  } */

@@ -1,0 +1,27 @@
+.filters-drawer{
+    position: fixed;
+    top: 7rem;
+    left: 0;
+    padding: 1rem;
+    width: 100vw;
+    border-top: 1px solid black;
+    overflow-y: scroll;
+    height: calc(100vh - 7rem);
+    background-color: whitesmoke;
+    z-index: 99;
+    transform: translateY(100%);
+}
+.filters-drawer-active{
+    transform: translateY(0);
+}
+
+@media screen and (min-width: 768px) {
+    .filters-drawar {
+      display: none;
+    }
+}
+@media screen and (min-width: 510px) {
+    .filters-drawar {
+      top: 8rem;
+    }
+}
