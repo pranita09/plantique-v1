@@ -3,6 +3,7 @@ import ProductFilters from '../../components/ProductFilters/ProductFilters';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { useProducts } from '../../contexts/products-context';
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
+import Loader from '../../components/Loader/Loader';
 
 const ProductListing = () =>{
 
@@ -12,6 +13,7 @@ const ProductListing = () =>{
 
     return(
         <div className='products-listing-outer-container'>
+            <Loader />
             <div className='products-filters-container'>
                 <ProductFilters />
             </div>
