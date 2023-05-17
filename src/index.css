@@ -25,5 +25,8 @@ code {
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-
+}
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
 }
