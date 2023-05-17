@@ -12,16 +12,15 @@ const ProductFilters = () =>{
 
     const productSizes = products.reduce((acc, {size})=> acc.includes(size) ? [...acc] : [...acc, size],[]);
 
-
     return(
-        <div className={`product-sidebar ${showFilter} ? "show-filter" : null `}>
+        <div className={showFilter ? "product-sidebar show-filter" : "product-sidebar"}>
             <div className='filter-title-bar'>
                 <div>
                     <p className='filter-heading'>Filters</p>
                 </div>
                 <div className='clear-wrapper-container'>
                     <p className='clear-filter'>Clear</p>
-                    <div className='close-btn'><CloseRoundedIcon onClick={()=> toggleFilter}/></div>
+                    <div className='close-btn'><CloseRoundedIcon onClick={()=> toggleFilter()}/></div>
                 </div>
             </div>
             

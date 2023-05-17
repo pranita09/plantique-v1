@@ -8,6 +8,8 @@ const ProductListing = () =>{
 
     const {products, toggleFilter} = useProducts();
 
+    console.log(products);
+
     return(
         <div className='products-listing-outer-container'>
             <div className='products-filters-container'>
