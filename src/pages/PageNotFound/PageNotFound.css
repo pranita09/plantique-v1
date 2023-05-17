@@ -1,0 +1,44 @@
+.page-not-found{
+    padding: 3rem 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-not-found img{
+    object-fit: cover;
+}
+
+.page-action{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    outline: 1px solid var(--price-color);
+    border-radius: 3px;
+    color: var(--price-color);
+}
+
+.page-action:hover{
+    cursor: pointer;
+    background-color: var(--price-color);
+    border: none;
+    color: white;
+}
+
+.page-action .back-icon{
+    display: flex;
+}
+
+@media screen and (min-width: 768px) {
+    .page-not-found{
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .page-not-found{
+        width: 50vw;
+    }
+}
