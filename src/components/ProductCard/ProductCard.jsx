@@ -1,14 +1,15 @@
 import './ProductCard.css';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) =>{
     const {_id, title, imgSrc, price, discount, startRating, inStock, fastDelivery, onSale } = product;
     return(
         <div className="product-card">
-            <div className='product-img'>
+            <Link to={`/product/${_id}`}><div className='product-img'>
                 <img src={imgSrc} alt={title} />
-            </div>
+            </div></Link>
             { onSale && <div className='sale'>
                 <p>Sale</p>
             </div>}
