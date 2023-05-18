@@ -4,7 +4,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) =>{
-    const {_id, title, imgSrc, price, discount, startRating, inStock, fastDelivery, onSale } = product;
+    const {_id, title, imgSrc, price, discount, starRating, inStock, fastDelivery, onSale } = product;
     return(
         <div className="product-card">
             <Link to={`/product/${_id}`}><div className='product-img'>
@@ -20,7 +20,7 @@ const ProductCard = ({product}) =>{
                 <h3>{title}</h3>
                 <div className='star'>
                     <StarRoundedIcon />
-                    <p className='star-value'> {startRating}</p>
+                    <p className='star-value'> {starRating}</p>
                 </div>
                 <div className='price-delivery-tags'>
                     <div className='prices'>
