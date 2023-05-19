@@ -26,7 +26,7 @@ const Navbar = () => {
               <LocalMallOutlinedIcon />
             </div>
           </NavLink>
-          <NavLink to="/signin">
+          <NavLink to="/login">
             <div className="nav-icon">
               <AccountCircleOutlinedIcon />
             </div>
