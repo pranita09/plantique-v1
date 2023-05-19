@@ -111,6 +111,6 @@ form .field{
 
 @media screen and (min-width: 1024px ) {
     .form{
-        max-width: 40%;
+        max-width: 35%;
     }
 }
