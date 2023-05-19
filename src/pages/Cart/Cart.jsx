@@ -5,7 +5,7 @@ import './Cart.css';
 
 const Cart = () =>{
 
-    const cartState = [1];
+    const cartState = [12];
 
     return(
         <div className='page-wrapper'>

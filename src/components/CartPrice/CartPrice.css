@@ -1,13 +1,14 @@
 .cart-pricing-card{
     margin: 1rem;
-    padding: 1rem;
+    padding: 1.2rem;
     height: max-content;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid var(--ternary-color);
+    /* border: 1px solid var(--ternary-color); */
     border-radius: 5px;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .cart-pricing-card .pricing-card-title{
@@ -39,12 +40,12 @@
     font-size: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: #2e2e2e;
+    background-color: var(--price-color);
     color: white;
 }
 
 .cart-pricing-card .cart-checkout-btn:hover{
-    background-color: rgb(27, 27, 27);
+    background-color: var(--ternary-color);
     cursor: pointer;
 }
 

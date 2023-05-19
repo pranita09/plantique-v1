@@ -1,0 +1,24 @@
+.wishlist-container{
+    max-width: 90%;
+    margin:auto;
+}
+
+.wishlist-container-heading{
+    font-weight: bold;
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+}
+
+.wishlist-main{
+    display: grid;
+    row-gap: 1.5rem;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
+    padding: 1rem 0;
+}
+
+@media screen and (min-width: 700px) {
+    .wishlist-main{
+        grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+    }
+}
