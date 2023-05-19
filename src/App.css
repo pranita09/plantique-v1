@@ -5,6 +5,10 @@
     height: 100vh;
 }
 
+.page-wrapper{
+    flex-grow: 1;
+}
+
 ::-webkit-scrollbar {
     width: 0.2rem;
 }
