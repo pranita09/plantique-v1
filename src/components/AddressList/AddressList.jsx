@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './AddressList.css';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import AddressModal from '../AddressModal/AddressModal';
 
 const addresses = [
     {
@@ -33,7 +34,7 @@ const AddressList = () =>{
 
     return(
         <div className='addresses-container'>
-            <button className='add-address-btn' onClick={()=> setShowAddressModal(false)}>
+            <button className='add-address-btn' onClick={()=> setShowAddressModal(true)}>
                 <div className='add-address-icon'><AddOutlinedIcon /></div>
                 Add address
             </button>
@@ -59,8 +60,8 @@ const AddressList = () =>{
             </div>
             {
                 showAddressModal ? (
-                    <div className='address-model'>
-                        {/* AddressModel component */}
+                    <div className='address-modal'>
+                        <AddressModal setShowAddressModal={setShowAddressModal} />
                     </div>
                 ) : null
             }

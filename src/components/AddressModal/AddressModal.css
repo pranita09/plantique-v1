@@ -1,0 +1,42 @@
+.address-form-wrapper{
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--bg-grey);
+    border-radius: 5px;
+}
+
+.address-form-action-btns{
+    display: flex;
+    gap: 1.25rem;
+}
+
+.address-form-action-btns .add-btn{
+    color: white;
+    background-color: var(--price-color);
+}
+
+.address-form-action-btns .add-btn:hover{
+    background-color: var(--ternary-color);
+    cursor: pointer;
+}
+
+.address-form-action-btns .cancel-btn:hover{
+    outline: 1px solid var(--price-color);
+    cursor: pointer;
+}
+
+.fill-dummy-values-btn{
+    color: var(--price-color);
+    background-color: white;
+    outline: 1px solid var(--price-color);
+}
+
+.fill-dummy-values-btn:hover{
+    color: white;
+    background-color: var(--price-color);
+    cursor: pointer;
+}
+

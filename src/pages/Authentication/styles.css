@@ -1,6 +1,5 @@
 .form{
     max-width: 90%;
-    /* width: 100%; */
     padding: 2rem;
     border-radius: 5px;
     margin: auto;
@@ -21,9 +20,9 @@ form{
 }
 
 form .field{
-    height: 2.5rem;
+    height: 2.25rem;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     position: relative;
 }
 
