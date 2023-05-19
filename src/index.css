@@ -15,10 +15,12 @@ code {
 }
 :root{
   --primary-color: #fed02f;
-  --secondary-color: #f5dbcb;
+  --secondary-color: #fff6f4;
   --ternary-color: #1b4b33;
   --price-color: #149253;
   --text-secondary-color: #545963;
+  --danger-color: #BF4342; 
+  --blue-color:#60a5fa;
 }
 *{
   box-sizing: border-box;

@@ -9,6 +9,10 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import SingleProduct from '../pages/SingleProduct/SingleProduct';
 import MockMan from 'mockman-js';
 import Logout from "../pages/Authentication/Logout/Logout";
+import UserAccount from "../pages/UserAccount/UserAccount";
+import UserProfile from "../components/UserProfile/UserProfile";
+import AddressList from "../components/AddressList/AddressList";
+import OrderList from "../components/OrderList/OrderList";
 
 const NavRoutes = () =>{
     return(
@@ -24,6 +28,13 @@ const NavRoutes = () =>{
             <Route path='/product/:productID' element={<SingleProduct />}/>
             <Route path='/mockman' element={<MockMan />} />
             <Route path='/*' element={<PageNotFound/>} />
+
+            <Route path='/profile' element={<UserAccount />}>
+                <Route path='' element={<UserProfile />} />
+                <Route path='addresses' element={<AddressList />} />
+                <Route path='orders' element={<OrderList />} />
+            </Route>
+
         </Routes>
     )
 }
