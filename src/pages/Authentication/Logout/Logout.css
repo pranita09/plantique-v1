@@ -1,0 +1,58 @@
+.logout-container{
+    margin: 3rem auto;
+    max-width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.logout-inner-container{
+    padding: 3rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checked-icon svg{
+    font-size: 3rem;
+    color: var(--price-color);
+}
+
+.logout-card-content{
+    font-size: 1.2rem;
+}
+
+.logout-card-action{
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    outline: 1px solid var(--price-color);
+    border-radius: 3px;
+    color: var(--price-color);
+}
+
+.logout-card-action:hover{
+    cursor: pointer;
+    background-color: var(--price-color);
+    border: none;
+    color: white;
+}
+
+.back-to-home-icon{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .logout-container{
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .logout-container{
+        max-width: 50%;
+    }
+}
