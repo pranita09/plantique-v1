@@ -94,18 +94,12 @@
     background-color: var(--price-color);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 930px) {
     .card-row{
         display: flex;
     }
     .cart-card-body{
         padding-top: 2rem;
         padding-right: 2rem;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .cart-card-wrapper{
-        max-width: 50%;
     }
 }

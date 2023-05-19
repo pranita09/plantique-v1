@@ -50,12 +50,12 @@
 
 @media screen and (min-width: 768px) {
     .cart-pricing-card{
-        max-width: 30%;
+        max-width: 35rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .cart-pricing-card{
-        max-width: 30%;
+        max-width: 45rem;
     }
 }
