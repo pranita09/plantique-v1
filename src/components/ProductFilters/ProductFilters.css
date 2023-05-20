@@ -13,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    margin-top: 1rem;
 }
 
 .filter-heading{
@@ -107,6 +108,10 @@
         margin-top: 3rem;
         height: fit-content;
         box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    }
+
+    .filter-title-bar{
+        margin-top: 0;
     }
 
     .filter-wrapper,

@@ -30,12 +30,14 @@
 }
 
 .filter-icon{
-    padding: 0.1rem 0.6rem;
+    padding: 0.1rem 0.5rem;
     border-radius: 3px;
+    border: 1px solid var(--ternary-color);
+    background-color: var(--bg-grey);
 }
 
 .filter-icon svg{
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--ternary-color)
 }
 
