@@ -11,7 +11,7 @@ const Cart = () =>{
         <div className='page-wrapper'>
             <section className="cart-container">
                 <div className='cart-container-heading'><h2>My Cart (<span>{cartState.length}</span>)</h2></div>
-
+                                
                 {
                     cartState.length > 0 ? (
                         <div className='cart-main'>

@@ -1,0 +1,80 @@
+.checkout-container{
+    margin: 1rem auto;
+}
+
+.checkout-container h2{
+    text-align: center;
+}
+
+.checkout-container .checkout-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 80%;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.checkout-address .address-title{
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.checkout-address .address-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkout-address .address-list .address{
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.checkout-address .address .address-name{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.add-address-btn{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.8rem;
+    background-color: var(--price-color);
+    color: white;
+    border: 1px solid var(--price-color);
+    border-radius: 5px;
+}
+
+.add-address-btn:hover{
+    background-color: white;
+    color: var(--price-color);
+    border: 1px solid var(--price-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-address-btn .add-address-icon{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .checkout-container .checkout-wrapper{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .checkout-container{
+        max-width: 80%;
+    }
+}

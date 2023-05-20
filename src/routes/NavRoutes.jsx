@@ -13,6 +13,7 @@ import UserAccount from "../pages/UserAccount/UserAccount";
 import UserProfile from "../components/UserProfile/UserProfile";
 import AddressList from "../components/AddressList/AddressList";
 import OrderList from "../components/OrderList/OrderList";
+import Checkout from "../pages/Checkout/Checkout";
 
 const NavRoutes = () =>{
     return(
@@ -26,6 +27,7 @@ const NavRoutes = () =>{
             <Route path='/signup' element={<SignUp />} />
             <Route path='/pagenotfound' element={<PageNotFound />} />
             <Route path='/product/:productID' element={<SingleProduct />}/>
+            <Route path='/checkout' element={<Checkout />} />
             <Route path='/mockman' element={<MockMan />} />
             <Route path='/*' element={<PageNotFound/>} />
 
