@@ -8,9 +8,6 @@
     position: relative;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
-.product-card p{
-    font-size: 0.8rem;
-}
 .sale{
     padding: 0.1rem 0.8rem;
     position: absolute;
@@ -74,6 +71,9 @@
     font-size: small;
     text-decoration: line-through;
 }
+.new-price{
+    font-weight: bold;
+}
 .delivery{
     color: blue;
 }
@@ -93,6 +93,26 @@
     color: var(--price-color);
     cursor: pointer;
     font-weight: bold;
+}
+
+.product-card .out-of-stock-tag div{
+    margin: 1rem;
+    padding: 0.2rem 1rem;
+    width: -webkit-fill-available;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    color: white;
+    background-color: var(--price-color);
+} 
+
+.product-card .out-of-stock-tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(168, 168, 168, 0.5);
 }
 
 @media(min-width: 768px){

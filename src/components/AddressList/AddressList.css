@@ -74,6 +74,8 @@
     cursor: pointer;
 }
 
+/* these styles are geting applied in Checkout page also */
+
 .address-modal{
     display: flex;
     align-items: center;
