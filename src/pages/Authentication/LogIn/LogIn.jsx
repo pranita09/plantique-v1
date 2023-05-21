@@ -2,8 +2,24 @@ import '../styles.css';
 import { Link } from 'react-router-dom';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import { useState } from 'react';
+import { useAuth } from '../../../contexts/auth-context';
 
 const LogIn = () =>{
+
+    const {loginHandler} = useAuth();
+
+    const [userLoginDetails, setUserLoginDetails] = useState({
+        email: "",
+        password: "",
+    })
+    const [showLoginPassword, setShowLoginPassword] = useState(false);
+
+    const loginFormSubmitHandler = (event) =>{
+        event.preventDefault();
+        loginHandler(userLoginDetails);
+    }
+
     return(
         <div className='page-wrapper'>
             <section className='form login'>
@@ -11,16 +27,16 @@ const LogIn = () =>{
                     <div className='form-header'>
                         <h2>Log In</h2>
                     </div>
-                    <form>
+                    <form onSubmit={loginFormSubmitHandler} >
                         <div className='field input-field'>
-                            <input type='email' placeholder='Email' className='input' />
+                            <input type='email' placeholder='Email' className='input' onChange={(event)=> setUserLoginDetails({...userLoginDetails, email: event.target.value})} required/>
                         </div>
                         <div className='field input-field'>
-                            <input type='password' placeholder='Password' className='password' />
-                            <VisibilityOutlinedIcon className='eye-icon'/>
+                            <input type={ showLoginPassword ? "text" : "password" } placeholder='Password' className='password' onChange={(event)=> setUserLoginDetails({...userLoginDetails, password: event.target.value})} required/>
+                            { showLoginPassword ? <VisibilityOffOutlinedIcon className='eye-icon' onClick={()=> setShowLoginPassword(!showLoginPassword)} />  : <VisibilityOutlinedIcon className='eye-icon' onClick={()=> setShowLoginPassword(!showLoginPassword)} />}
                         </div>
                         <div className='field input-field'>
-                            <button className='login-btn'>Log In</button>
+                            <button className='login-btn' type='submit'>Log In</button>
                         </div>
                         <div className='field input-field'>
                             <button className='guest-login-btn'>Log In as a Guest</button>

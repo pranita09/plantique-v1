@@ -5,8 +5,12 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import { useAuth } from "../../contexts/auth-context";
 
 const Navbar = () => {
+
+  const {token} = useAuth();
+
   return (
     <>
       <div className="navbar">
@@ -26,7 +30,7 @@ const Navbar = () => {
               <LocalMallOutlinedIcon />
             </div>
           </NavLink>
-          <NavLink to="/login">
+          <NavLink to={ token ? "/profile" : "/login" }>
             <div className="nav-icon">
               <AccountCircleOutlinedIcon />
             </div>
