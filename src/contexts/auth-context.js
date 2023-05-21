@@ -48,7 +48,7 @@ export const AuthProvider = ({children}) =>{
             }
         } catch (error) {
             console.log(error)
-            toast.error('Something went wrong.');
+            toast.error('User does not exist! Please sign up.');
         }
     }
 

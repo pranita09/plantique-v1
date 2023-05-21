@@ -13,7 +13,8 @@ const SignUp = () => {
     password: "",
     firstName: "",
     lastName: "",
-    hide: {pwd: true, confirmPwd: true}
+    pwdMatch: true,
+    hide: { pwd: true, confirmPwd: true },
   });
 
   const signupFormSubmitHandler = (event) => {
@@ -88,34 +89,87 @@ const SignUp = () => {
                 {userDetails.hide.pwd ? (
                   <VisibilityOutlinedIcon
                     className="eye-icon"
-                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, pwd: !userDetails.hide.pwd}})}
+                    onClick={() =>
+                      setUserDetails({
+                        ...userDetails,
+                        hide: {
+                          ...userDetails.hide,
+                          pwd: !userDetails.hide.pwd,
+                        },
+                      })
+                    }
                   />
                 ) : (
                   <VisibilityOffOutlinedIcon
                     className="eye-icon"
-                    onClick={() => setUserDetails({...userDetails, hide:{...userDetails.hide, pwd: !userDetails.hide.pwd}})}
+                    onClick={() =>
+                      setUserDetails({
+                        ...userDetails,
+                        hide: {
+                          ...userDetails.hide,
+                          pwd: !userDetails.hide.pwd,
+                        },
+                      })
+                    }
                   />
                 )}
               </div>
               <div className="field input-field">
-                <input type={userDetails.hide.confirmPwd ? "password" : "text"} 
-                    placeholder= "Confirm Password"
-                    className="password"
+                <input
+                  type={userDetails.hide.confirmPwd ? "password" : "text"}
+                  placeholder="Confirm Password"
+                  className="password"
+                  onChange={(event) =>
+                    setUserDetails({
+                      ...userDetails,
+                      pwdMatch:
+                        event.target.value === userDetails.password
+                          ? true
+                          : false,
+                    })
+                  }
+                  required
                 />
                 {userDetails.hide.confirmPwd ? (
                   <VisibilityOutlinedIcon
                     className="eye-icon"
-                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, confirmPwd: !userDetails.hide.confirmPwd}})}
+                    onClick={() =>
+                      setUserDetails({
+                        ...userDetails,
+                        hide: {
+                          ...userDetails.hide,
+                          confirmPwd: !userDetails.hide.confirmPwd,
+                        },
+                      })
+                    }
                   />
                 ) : (
                   <VisibilityOffOutlinedIcon
                     className="eye-icon"
-                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, confirmPwd: !userDetails.hide.confirmPwd}})}
+                    onClick={() =>
+                      setUserDetails({
+                        ...userDetails,
+                        hide: {
+                          ...userDetails.hide,
+                          confirmPwd: !userDetails.hide.confirmPwd,
+                        },
+                      })
+                    }
                   />
                 )}
+                {!userDetails.pwdMatch ? (
+                  <div className="input-error-msg">Passwords do not match</div>
+                ) : null}
               </div>
               <div className="field input-field">
-                <button type="submit" className="signup-btn">
+                <button
+                  type="submit"
+                  className={
+                    !userDetails.pwdMatch
+                      ? "signup-btn class-for-margin"
+                      : "signup-btn"
+                  }
+                >
                   Create New Account
                 </button>
               </div>
