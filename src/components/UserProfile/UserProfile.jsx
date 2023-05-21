@@ -1,15 +1,11 @@
-import { Link } from 'react-router-dom';
 import './UserProfile.css';
+import { useAuth } from '../../contexts/auth-context';
 
 const UserProfile = () =>{
 
-    const user = {
-        firstname: 'Pranita',
-        lastname: 'Fulsundar',
-        email: 'pranitafulsundar@gmail.com'
-    }
+    const {currentUser: user, logoutHandler} = useAuth();
 
-    const fullname = `${user?.firstname} ${user?.lastname}`
+    const fullname = `${user?.firstName} ${user?.lastName}`
 
     return(
         <div className='profile-container'>
@@ -19,7 +15,7 @@ const UserProfile = () =>{
                     <p className='user-email'><span>Email: </span>{user.email}</p>
                 </div>
             </div>
-            <Link to='/logout'><button className='logout-btn'>Logout</button></Link>
+            <button className='logout-btn' onClick={logoutHandler}>Logout</button>
         </div>
     )
 }

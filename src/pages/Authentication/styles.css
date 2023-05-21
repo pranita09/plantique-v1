@@ -50,7 +50,7 @@ form .field{
 .signup-btn:hover,
 .login-btn:hover{
     cursor: pointer;
-    background-color: var(--price-color);
+    background-color: var(--ternary-color);
 }
 
 .guest-login-btn{
@@ -94,6 +94,16 @@ form .field{
     transform: translateY(-50%);
     padding: 0.15rem;
     cursor: pointer;
+}
+
+.input-error-msg{
+    color: var(--danger-color);
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.class-for-margin{
+    margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 570px ) {
