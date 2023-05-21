@@ -13,8 +13,8 @@ const SignUp = () => {
     password: "",
     firstName: "",
     lastName: "",
+    hide: {pwd: true, confirmPwd: true}
   });
-  const [showSignupPassword, setShowSignupPassword] = useState(false);
 
   const signupFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -74,7 +74,7 @@ const SignUp = () => {
               </div>
               <div className="field input-field">
                 <input
-                  type={showSignupPassword ? "text" : "password"}
+                  type={userDetails.hide.pwd ? "password" : "text"}
                   placeholder="Password"
                   className="password"
                   onChange={(event) =>
@@ -85,15 +85,32 @@ const SignUp = () => {
                   }
                   required
                 />
-                {showSignupPassword ? (
-                  <VisibilityOffOutlinedIcon
-                    className="eye-icon"
-                    onClick={() => setShowSignupPassword(!showSignupPassword)}
-                  />
-                ) : (
+                {userDetails.hide.pwd ? (
                   <VisibilityOutlinedIcon
                     className="eye-icon"
-                    onClick={() => setShowSignupPassword(!showSignupPassword)}
+                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, pwd: !userDetails.hide.pwd}})}
+                  />
+                ) : (
+                  <VisibilityOffOutlinedIcon
+                    className="eye-icon"
+                    onClick={() => setUserDetails({...userDetails, hide:{...userDetails.hide, pwd: !userDetails.hide.pwd}})}
+                  />
+                )}
+              </div>
+              <div className="field input-field">
+                <input type={userDetails.hide.confirmPwd ? "password" : "text"} 
+                    placeholder= "Confirm Password"
+                    className="password"
+                />
+                {userDetails.hide.confirmPwd ? (
+                  <VisibilityOutlinedIcon
+                    className="eye-icon"
+                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, confirmPwd: !userDetails.hide.confirmPwd}})}
+                  />
+                ) : (
+                  <VisibilityOffOutlinedIcon
+                    className="eye-icon"
+                    onClick={()=> setUserDetails({...userDetails, hide:{...userDetails.hide, confirmPwd: !userDetails.hide.confirmPwd}})}
                   />
                 )}
               </div>

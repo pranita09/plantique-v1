@@ -11,8 +11,8 @@ const LogIn = () => {
   const [userLoginDetails, setUserLoginDetails] = useState({
     email: "",
     password: "",
+    hidePwd: true,
   });
-  const [showLoginPassword, setShowLoginPassword] = useState(false);
 
   const guestUserDetails = {
     email: "monikashah@gmail.com",
@@ -47,7 +47,7 @@ const LogIn = () => {
             </div>
             <div className="field input-field">
               <input
-                type={showLoginPassword ? "text" : "password"}
+                type={userLoginDetails.hidePwd ? "password" : "text"}
                 placeholder="Password"
                 className="password"
                 onChange={(event) =>
@@ -57,15 +57,15 @@ const LogIn = () => {
                   })
                 }
               />
-              {showLoginPassword ? (
-                <VisibilityOffOutlinedIcon
-                  className="eye-icon"
-                  onClick={() => setShowLoginPassword(!showLoginPassword)}
-                />
-              ) : (
+              {userLoginDetails.hidePwd ? (
                 <VisibilityOutlinedIcon
                   className="eye-icon"
-                  onClick={() => setShowLoginPassword(!showLoginPassword)}
+                  onClick={() => setUserLoginDetails({...userLoginDetails, hidePwd: !userLoginDetails.hidePwd})}
+                />
+              ) : (
+                <VisibilityOffOutlinedIcon
+                  className="eye-icon"
+                  onClick={() => setUserLoginDetails({...userLoginDetails, hidePwd: !userLoginDetails.hidePwd})}
                 />
               )}
             </div>
