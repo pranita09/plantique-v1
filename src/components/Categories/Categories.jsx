@@ -27,6 +27,7 @@ const CategoryCard = ({ catImg, category }) => {
           alt="category-img"
           onClick={() => {
             productDispatch({ type: CATEGORY, payload: category });
+            window.scroll({ top: 0, behavior: "smooth"});
             navigate("/store");
           }}
         />
@@ -49,7 +50,7 @@ const Categories = () => {
           choose your plants now!
         </p>
         <div className="category-cards">
-          {productState.allCategories.map(({ _id, img, categoryName }) => (
+          {productState?.allCategories?.map(({ _id, img, categoryName }) => (
             <CategoryCard key={_id} catImg={img} category={categoryName} />
           ))}
         </div>

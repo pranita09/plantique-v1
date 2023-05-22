@@ -45,7 +45,7 @@ const ProductFilters = () => {
                 type: CLEAR_FILTERS,
                 payload: {
                   products: productState.products,
-                  categories: productState.categories,
+                  categories: productState.allCategories,
                 },
               })
             }
