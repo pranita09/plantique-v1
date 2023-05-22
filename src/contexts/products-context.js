@@ -44,14 +44,22 @@ export const ProductsProvider = ({ children }) => {
     getProducts();
   }, []);
 
+  const filteredBySearch = productState.searchInput
+    ? productState.products.filter((product) =>
+        product.title
+          .toLowerCase()
+          .includes(productState.searchInput.toLowerCase())
+      )
+    : productState.products;
+
   const filteredByCategories =
     productState.categoryInput.length > 0
-      ? productState.products.filter((product) =>
+      ? filteredBySearch.filter((product) =>
           productState.categoryInput.some(
             (catType) => product.category === catType
           )
         )
-      : productState.products;
+      : filteredBySearch;
 
   const filteredByAvailability =
     productState.availabilityInput.length > 0
