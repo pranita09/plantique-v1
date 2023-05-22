@@ -43,7 +43,10 @@ const ProductFilters = () => {
             onClick={() =>
               productDispatch({
                 type: CLEAR_FILTERS,
-                payload: productState.products,
+                payload: {
+                  products: productState.products,
+                  categories: productState.categories,
+                },
               })
             }
           >

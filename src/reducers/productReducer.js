@@ -2,6 +2,7 @@ import filterTypes from "../constants/filterTypes";
 
 const {
   DISPLAY_PRODUCTS,
+  DISPLAY_CATEGORIES,
   SEARCH,
   CATEGORY,
   SIZE,
@@ -13,6 +14,7 @@ const {
 
 export const initialProductState = {
   products: [],
+  allCategories: [],
   searchInput: "",
   categoryInput: [],
   sizeInput: [],
@@ -25,8 +27,10 @@ export const productReducer = (state, { type, payload }) => {
   switch (type) {
     case DISPLAY_PRODUCTS:
       return { ...state, products: payload };
-    case SEARCH: 
-        return {...state, searchInput: payload};
+    case DISPLAY_CATEGORIES:
+      return { ...state, allCategories: payload };
+    case SEARCH:
+      return { ...state, searchInput: payload };
     case CATEGORY:
       return {
         ...state,
@@ -55,7 +59,11 @@ export const productReducer = (state, { type, payload }) => {
     case SORT_BY_RATING_RANGE:
       return { ...state, ratingRange: payload };
     case CLEAR_FILTERS:
-      return { ...initialProductState, products: payload };
+      return {
+        ...initialProductState,
+        products: payload.products,
+        allCategories: payload.categories,
+      };
     default:
       return state;
   }

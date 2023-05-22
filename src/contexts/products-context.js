@@ -6,6 +6,7 @@ import {
   productReducer,
 } from "../reducers/productReducer";
 import filterTypes from "../constants/filterTypes";
+import getCategoriesService from "../services/products-services/getCategoriesService";
 
 export const ProductsContext = createContext();
 
@@ -17,20 +18,42 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const { DISPLAY_PRODUCTS } = filterTypes;
+  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES } = filterTypes;
 
   const getProducts = async () => {
     setIsLoading(true);
     try {
       const response = await getProductsService();
-      if (response.status === 200) {
+      const {
+        status,
+        data: { products },
+      } = response;
+      if (status === 200) {
         productDispatch({
           type: DISPLAY_PRODUCTS,
-          payload: response.data.products,
+          payload: products,
         });
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getCategories = async () => {
+    setIsLoading(true);
+    try {
+      const response = await getCategoriesService();
+      const {
+        status,
+        data: { categories },
+      } = response;
+      if (status === 200) {
+        productDispatch({ type: DISPLAY_CATEGORIES, payload: categories });
+      }
+    } catch (error) {
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
@@ -42,6 +65,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     getProducts();
+    getCategories();
   }, []);
 
   const filteredBySearch = productState.searchInput
