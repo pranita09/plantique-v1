@@ -1,20 +1,26 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import getProductsService from "../services/products-services/getProductsService";
+import { useReducer } from "react";
+import { initialProductState, productReducer } from "../reducers/productReducer";
+import filterTypes from "../constants/filterTypes";
+
 
 export const ProductsContext = createContext()
 
 export const ProductsProvider = ({children}) =>{
 
-    const [products, setProducts] = useState([]);
+    const [productState, productDispatch] = useReducer(productReducer, initialProductState);
     const [isLoading, setIsLoading]  = useState(false);
     const [showFilter, setShowFilter] = useState(false);
+
+    const {DISPLAY_PRODUCTS} = filterTypes;
 
     const getProducts = async() =>{
         setIsLoading(true);
         try {
-            const res = await fetch('/api/products');
-            if(res.status === 200){
-                const response = await res.json();
-                setProducts(response.products);
+            const response = await getProductsService();
+            if(response.status === 200){
+                productDispatch({ type: DISPLAY_PRODUCTS, payload: response.data.products});
             }
         } catch (error) {
             console.error(error);
@@ -32,7 +38,7 @@ export const ProductsProvider = ({children}) =>{
     },[])
 
     return(
-        <ProductsContext.Provider value={{ products, isLoading, showFilter, toggleFilter}}>
+        <ProductsContext.Provider value={{ productState, isLoading, showFilter, toggleFilter}}>
             {children}
         </ProductsContext.Provider>
     )
