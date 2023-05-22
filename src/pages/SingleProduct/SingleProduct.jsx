@@ -8,7 +8,7 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 const SingleProduct = () => {
-  const { products } = useProducts();
+  const { productState: {products} } = useProducts();
 
   const {productID} = useParams();
 
