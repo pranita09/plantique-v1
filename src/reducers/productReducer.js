@@ -18,7 +18,7 @@ export const initialProductState = {
   sizeInput: [],
   availabilityInput: ["inStock"],
   sortPriceRadioInput: "",
-  ratingRange: 5,
+  ratingRange: 1,
 };
 
 export const productReducer = (state, { type, payload }) => {
