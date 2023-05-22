@@ -7,7 +7,7 @@ import Loader from '../../components/Loader/Loader';
 
 const ProductListing = () =>{
 
-    const {productState, toggleFilter, isLoading} = useProducts();
+    const {productState, toggleFilter, isLoading, filteredBySize: filteredProducts} = useProducts();
 
     const { products } = productState;
 
@@ -20,15 +20,15 @@ const ProductListing = () =>{
             <div className='products-outer-container'>
                 <div className='products-title-bar'>
                     <div>
-                        <h2>Showing {products.length} Plants of {products.length} Plants</h2>
+                        <h2>Showing {filteredProducts.length} Plants of {products.length} Plants</h2>
                     </div>
                     <div className='filter-icon'>
                         <TuneOutlinedIcon onClick={toggleFilter}/>
                     </div>
                 </div>
-                { products.length > 0 ?<div className='products-container'>
+                { filteredProducts?.length > 0 ?<div className='products-container'>
                     {
-                        products.map((product)=>(
+                        filteredProducts?.map((product)=>(
                             <ProductCard key={product._id} product={product} />
                         ))
                     }
