@@ -20,7 +20,8 @@ const ProductListing = () =>{
             <div className='products-outer-container'>
                 <div className='products-title-bar'>
                     <div>
-                        <h2>Showing {filteredProducts.length} Plants of {products.length} Plants</h2>
+                        <h2>Plants</h2>
+                        <h4>Showing {filteredProducts.length} Plants of {products.length} Plants</h4>
                     </div>
                     <div className='filter-icon'>
                         <TuneOutlinedIcon onClick={toggleFilter}/>
@@ -32,7 +33,7 @@ const ProductListing = () =>{
                             <ProductCard key={product._id} product={product} />
                         ))
                     }
-                </div> : <p className='text-center'>
+                </div> : <p className='text-center no-products-msg'>
                     Whoops! We don't have any plant that match your preference.
                 </p>}
             </div>
