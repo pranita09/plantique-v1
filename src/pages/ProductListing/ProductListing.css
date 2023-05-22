@@ -49,6 +49,11 @@
     gap: 2rem;
 }
 
+.no-products-msg{
+    padding-top: 2rem;
+    font-size: 1.3rem;
+}
+
 @media (min-width: 768px) {
     .products-listing-outer-container{
         position: relative;

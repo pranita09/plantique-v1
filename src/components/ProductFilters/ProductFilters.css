@@ -101,6 +101,10 @@
     width: 100%;
 }
 
+.filter-value{
+    accent-color: var(--price-color);
+}
+
 @media screen and (max-width: 768px) {
     .product-sidebar{
         display: none;

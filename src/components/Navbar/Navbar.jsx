@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -6,10 +6,14 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { useAuth } from "../../contexts/auth-context";
+import filterTypes from "../../constants/filterTypes";
+import { useProducts } from "../../contexts/products-context";
 
 const Navbar = () => {
-
-  const {token} = useAuth();
+  const navigate = useNavigate();
+  const { token } = useAuth();
+  const { productState, productDispatch } = useProducts();
+  const { SEARCH } = filterTypes;
 
   return (
     <>
@@ -22,7 +26,14 @@ const Navbar = () => {
         </NavLink>
         <div className="nav-search">
           <SearchOutlinedIcon className="nav-icon search-icon" />
-          <input placeholder="Search" />
+          <input
+            placeholder="Search"
+            value={productState.searchInput}
+            onChange={(event) =>
+              productDispatch({ type: SEARCH, payload: event.target.value })
+            }
+            onKeyPress={(event) => event.which === 13 && navigate("/store")}
+          />
         </div>
         <div className="nav-right">
           <NavLink to="/store">
@@ -30,7 +41,7 @@ const Navbar = () => {
               <LocalMallOutlinedIcon />
             </div>
           </NavLink>
-          <NavLink to={ token ? "/profile" : "/login" }>
+          <NavLink to={token ? "/profile" : "/login"}>
             <div className="nav-icon">
               <AccountCircleOutlinedIcon />
             </div>
