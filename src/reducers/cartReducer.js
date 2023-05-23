@@ -11,9 +11,9 @@ const cartReducer = (state, {type, payload}) => {
         case DISPLAY_CART:
             return {...state, cart: payload}
         case ADD_TO_CART:
-            return {...state, cart: [...payload]}
+            return {...state, cart: payload}
         case REMOVE_FROM_CART: 
-            return {...state, cart: [...payload]}
+            return {...state, cart: payload}
         default:
             return state;
     }
