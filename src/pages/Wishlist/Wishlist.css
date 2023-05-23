@@ -12,7 +12,7 @@
 .wishlist-main{
     display: grid;
     row-gap: 1.5rem;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
     padding: 1rem 0;
