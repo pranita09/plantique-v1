@@ -1,27 +1,25 @@
 import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import { useProducts } from '../../contexts/products-context';
+import Loader from '../../components/Loader/Loader';
 import './Wishlist.css';
+import { useWishlist } from '../../contexts/wishlist-context';
 
 const Wishlist = () =>{
 
-    const {products} = useProducts()
-
-    const wishlistState = products;
+    const {wishlistState: {wishlist}, isLoading} = useWishlist();
 
     return(
         <div className='page-wrapper'>
-            <section className='wishlist-container'>
+            { isLoading ? <Loader /> :<section className='wishlist-container'>
                 <div className='wishlist-container-heading'>
-                    <h2>My Wishlist ({wishlistState.length})</h2>
+                    <h2>My Wishlist ({wishlist?.length})</h2>
                 </div>
-
                 {
-                    wishlistState.length > 0 ? (
+                    wishlist?.length > 0 ? (
                         <div className='wishlist-main'>
                             {
-                                wishlistState?.map((wishlistItem)=>(
-                                    <ProductCard product={wishlistItem}/>
+                                wishlist?.map((wishlistItem)=>(
+                                    <ProductCard key={wishlistItem._id} product={wishlistItem}/>
                                 ))
                             }
                         </div>
@@ -33,7 +31,7 @@ const Wishlist = () =>{
                     </div>)
                 }
 
-            </section>
+            </section>}
         </div>
     )
 }

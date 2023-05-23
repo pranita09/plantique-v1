@@ -1,18 +1,20 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import PersonIcon from '@mui/icons-material/Person';
 import { useAuth } from "../../contexts/auth-context";
 import filterTypes from "../../constants/filterTypes";
 import { useProducts } from "../../contexts/products-context";
+import { useWishlist } from "../../contexts/wishlist-context";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { productState, productDispatch } = useProducts();
+  const {wishlistState: {wishlist}} = useWishlist();
   const { SEARCH } = filterTypes;
 
   return (
@@ -43,13 +45,13 @@ const Navbar = () => {
           </NavLink>
           <NavLink to={token ? "/profile" : "/login"}>
             <div className="nav-icon">
-              <AccountCircleOutlinedIcon />
+              <PersonIcon />
             </div>
           </NavLink>
           <NavLink to="/wishlist">
             <div className="nav-icon">
               <FavoriteBorderOutlinedIcon />
-              <p>0</p>
+              {wishlist.length > 0 && <p>{wishlist.length}</p>}
             </div>
           </NavLink>
           <NavLink to="/cart">

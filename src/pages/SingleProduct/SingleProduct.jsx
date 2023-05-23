@@ -6,13 +6,18 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import CardGiftcardOutlinedIcon from "@mui/icons-material/CardGiftcardOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
+import { useWishlist } from "../../contexts/wishlist-context";
 
 const SingleProduct = () => {
-  const { products } = useProducts();
+  const {
+    productState: { products },
+  } = useProducts();
+  const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
+    useWishlist();
 
-  const {productID} = useParams();
+  const { productID } = useParams();
 
-  const currentProduct = products.find((item)=> item._id === productID);
+  const currentProduct = products.find((item) => item._id === productID);
 
   const {
     _id,
@@ -98,7 +103,7 @@ const SingleProduct = () => {
                     <li>
                       <p>Comes In:</p>
                       <span className="list-value">
-                        {size === 'Small' ? "Small Size" : "Medium Size"}
+                        {size === "Small" ? "Small Size" : "Medium Size"}
                       </span>
                     </li>
                     <li>
@@ -124,8 +129,17 @@ const SingleProduct = () => {
                   <button className="single-product-cart-btn">
                     Add to Cart
                   </button>
-                  <button className="single-product-wishlist-btn">
-                    Add to Wishlist
+                  <button
+                    className="single-product-wishlist-btn"
+                    onClick={() =>
+                      isPresentInWishlist(currentProduct) === -1
+                        ? addToWishlist(currentProduct)
+                        : removeFromWishlist(currentProduct)
+                    }
+                  >
+                    {isPresentInWishlist(currentProduct) === -1
+                      ? "Add to Wishlist"
+                      : "Remove from Wishlist "}
                   </button>
                 </div>
               </div>
