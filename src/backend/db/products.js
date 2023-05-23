@@ -19,7 +19,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -34,7 +33,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -49,7 +47,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -64,7 +61,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -79,7 +75,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -94,7 +89,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -109,7 +103,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -124,7 +117,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Flowers',
-    qty: 1,
     wishlist: false
   },
 
@@ -142,7 +134,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'Indoor',
-    qty: 1,
     wishlist: false
   },
   {
@@ -157,7 +148,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Indoor',
-    qty: 1,
     wishlist: false
   },
   {
@@ -172,7 +162,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'Indoor',
-    qty: 1,
     wishlist: false
   },
   {
@@ -187,7 +176,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Indoor',
-    qty: 1,
     wishlist: false
   },
   {
@@ -202,7 +190,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Indoor',
-    qty: 1,
     wishlist: false
   },
 
@@ -220,7 +207,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Medicinal',
-    qty: 1,
     wishlist: false
   },
   {
@@ -235,7 +221,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Medicinal',
-    qty: 1,
     wishlist: false
   },
 
@@ -253,7 +238,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Fruits',
-    qty: 1,
     wishlist: false
   },
   {
@@ -268,7 +252,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Fruits',
-    qty: 1,
     wishlist: false
   },
 
@@ -286,7 +269,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'Outdoor',
-    qty: 1,
     wishlist: false
   },
   {
@@ -301,7 +283,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Outdoor',
-    qty: 1,
     wishlist: false
   },
   
@@ -319,7 +300,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -334,7 +314,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -349,7 +328,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -364,7 +342,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -379,7 +356,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -394,7 +370,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -409,7 +384,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -424,7 +398,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -439,7 +412,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -454,7 +426,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -469,7 +440,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -484,7 +454,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
   {
@@ -499,7 +468,6 @@ export const products = [
     fastDelivery: true,
     onSale: false,
     category: 'For TableTop',
-    qty: 1,
     wishlist: false
   },
 
@@ -517,7 +485,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -532,7 +499,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -547,7 +513,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -562,7 +527,6 @@ export const products = [
     fastDelivery: false,
     onSale: false,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -577,7 +541,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -592,7 +555,6 @@ export const products = [
     fastDelivery: true,
     onSale: true,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
   {
@@ -607,7 +569,6 @@ export const products = [
     fastDelivery: false,
     onSale: true,
     category: 'Climbers',
-    qty: 1,
     wishlist: false
   },
 ];
