@@ -85,7 +85,7 @@
     border: none;
     text-transform: uppercase;
     border-radius: 2px;
-    transition: 0.4s ease;
+    /* transition: 0.4s ease; */
 }
 .card-details .add-to-cart-btn:hover{
     background-color: white;
@@ -94,6 +94,12 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+/* .go-to-cart-btn{
+    background-color: white;;
+    outline: 1px solid var(--price-color); 
+    color: var(--price-color);
+} */
 
 .product-card .out-of-stock-tag div{
     margin: 1rem;

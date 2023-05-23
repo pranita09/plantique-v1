@@ -1,24 +1,9 @@
+import { useCart } from '../../contexts/cart-context';
 import './CartCard.css';
 import { Link } from 'react-router-dom';
 
-const cartProduct = {
-    _id: 1234,
-    title: "Peace Lily Plant",
-    imgSrc: "/images/products/peace-lily-plant.jpg",
-    price: 500,
-    discount: 350,
-    starRating: 4.7,
-    size: "Small",
-    inStock: true,
-    fastDelivery: true,
-    onSale: true,
-    category: 'Flowers',
-    qty: 1,
-    wishlist: false
-  }
-
-const CartCard = () =>{
-
+const CartCard = ({cartProduct}) =>{
+    const {removeFromCart} = useCart();
     const {_id, title, imgSrc, discount, qty} = cartProduct;
 
     return(
@@ -36,14 +21,15 @@ const CartCard = () =>{
                         <div className='cart-card-quantity'>
                             <span>Quantity: </span>
                             <div className='qunatity-fields'>
-                                <button class='minus'>-</button>
+                                <button className='minus'>-</button>
                                 <input type='number' value={qty} readOnly className='qty-input'/>
                                 <button className='plus'>+</button>
                             </div>
                         </div>    
                     </div>
                     <button className='move-to-wishlist-btn'>Move to Wishlist</button>
-                    <button className='remove-from-cart-btn'>Remove from Cart</button>
+                    <button className='remove-from-cart-btn' onClick={()=> removeFromCart
+                    (cartProduct)} >Remove from Cart</button>
                 </div>
             </div>
         </div>

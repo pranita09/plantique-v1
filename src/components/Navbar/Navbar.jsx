@@ -9,12 +9,14 @@ import { useAuth } from "../../contexts/auth-context";
 import filterTypes from "../../constants/filterTypes";
 import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
+import { useCart } from "../../contexts/cart-context";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { productState, productDispatch } = useProducts();
   const {wishlistState: {wishlist}} = useWishlist();
+  const {cartState: {cart}} = useCart();
   const { SEARCH } = filterTypes;
 
   return (
@@ -57,7 +59,7 @@ const Navbar = () => {
           <NavLink to="/cart">
             <div className="nav-icon">
               <ShoppingCartOutlinedIcon />
-              <p>0</p>
+              {cart.length > 0 && <p>{cart.length}</p>}
             </div>
           </NavLink>
         </div>
