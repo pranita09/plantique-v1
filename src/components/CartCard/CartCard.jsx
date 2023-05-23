@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CartCard = ({ cartProduct }) => {
   const { addToWishlist, isPresentInWishlist } = useWishlist();
-  const { removeFromCart } = useCart();
+  const { removeFromCart, updateQuantityInCart } = useCart();
   const { _id, title, imgSrc, discount, qty } = cartProduct;
 
   return (
@@ -23,14 +23,18 @@ const CartCard = ({ cartProduct }) => {
             <div className="cart-card-quantity">
               <span>Quantity: </span>
               <div className="qunatity-fields">
-                <button className="minus">-</button>
+                <button className="minus" onClick={(e)=> {e.preventDefault();
+                updateQuantityInCart(cartProduct, "decrement")
+                }} disabled={qty <= 1} >-</button>
                 <input
                   type="number"
                   value={qty}
                   readOnly
                   className="qty-input"
                 />
-                <button className="plus">+</button>
+                <button className="plus" onClick={(e)=> {e.preventDefault();
+                updateQuantityInCart(cartProduct, "increment")
+                }}>+</button>
               </div>
             </div>
           </div>

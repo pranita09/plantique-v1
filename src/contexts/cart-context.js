@@ -5,6 +5,7 @@ import cartReducer, { initialCartState } from "../reducers/cartReducer";
 import { useState } from "react";
 import getCartService from "../services/cart-services/getCartService";
 import removeFromCartService from '../services/cart-services/removeFromCartService';
+import updateQuantityService from '../services/cart-services/updateQuantityService';
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
 import cartTypes from "../constants/cartTypes";
@@ -21,7 +22,7 @@ export const CartProvider = ({children}) => {
     const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
     const [isLoading, setIsLoading] = useState(false);
 
-    const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART} = cartTypes;
+    const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartTypes;
 
     const getCart = async() => {
         setIsLoading(true);
@@ -66,14 +67,30 @@ export const CartProvider = ({children}) => {
         }
     }
 
+    const updateQuantityInCart = async({_id: productId}, actionType) => {
+        try {
+            const response = await updateQuantityService(productId, actionType, token);
+            const {status, data: {cart}} = response;
+            if(status === 200){
+                cartDispatch({type: UPDATE_QUANTITY_IN_CART, payload: cart});
+                toast.success( actionType === "increment" ? "Increased quantity of plant!" : "Decreased quantity of plant!");    
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Unable to update quantity.");
+        }
+    }
+
     const isPresentInCart = (product) => cartState.cart.findIndex(({_id})=> _id === product._id);
+
+    const isQuantityZeroInCart = (product) => product.qty === 0;
 
     useEffect(()=>{
         getCart();
     },[token])
 
     return(
-        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, navigate, removeFromCart}}>
+        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, navigate, removeFromCart, updateQuantityInCart, isQuantityZeroInCart}}>
             {children}
         </CartContext.Provider>
     )
