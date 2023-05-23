@@ -41,10 +41,11 @@ export const WishlistProvider = ({children}) =>{
            const {status, data: {wishlist}} = response;
            if(status===201){
             wishlistDispatch({type: ADD_TO_WISHLIST, payload: wishlist});
-            toast.success('Plant added to wishlist!');
+            toast.success('Plant added to favorites!');
            }
         } catch (error) {
             console.log(error);
+            toast.error("Not able to add to favorites.");
         }
     }
 
@@ -54,10 +55,11 @@ export const WishlistProvider = ({children}) =>{
             const {status, data: {wishlist}} = response;
             if(status === 200){
                 wishlistDispatch({type: REMOVE_FROM_WISHLIST, payload: wishlist});
-                toast.success('Plant removed to wishlist!');
+                toast.success('No longer favorite plant!');
             }
         } catch (error) {
             console.log(error);
+            toast.error("Unable to remove from favorites.");
         }
     }
 

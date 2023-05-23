@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import cartTypes from "../constants/cartTypes";
 import addToCartService from "../services/cart-services/addToCartService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export const CartContext = createContext();
 
@@ -43,9 +44,11 @@ export const CartProvider = ({children}) => {
             const {status, data: {cart}} = response;
             if(status === 201){
                 cartDispatch({type: ADD_TO_CART, payload: cart});
+                toast.success("Plant added to cart successfully!");
             }
         } catch (error) {
             console.log(error);
+            toast.error("Not able to add to cart.")
         }
     }
 
@@ -55,9 +58,11 @@ export const CartProvider = ({children}) => {
             const {status, data: {cart}} = response;
             if(status === 200){
                 cartDispatch({type: REMOVE_FROM_CART, payload: cart})
+                toast.success("Plant removed from cart successfully!");
             }
         } catch (error) {
             console.log(error);
+            toast.error("Unable to remove from cart.")
         }
     }
 
