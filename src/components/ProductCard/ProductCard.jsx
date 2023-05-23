@@ -1,9 +1,12 @@
 import './ProductCard.css';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { Link } from 'react-router-dom';
+import { useWishlist } from '../../contexts/wishlist-context';
 
 const ProductCard = ({product}) =>{
+    const {addToWishlist, removeFromWishlist ,isPresentInWishlist} = useWishlist();
     const {_id, title, imgSrc, price, discount, starRating, inStock, fastDelivery, onSale } = product;
     return(
         <div className="product-card">
@@ -14,7 +17,7 @@ const ProductCard = ({product}) =>{
                 <p>Sale</p>
             </div>}
             <div className='wishlist-btn'>
-                <FavoriteBorderRoundedIcon/>
+                { isPresentInWishlist(product)===-1 ? <FavoriteBorderRoundedIcon onClick={()=> addToWishlist(product)} /> : <FavoriteIcon className='wishlist-fav-icon' onClick={()=> removeFromWishlist(product)} />}
             </div>
             <div className='card-details'>
                 <h3>{title}</h3>

@@ -115,6 +115,14 @@
     background-color: rgba(168, 168, 168, 0.5);
 }
 
+.wishlist-fav-icon{
+    color: red;
+}
+
+.wishlist-btn:hover{
+    cursor: pointer;
+}
+
 @media(min-width: 768px){
     .product-card{
         width: 15.5rem;
