@@ -7,6 +7,7 @@ import CardGiftcardOutlinedIcon from "@mui/icons-material/CardGiftcardOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import { useWishlist } from "../../contexts/wishlist-context";
+import { useCart } from "../../contexts/cart-context";
 
 const SingleProduct = () => {
   const {
@@ -14,6 +15,7 @@ const SingleProduct = () => {
   } = useProducts();
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
+  const { addToCart, isPresentInCart, navigate } = useCart();
 
   const { productID } = useParams();
 
@@ -126,9 +128,21 @@ const SingleProduct = () => {
                 </div>
 
                 <div className="card-action">
-                  <button className="single-product-cart-btn">
-                    Add to Cart
-                  </button>
+                  {isPresentInCart(currentProduct) === -1 ? (
+                    <button
+                      className="single-product-cart-btn"
+                      onClick={() => addToCart(currentProduct)}
+                    >
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <button
+                      className="single-product-cart-btn"
+                      onClick={() => navigate("/cart")}
+                    >
+                      Go to Cart
+                    </button>
+                  )}
                   <button
                     className="single-product-wishlist-btn"
                     onClick={() =>

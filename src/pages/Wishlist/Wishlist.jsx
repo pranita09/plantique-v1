@@ -12,14 +12,14 @@ const Wishlist = () =>{
         <div className='page-wrapper'>
             { isLoading ? <Loader /> :<section className='wishlist-container'>
                 <div className='wishlist-container-heading'>
-                    <h2>My Wishlist ({wishlist?.length})</h2>
+                    <h2>My Favorites ({wishlist?.length})</h2>
                 </div>
                 {
                     wishlist?.length > 0 ? (
                         <div className='wishlist-main'>
                             {
                                 wishlist?.map((wishlistItem)=>(
-                                    <ProductCard key={wishlistItem._id} product={wishlistItem}/>
+                                    <ProductCard key={wishlistItem._id} product={wishlistItem} addedToWishlist/>
                                 ))
                             }
                         </div>
