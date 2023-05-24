@@ -1,6 +1,9 @@
 const addressTypes = {
     ADD_NEW_ADDRESS: "ADD_NEW_ADDRESS",
     SHOW_ADDRESS_MODAL: "SHOW_ADDRESS_MODAL",
+    DELETE_ADDRESS: "DELETE_ADDRESS",
+    EDIT_ADDRESS: "EDIT_ADDRESS",
+    IS_ABLE_TO_EDIT: "IS_ABLE_TO_EDIT",
 }
 
 export default addressTypes;

@@ -7,7 +7,12 @@ import addressTypes from '../../constants/addressTypes';
 const AddressList = () =>{
 
     const {addressState: {addresses, showAddressModal}, addressDispatch} = useAddress();
-    const {SHOW_ADDRESS_MODAL} = addressTypes;
+    const {SHOW_ADDRESS_MODAL, DELETE_ADDRESS, IS_ABLE_TO_EDIT} = addressTypes;
+
+    const editAddressHandler = () =>{
+        addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: true});
+        addressDispatch({type: IS_ABLE_TO_EDIT, payload: true});
+    }
 
     return(
         <div className='addresses-container'>
@@ -18,16 +23,16 @@ const AddressList = () =>{
             <div className='addresses-list'>
                 {
                     addresses.length ? (
-                        addresses?.map(address => (
-                            <div key={address._id} className='address'>
-                                <p>{address.name}</p>
-                                <p>{address.street},</p>
-                                <p>{address.city} - {address.zipcode}</p>
-                                <p>{address.state}, {address.country}</p>
-                                <p>{address.mobile}</p>
+                        addresses?.map(({_id, name, street, city, zipcode, state, country, mobile}) => (
+                            <div key={_id} className='address'>
+                                <p>{name}</p>
+                                <p>{street},</p>
+                                <p>{city} - {zipcode}</p>
+                                <p>{state}, {country}</p>
+                                <p>{mobile}</p>
                                 <div className='address-action'>
-                                    <button className='address-edit-btn'>Edit</button>
-                                    <button className='address-delete-btn'>Delete</button>
+                                    <button className='address-edit-btn' onClick={editAddressHandler}>Edit</button>
+                                    <button className='address-delete-btn' onClick={()=> addressDispatch({type: DELETE_ADDRESS, payload: _id})}>Delete</button>
                                 </div>
                             </div>
                         ))

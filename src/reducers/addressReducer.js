@@ -1,6 +1,6 @@
 import addressTypes from "../constants/addressTypes";
 
-const {ADD_NEW_ADDRESS, SHOW_ADDRESS_MODAL} = addressTypes;
+const {ADD_NEW_ADDRESS, SHOW_ADDRESS_MODAL, DELETE_ADDRESS, IS_ABLE_TO_EDIT, EDIT_ADDRESS} = addressTypes;
 
 const addressList = [
     {
@@ -18,6 +18,7 @@ const addressList = [
 export const initialAddressState ={
     addresses: [...addressList],
     showAddressModal: false,
+    isAbleToEdit: false,
 }
 
 const addressReducer = (state, {type, payload}) =>{
@@ -25,7 +26,15 @@ const addressReducer = (state, {type, payload}) =>{
         case SHOW_ADDRESS_MODAL:
             return {...state, showAddressModal: payload};
         case ADD_NEW_ADDRESS:
-            return {...state, addresses: [...state.addresses, payload]}
+            return {...state, addresses: [...state.addresses, payload]};
+        case DELETE_ADDRESS:
+            return {...state, addresses: state.addresses.filter((address)=> address._id !== payload)};
+        case IS_ABLE_TO_EDIT:
+            return {...state, isAbleToEdit: payload};
+        case EDIT_ADDRESS: {
+            console.log(state.addresses);
+            return {...state}
+        }
         default:
             return state;
     }
