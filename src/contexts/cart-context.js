@@ -23,6 +23,8 @@ export const CartProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartTypes;
+    const fixedDiscount = 50;
+    const deliveryCharges = 49;
 
     const getCart = async() => {
         setIsLoading(true);
@@ -85,12 +87,16 @@ export const CartProvider = ({children}) => {
 
     const isQuantityZeroInCart = (product) => product.qty === 0;
 
+    const totalPriceWithoutDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.discount*curr.qty ,0);
+    const totalDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.qty*fixedDiscount ,0);
+    const totalCheckoutAmount = totalPriceWithoutDiscount + deliveryCharges - totalDiscount;
+
     useEffect(()=>{
         getCart();
     },[token])
 
     return(
-        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, navigate, removeFromCart, updateQuantityInCart, isQuantityZeroInCart}}>
+        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, navigate, removeFromCart, updateQuantityInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
             {children}
         </CartContext.Provider>
     )
