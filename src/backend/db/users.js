@@ -15,27 +15,5 @@ export const users = [
     password: "monikashah",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    address:[
-      {
-        _id: uuid(),
-        name: "Monika Shah",
-        street: "5, IndiraNagar",
-        city: "Pune",
-        state: "Maharashtra",
-        zipcode: '411005',
-        country: 'India',
-        mobile: '9834652340',
-      },
-      {
-        _id: uuid(),
-        name: "Ashish Gandhi",
-        street: "M. G. Road",
-        city: "Bangalore",
-        state: "Karnataka",
-        zipcode: '876589',
-        country: 'India',
-        mobile: '9234782340',
-      },
-    ],
   },
 ];
