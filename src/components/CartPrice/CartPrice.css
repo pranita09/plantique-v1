@@ -40,14 +40,20 @@
     font-size: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: var(--price-color);
+    background-color: var(--ternary-color);
     color: white;
     width: -webkit-fill-available;
 }
 
 .cart-pricing-card .cart-checkout-btn:hover{
-    background-color: var(--ternary-color);
+    background-color: var(--price-color);
     cursor: pointer;
+}
+
+.order-discSave-msg{
+    color: #2bd825;
+    padding: 0;
+    font-size: 0.9rem;
 }
 
 @media screen and (min-width: 768px) {

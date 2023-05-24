@@ -41,6 +41,7 @@ const CartPrice = () => {
       <Link to="/checkout">
         <button className="cart-checkout-btn">checkout</button>
       </Link>
+      <p className="order-discSave-msg">You will save &#8377; {totalDiscount} on this order</p>
     </div>
   );
 };
