@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addedToWishlist }) => {
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, navigate } = useCart();
+  const { addToCart, isPresentInCart, navigate, updateQuantityInCart } = useCart();
   const {
     _id,
     title,
@@ -67,12 +67,19 @@ const ProductCard = ({ product }) => {
           >
             Add To Cart
           </button>
-        ) : (
+        ) : !addedToWishlist ? (
           <button
             className="add-to-cart-btn go-to-cart-btn"
             onClick={() => navigate("/cart")}
           >
             Go To Cart
+          </button>
+        ) : (
+          <button
+            className="add-to-cart-btn go-to-cart-btn"
+            onClick={() => updateQuantityInCart(product, "increment")}
+          >
+            Added To Cart +
           </button>
         )}
       </div>

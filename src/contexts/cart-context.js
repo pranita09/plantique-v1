@@ -45,7 +45,7 @@ export const CartProvider = ({children}) => {
             const {status, data: {cart}} = response;
             if(status === 201){
                 cartDispatch({type: ADD_TO_CART, payload: cart});
-                toast.success("Plant added to cart successfully!");
+                toast.success(`${product.title} added to cart successfully!`);
             }
         } catch (error) {
             console.log(error);
@@ -53,13 +53,13 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    const removeFromCart = async({_id: productId}) => {
+    const removeFromCart = async({_id: productId, title}) => {
         try {
             const response = await removeFromCartService(productId, token);
             const {status, data: {cart}} = response;
             if(status === 200){
                 cartDispatch({type: REMOVE_FROM_CART, payload: cart})
-                toast.success("Plant removed from cart successfully!");
+                toast.success(`${title} removed from cart successfully!`);
             }
         } catch (error) {
             console.log(error);
@@ -67,13 +67,13 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    const updateQuantityInCart = async({_id: productId}, actionType) => {
+    const updateQuantityInCart = async({_id: productId, title}, actionType) => {
         try {
             const response = await updateQuantityService(productId, actionType, token);
             const {status, data: {cart}} = response;
             if(status === 200){
                 cartDispatch({type: UPDATE_QUANTITY_IN_CART, payload: cart});
-                toast.success( actionType === "increment" ? "Increased quantity of plant!" : "Decreased quantity of plant!");    
+                toast.success( actionType === "increment" ? `Added one more ${title} to the cart sucessfully!` : `Removed one ${title} from cart successfully!`);    
             }
         } catch (error) {
             console.log(error);
