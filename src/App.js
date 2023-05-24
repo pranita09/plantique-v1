@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import NavRoutes from './routes/NavRoutes';
 import { Toaster } from 'react-hot-toast';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       />
       <NavRoutes />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
