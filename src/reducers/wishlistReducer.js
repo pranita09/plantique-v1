@@ -1,4 +1,4 @@
-import wishlistActionTypes from "../constants/wishlistActionTypes";
+import {wishlistActionTypes} from "../constants/constants";
 
 const {DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST} = wishlistActionTypes;
 

@@ -1,6 +1,6 @@
 import "./Categories.css";
 import { useProducts } from "../../contexts/products-context";
-import filterActionTypes from "../../constants/filterActionTypes";
+import {filterActionTypes} from "../../constants/constants";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

@@ -5,7 +5,7 @@ import {
   initialProductState,
   productReducer,
 } from "../reducers/productReducer";
-import filterActionTypes from "../constants/filterActionTypes";
+import {filterActionTypes} from "../constants/constants";
 import getCategoriesService from "../services/products-services/getCategoriesService";
 
 export const ProductsContext = createContext();

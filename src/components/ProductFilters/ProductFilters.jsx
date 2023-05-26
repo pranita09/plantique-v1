@@ -3,7 +3,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { products } from "../../backend/db/products";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { useProducts } from "../../contexts/products-context";
-import filterActionTypes from "../../constants/filterActionTypes";
+import {filterActionTypes} from "../../constants/constants";
 
 const ProductFilters = () => {
   const { productState, productDispatch, showFilter, toggleFilter } =

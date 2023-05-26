@@ -1,4 +1,4 @@
-import filterActionTypes from "../constants/filterActionTypes";
+import {filterActionTypes} from "../constants/constants";
 
 const {
   DISPLAY_PRODUCTS,

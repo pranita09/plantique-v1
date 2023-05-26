@@ -2,7 +2,7 @@ import './AddressList.css';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddressModal from '../AddressModal/AddressModal';
 import { useAddress } from '../../contexts/address-context';
-import addressActionTypes from '../../constants/addressActionTypes';
+import {addressActionTypes} from '../../constants/constants';
 import Loader from '../../components/Loader/Loader';
 
 const AddressList = () =>{

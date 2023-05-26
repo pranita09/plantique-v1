@@ -1,4 +1,4 @@
-import cartActionTypes from "../constants/cartActionTypes";
+import {cartActionTypes} from "../constants/constants";
 
 const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartActionTypes;
 

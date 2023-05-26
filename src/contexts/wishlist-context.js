@@ -6,7 +6,7 @@ import getWishlistService from "../services/wishlist-services/getWishlistService
 import { useAuth } from "./auth-context";
 import { useReducer } from "react";
 import wishlistReducer, { initialWishlistState } from "../reducers/wishlistReducer";
-import wishlistActionTypes from "../constants/wishlistActionTypes";
+import {wishlistActionTypes} from "../constants/constants"
 import addToWishlistService from "../services/wishlist-services/addToWishlistService";
 import removeFromWishlistService from "../services/wishlist-services/removeFromWishlistService";
 

@@ -7,7 +7,7 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import { useAuth } from "../../contexts/auth-context";
-import filterActionTypes from "../../constants/filterActionTypes";
+import {filterActionTypes} from "../../constants/constants";
 import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";

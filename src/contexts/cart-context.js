@@ -8,7 +8,7 @@ import removeFromCartService from '../services/cart-services/removeFromCartServi
 import updateQuantityService from '../services/cart-services/updateQuantityService';
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
-import cartActionTypes from "../constants/cartActionTypes";
+import {cartActionTypes} from "../constants/constants";
 import addToCartService from "../services/cart-services/addToCartService";
 import { toast } from "react-hot-toast";
 

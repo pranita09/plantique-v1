@@ -1,4 +1,4 @@
-import addressActionTypes from "../constants/addressActionTypes";
+import {addressActionTypes} from "../constants/constants";
 
 const {
   DISPLAY_ADDRESSES,

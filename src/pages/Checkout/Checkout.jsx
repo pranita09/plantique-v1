@@ -3,7 +3,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import AddressModal from '../../components/AddressModal/AddressModal';
 import { useAddress } from '../../contexts/address-context';
-import addressActionTypes from '../../constants/addressActionTypes';
+import {addressActionTypes} from '../../constants/constants';
 
 const Checkout = () =>{
 

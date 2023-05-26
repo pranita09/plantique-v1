@@ -6,7 +6,7 @@ import addressReducer, {
 } from "../reducers/addressReducer";
 import { useAuth } from "./auth-context";
 import getAddressesService from "../services/address-services/getAddressesService";
-import addressActionTypes from "../constants/addressActionTypes";
+import {addressActionTypes} from "../constants/constants";
 import addAddressService from "../services/address-services/addAddressService";
 import removeAddressService from '../services/address-services/removeAddressService';
 import editAddressService from '../services/address-services/editAddressService';
