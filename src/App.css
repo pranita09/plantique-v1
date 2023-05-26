@@ -9,17 +9,17 @@
     flex-grow: 1;
 }
 
-::-webkit-scrollbar {
-    width: 0.2rem;
+body::-webkit-scrollbar {
+    width: 0.4rem;
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     border-radius: 5px;
     margin-block: 0.25em;
     background: var(--secondary-color);
 }
   
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background: var(--price-color);
     border-radius: 5px;
 }

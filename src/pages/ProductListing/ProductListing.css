@@ -54,6 +54,21 @@
     font-size: 1.3rem;
 }
 
+.products-listing-outer-container ::-webkit-scrollbar {
+    width: 0.2rem;
+}
+
+.products-listing-outer-container ::-webkit-scrollbar-track {
+    border-radius: 5px;
+    margin-block: 0.25em;
+    background: var(--secondary-color);
+}
+  
+.products-listing-outer-container ::-webkit-scrollbar-thumb {
+    background: var(--price-color);
+    border-radius: 5px;
+}
+
 @media (min-width: 768px) {
     .products-listing-outer-container{
         position: relative;
