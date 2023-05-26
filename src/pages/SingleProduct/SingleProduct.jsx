@@ -8,6 +8,7 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
+import { useAuth } from "../../contexts/auth-context";
 
 const SingleProduct = () => {
   const {
@@ -16,6 +17,7 @@ const SingleProduct = () => {
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
   const { addToCart, isPresentInCart, navigate } = useCart();
+  const {token} = useAuth();
 
   const { productID } = useParams();
 
@@ -131,7 +133,7 @@ const SingleProduct = () => {
                   {isPresentInCart(currentProduct) === -1 ? (
                     <button
                       className="single-product-cart-btn"
-                      onClick={() => addToCart(currentProduct)}
+                      onClick={ token ? () => addToCart(currentProduct) : ()=> navigate('/login')}
                     >
                       Add to Cart
                     </button>
@@ -147,7 +149,7 @@ const SingleProduct = () => {
                     className="single-product-wishlist-btn"
                     onClick={() =>
                       isPresentInWishlist(currentProduct) === -1
-                        ? addToWishlist(currentProduct)
+                        ? token ? addToWishlist(currentProduct) : navigate('/login')
                         : removeFromWishlist(currentProduct)
                     }
                   >

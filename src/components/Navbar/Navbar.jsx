@@ -54,13 +54,13 @@ const Navbar = () => {
           <NavLink style={activeIconStyles} to="/wishlist">
             <div className="nav-icon">
               <FavoriteBorderOutlinedIcon />
-              {wishlist.length > 0 && <p>{wishlist.length}</p>}
+              { token && wishlist.length > 0 && <p>{wishlist.length}</p>}
             </div>
           </NavLink>
           <NavLink style={activeIconStyles} to="/cart">
             <div className="nav-icon">
               <ShoppingCartOutlinedIcon />
-              {cart.length > 0 && <p>{cart.length}</p>}
+              { token && cart.length > 0 && <p>{cart.length}</p>}
             </div>
           </NavLink>
           <NavLink style={activeIconStyles} to={token ? "/profile" : "/login"}>

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useAuth } from "../../../contexts/auth-context";
 
 const LogIn = () => {
-  const { loginHandler } = useAuth();
+  const { loginHandler} = useAuth();
 
   const [userLoginDetails, setUserLoginDetails] = useState({
     email: "",

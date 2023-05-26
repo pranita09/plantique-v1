@@ -5,11 +5,13 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
+import { useAuth } from "../../contexts/auth-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
   const { addToCart, isPresentInCart, navigate, updateQuantityInCart } = useCart();
+  const {token} = useAuth();
   const {
     _id,
     title,
@@ -35,7 +37,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
       )}
       <div className="wishlist-btn">
         {isPresentInWishlist(product) === -1 ? (
-          <FavoriteBorderRoundedIcon onClick={() => addToWishlist(product)} />
+          <FavoriteBorderRoundedIcon onClick={ token ? () => addToWishlist(product) : () => navigate("/login")} />
         ) : (
           <FavoriteIcon
             className="wishlist-fav-icon"
@@ -63,7 +65,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
         {isPresentInCart(product) === -1 ? (
           <button
             className="add-to-cart-btn"
-            onClick={() => addToCart(product)}
+            onClick={ token ? () => addToCart(product): ()=> navigate("/login")}
           >
             Add To Cart
           </button>
