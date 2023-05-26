@@ -7,8 +7,8 @@ import addressTypes from '../../constants/addressTypes';
 
 const Checkout = () =>{
 
-    const {addressState: {addresses, showAddressModal}, addressDispatch} = useAddress();
-    const {SHOW_ADDRESS_MODAL} = addressTypes;
+    const {addressState: {addresses, showAddressModal, selectedAddressId}, addressDispatch} = useAddress();
+    const {SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID} = addressTypes;
 
     return(
         <div className="page-wrapper">
@@ -27,6 +27,8 @@ const Checkout = () =>{
                                             <input 
                                                 type='radio'
                                                 name='address'
+                                                checked={selectedAddressId === address._id}
+                                                onChange={()=> addressDispatch({type: SET_SELECTED_ADDRESS_ID, payload: address._id})}
                                              />
                                              <div>
                                                 <div className='address-name'>{address.name}</div>

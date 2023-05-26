@@ -9,6 +9,7 @@ const {
   SHOW_ADDRESS_MODAL,
   REMOVE_ADDRESS,
   RESET_ADDRESS_FORM,
+  SET_SELECTED_ADDRESS_ID,
 } = addressTypes;
 
 export const initialAddressInput = {
@@ -35,7 +36,7 @@ const addressReducer = (state, { type, payload }) => {
       return {
         ...state,
         addresses: payload,
-        selectedAddressId: payload ? payload._id : null,
+        selectedAddressId: payload ? payload[0]._id : null,
       };
     case SHOW_ADDRESS_MODAL:
       return { ...state, showAddressModal: payload };
@@ -57,6 +58,8 @@ const addressReducer = (state, { type, payload }) => {
       return { ...state, addresses: payload };
     case RESET_ADDRESS_FORM:
       return { ...state, addressFormData: payload };
+    case SET_SELECTED_ADDRESS_ID:
+        return {...state, selectedAddressId: payload};
     default:
       return state;
   }
