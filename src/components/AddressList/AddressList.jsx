@@ -1,47 +1,31 @@
-import { useState } from 'react';
 import './AddressList.css';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddressModal from '../AddressModal/AddressModal';
-
-const addresses = [
-    {
-        _id: 123,
-        name: 'Nikita Shah',
-        street: '5, IndiraNagar',
-        city: 'Kolkata',
-        state: 'West Bengal',
-        country: 'India',
-        zipcode: '876534',
-        mobile: 567890873
-    },
-    {
-        _id: 123,
-        name: 'Ashish Sharma',
-        street: 'M. G. Road',
-        city: 'Mumbai',
-        state: 'Maharashtra',
-        country: 'India',
-        zipcode: '410504',
-        mobile: 967890873
-    }
-]
-
-// const addresses = [];
+import { useAddress } from '../../contexts/address-context';
+import addressTypes from '../../constants/addressTypes';
+import Loader from '../../components/Loader/Loader';
 
 const AddressList = () =>{
 
-    const [showAddressModal, setShowAddressModal] = useState(false);
+    const {addressState: {addresses, showAddressModal}, addressDispatch, removeAddress, isLoading} = useAddress();
+    const {SHOW_ADDRESS_MODAL, EDIT_ADDRESS_DETAILS} = addressTypes;
+
+    const editAddressHandler = (addressToEdit) =>{
+        addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: true});
+        addressDispatch({type: EDIT_ADDRESS_DETAILS, payload: {addressToEdit}})
+    }
 
     return(
-        <div className='addresses-container'>
-            <button className='add-address-btn' onClick={()=> setShowAddressModal(true)}>
+        <>
+        {isLoading ? <Loader /> : <div className='addresses-container'>
+            <button className='add-address-btn' onClick={()=> addressDispatch({type: SHOW_ADDRESS_MODAL, payload: true})}>
                 <div className='add-address-icon'><AddOutlinedIcon /></div>
                 Add address
             </button>
             <div className='addresses-list'>
                 {
                     addresses.length ? (
-                        addresses?.map(address => (
+                        addresses?.map((address) => (
                             <div key={address._id} className='address'>
                                 <p>{address.name}</p>
                                 <p>{address.street},</p>
@@ -49,8 +33,8 @@ const AddressList = () =>{
                                 <p>{address.state}, {address.country}</p>
                                 <p>{address.mobile}</p>
                                 <div className='address-action'>
-                                    <button className='address-edit-btn'>Edit</button>
-                                    <button className='address-delete-btn'>Delete</button>
+                                    <button className='address-edit-btn' onClick={()=>editAddressHandler(address)}>Edit</button>
+                                    <button className='address-delete-btn' onClick={()=>removeAddress(address._id)}>Delete</button>
                                 </div>
                             </div>
                         ))
@@ -61,11 +45,12 @@ const AddressList = () =>{
             {
                 showAddressModal ? (
                     <div className='address-modal'>
-                        <AddressModal setShowAddressModal={setShowAddressModal} />
+                        <AddressModal />
                     </div>
                 ) : null
             }
-        </div>
+        </div>}
+        </>
     )
 }
 

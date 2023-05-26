@@ -1,16 +1,6 @@
+import { useAddress } from "../../contexts/address-context";
 import { useCart } from "../../contexts/cart-context";
 import "./OrderDetails.css";
-
-const currentAddress = {
-  _id: 123,
-  name: "Nikita Shah",
-  street: "5, IndiraNagar",
-  city: "Kolkata",
-  state: "West Bengal",
-  country: "India",
-  zipcode: "876534",
-  mobile: 567890873,
-};
 
 const OrderDetails = () => {
   const {
@@ -20,6 +10,12 @@ const OrderDetails = () => {
     totalDiscount,
     totalCheckoutAmount,
   } = useCart();
+
+  const {
+    addressState: { addresses, selectedAddressId },
+  } = useAddress();
+
+  const currentAddress = addresses.find(({ _id }) => _id === selectedAddressId);
 
   return (
     <div className="order-details-container">

@@ -1,37 +1,14 @@
 import './Checkout.css';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
-import { useState } from 'react';
 import AddressModal from '../../components/AddressModal/AddressModal';
-
-const addresses = [
-    {
-        _id: 123,
-        name: 'Nikita Shah',
-        street: '5, IndiraNagar',
-        city: 'Kolkata',
-        state: 'West Bengal',
-        country: 'India',
-        zipcode: '876534',
-        mobile: 567890873
-    },
-    {
-        _id: 123,
-        name: 'Ashish Sharma',
-        street: 'M. G. Road',
-        city: 'Mumbai',
-        state: 'Maharashtra',
-        country: 'India',
-        zipcode: '410504',
-        mobile: 967890873
-    }
-]
-
-// const addresses = []
+import { useAddress } from '../../contexts/address-context';
+import addressTypes from '../../constants/addressTypes';
 
 const Checkout = () =>{
 
-    const [showAddressModal, setShowAddressModal] = useState(false);
+    const {addressState: {addresses, showAddressModal, selectedAddressId}, addressDispatch} = useAddress();
+    const {SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID} = addressTypes;
 
     return(
         <div className="page-wrapper">
@@ -50,6 +27,8 @@ const Checkout = () =>{
                                             <input 
                                                 type='radio'
                                                 name='address'
+                                                checked={selectedAddressId === address._id}
+                                                onChange={()=> addressDispatch({type: SET_SELECTED_ADDRESS_ID, payload: address._id})}
                                              />
                                              <div>
                                                 <div className='address-name'>{address.name}</div>
@@ -64,7 +43,7 @@ const Checkout = () =>{
                                     : (<p>No address available.</p>)
                             }
                         </div>
-                        <button className='add-address-btn' onClick={()=> setShowAddressModal(true)}>
+                        <button className='add-address-btn' onClick={()=> addressDispatch({type: SHOW_ADDRESS_MODAL, payload: true})}>
                             <div className='add-address-icon'>
                                 <AddOutlinedIcon />
                             </div>
@@ -77,7 +56,7 @@ const Checkout = () =>{
 
                 { showAddressModal ? (
                     <div className='address-modal'>
-                        <AddressModal setShowAddressModal={setShowAddressModal}/>
+                        <AddressModal />
                     </div>
                 ) : null }
 
