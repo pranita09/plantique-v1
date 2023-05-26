@@ -1,7 +1,6 @@
 
 .products-filters-container{
     grid-area: filters;
-    /* height: fit-content; */
     overflow-y: scroll;
 }
 
@@ -19,6 +18,13 @@
     grid-template-columns: 1fr;
     grid-template-areas: 
         "products";
+}
+
+.loader-container{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .products-title-bar{
@@ -80,6 +86,11 @@
     .filter-icon{
         display: none;
     }
+    .loader-container{
+        position: absolute;
+        left: 40%;
+        top: 15%;
+    }
 }
 @media (min-width: 1024px) {
     .products-listing-outer-container{
@@ -91,5 +102,9 @@
     }
     .products-filters-container{
         height: 90vh;
+    }
+    .loader-container{
+        left: 45%;
+        top: 18%;
     }
 }
