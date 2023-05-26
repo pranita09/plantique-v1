@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { useState } from "react";
+import { useEffect } from "react";
 import addressTypes from "../../constants/addressTypes";
 import { useAddress } from "../../contexts/address-context";
 import "./AddressModal.css";
@@ -14,44 +14,50 @@ const dummyAddress = {
   mobile: "2568751239",
 };
 
-const formInitialAddress = {
-  name: "",
-  street: "",
-  city: "",
-  state: "",
-  zipcode: "",
-  country: "",
-  mobile: "",
-};
-
 const AddressModal = () => {
-  const { addressState:{isAbleToEdit}, addressDispatch } = useAddress();
-  const { SHOW_ADDRESS_MODAL, ADD_NEW_ADDRESS, EDIT_ADDRESS } = addressTypes;
-  const [addressDetails, setAddressDetails] = useState(formInitialAddress);
+  const {
+    addressState: { addresses, addressFormData },
+    addressDispatch,
+    addAddress,
+    editAddress,
+    initialAddressInput,
+  } = useAddress();
+  const {
+    SHOW_ADDRESS_MODAL,
+    SET_ADDRESS_DETAILS,
+    RESET_ADDRESS_FORM,
+    SET_DUMMY_ADDRESS,
+  } = addressTypes;
 
   const addressFormInputHandler = (event) => {
     const { name, value } = event.target;
-    setAddressDetails({ ...addressDetails, [name]: value });
+    addressDispatch({ type: SET_ADDRESS_DETAILS, payload: { name, value } });
   };
 
   const fillDummyAddressHandler = () => {
-    setAddressDetails(dummyAddress);
+    addressDispatch({ type: SET_DUMMY_ADDRESS, payload: dummyAddress });
   };
 
   const addAddressHandler = (event) => {
     event.preventDefault();
-    const addressId = uuid();
-    if(isAbleToEdit){
-      console.log('from function')
-      addressDispatch({type: EDIT_ADDRESS, payload: addressDetails});
-    }else{
-      addressDispatch({
-        type: ADD_NEW_ADDRESS,
-        payload: { ...addressDetails, _id: addressId },
-      });
+    const addressExist = addresses.find(
+      (address) => address._id === addressFormData._id
+    );
+    if (addressExist) {
+      editAddress(addressFormData, addressExist._id);
+    } else {
+      addAddress({ ...addressFormData, _id: uuid() });
     }
     addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
   };
+
+  useEffect(() => {
+    return () =>
+      addressDispatch({
+        type: RESET_ADDRESS_FORM,
+        payload: initialAddressInput,
+      });
+  }, []);
 
   return (
     <div className="address-form-wrapper">
@@ -62,7 +68,7 @@ const AddressModal = () => {
             type="text"
             placeholder="Name"
             name="name"
-            value={addressDetails.name || ""}
+            value={addressFormData.name || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -73,7 +79,7 @@ const AddressModal = () => {
             type="text"
             placeholder="Street"
             name="street"
-            value={addressDetails.street || ""}
+            value={addressFormData.street || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -84,7 +90,7 @@ const AddressModal = () => {
             type="text"
             placeholder="City"
             name="city"
-            value={addressDetails.city || ""}
+            value={addressFormData.city || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -95,7 +101,7 @@ const AddressModal = () => {
             type="text"
             placeholder="Zipcode"
             name="zipcode"
-            value={addressDetails.zipcode || ""}
+            value={addressFormData.zipcode || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -106,7 +112,7 @@ const AddressModal = () => {
             type="text"
             placeholder="State"
             name="state"
-            value={addressDetails.state || ""}
+            value={addressFormData.state || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -117,7 +123,7 @@ const AddressModal = () => {
             type="input"
             placeholder="Country"
             name="country"
-            value={addressDetails.country || ""}
+            value={addressFormData.country || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
@@ -128,7 +134,7 @@ const AddressModal = () => {
             type="text"
             placeholder="Mobile No."
             name="mobile"
-            value={addressDetails.mobile || ""}
+            value={addressFormData.mobile || ""}
             className="input"
             onChange={addressFormInputHandler}
             required
