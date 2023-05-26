@@ -1,5 +1,5 @@
 import { useProducts } from "../../contexts/products-context";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import Loader from "../../components/Loader/Loader";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
@@ -11,12 +11,13 @@ import { useCart } from "../../contexts/cart-context";
 import { useAuth } from "../../contexts/auth-context";
 
 const SingleProduct = () => {
+  const navigate = useNavigate();
   const {
     productState: { products },
   } = useProducts();
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, navigate } = useCart();
+  const { addToCart, isPresentInCart } = useCart();
   const {token} = useAuth();
 
   const { productID } = useParams();

@@ -2,15 +2,16 @@ import "./ProductCard.css";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 import { useAuth } from "../../contexts/auth-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
+  const navigate = useNavigate();
   const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, navigate, updateQuantityInCart } = useCart();
+  const { addToCart, isPresentInCart, updateQuantityInCart } = useCart();
   const {token} = useAuth();
   const {
     _id,

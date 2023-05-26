@@ -156,7 +156,7 @@ const ProductFilters = () => {
             <label>
               <input
                 type="radio"
-                checked={productState.sortPriceRadioInput === "higntolow"}
+                checked={productState.sortPriceRadioInput === "hightolow"}
                 name="sort"
                 value="hightolow"
                 onChange={(event) =>
@@ -171,7 +171,7 @@ const ProductFilters = () => {
             <label>
               <input
                 type="radio"
-                checked={productState.sortPriceRadioInput === "higntolow"}
+                checked={productState.sortPriceRadioInput === "lowtohigh"}
                 name="sort"
                 value="lowtohigh"
                 onChange={(event) =>

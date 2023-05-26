@@ -10,14 +10,12 @@ import { useAuth } from "./auth-context";
 import { useEffect } from "react";
 import cartTypes from "../constants/cartTypes";
 import addToCartService from "../services/cart-services/addToCartService";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
 
-    const navigate= useNavigate();
     const {token} = useAuth();
     const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
     const [isLoading, setIsLoading] = useState(false);
@@ -96,7 +94,7 @@ export const CartProvider = ({children}) => {
     },[token])
 
     return(
-        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, navigate, removeFromCart, updateQuantityInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
+        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, removeFromCart, updateQuantityInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
             {children}
         </CartContext.Provider>
     )
