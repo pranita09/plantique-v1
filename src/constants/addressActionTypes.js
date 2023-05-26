@@ -1,4 +1,4 @@
-const addressTypes = {
+const addressActionTypes = {
     DISPLAY_ADDRESSES: "DISPLAY_ADDRESSES",
     SHOW_ADDRESS_MODAL: "SHOW_ADDRESS_MODAL",
     SET_ADDRESS_DETAILS: "SET_ADDRESS_DETAILS",
@@ -10,4 +10,4 @@ const addressTypes = {
     SET_SELECTED_ADDRESS_ID: "SET_SELECTED_ADDRESS_ID",
 }
 
-export default addressTypes;
+export default addressActionTypes;

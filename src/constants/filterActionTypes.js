@@ -1,4 +1,4 @@
-const filterTypes = {
+const filterActionTypes = {
   DISPLAY_PRODUCTS: "DISPLAY_PRODUCTS",
   DISPLAY_CATEGORIES: "DISPLAY_CATEGORIES",
   SEARCH: "SEARCH",
@@ -10,4 +10,4 @@ const filterTypes = {
   CLEAR_FILTERS: "CLEAR_FILTERS",
 };
 
-export default filterTypes;
+export default filterActionTypes;

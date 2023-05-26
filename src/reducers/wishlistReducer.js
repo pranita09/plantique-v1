@@ -1,6 +1,6 @@
-import wishlistTypes from "../constants/wishlistTypes";
+import wishlistActionTypes from "../constants/wishlistActionTypes";
 
-const {DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST} = wishlistTypes;
+const {DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST} = wishlistActionTypes;
 
 export const initialWishlistState = {
     wishlist: [],

@@ -8,7 +8,7 @@ import removeFromCartService from '../services/cart-services/removeFromCartServi
 import updateQuantityService from '../services/cart-services/updateQuantityService';
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
-import cartTypes from "../constants/cartTypes";
+import cartActionTypes from "../constants/cartActionTypes";
 import addToCartService from "../services/cart-services/addToCartService";
 import { toast } from "react-hot-toast";
 
@@ -20,7 +20,7 @@ export const CartProvider = ({children}) => {
     const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
     const [isLoading, setIsLoading] = useState(false);
 
-    const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartTypes;
+    const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartActionTypes;
     const fixedDiscount = 50;
     const deliveryCharges = 49;
 

@@ -3,7 +3,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { products } from "../../backend/db/products";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { useProducts } from "../../contexts/products-context";
-import filterTypes from "../../constants/filterTypes";
+import filterActionTypes from "../../constants/filterActionTypes";
 
 const ProductFilters = () => {
   const { productState, productDispatch, showFilter, toggleFilter } =
@@ -16,7 +16,7 @@ const ProductFilters = () => {
     AVAILABILITY,
     SORT_BY_PRICE,
     SORT_BY_RATING_RANGE,
-  } = filterTypes;
+  } = filterActionTypes;
 
   const productCategories = products.reduce(
     (acc, { category }) =>

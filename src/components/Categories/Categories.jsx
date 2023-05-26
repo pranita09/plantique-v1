@@ -1,13 +1,13 @@
 import "./Categories.css";
 import { useProducts } from "../../contexts/products-context";
-import filterTypes from "../../constants/filterTypes";
+import filterActionTypes from "../../constants/filterActionTypes";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const CategoryCard = ({ catImg, category }) => {
   const navigate = useNavigate();
   const { productState, productDispatch } = useProducts();
-  const { CATEGORY, CLEAR_FILTERS } = filterTypes;
+  const { CATEGORY, CLEAR_FILTERS } = filterActionTypes;
 
   useEffect(() => {
     productDispatch({

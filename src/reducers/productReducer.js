@@ -1,4 +1,4 @@
-import filterTypes from "../constants/filterTypes";
+import filterActionTypes from "../constants/filterActionTypes";
 
 const {
   DISPLAY_PRODUCTS,
@@ -10,7 +10,7 @@ const {
   SORT_BY_PRICE,
   SORT_BY_RATING_RANGE,
   CLEAR_FILTERS,
-} = filterTypes;
+} = filterActionTypes;
 
 export const initialProductState = {
   products: [],

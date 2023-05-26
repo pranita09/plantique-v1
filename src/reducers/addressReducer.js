@@ -1,4 +1,4 @@
-import addressTypes from "../constants/addressTypes";
+import addressActionTypes from "../constants/addressActionTypes";
 
 const {
   DISPLAY_ADDRESSES,
@@ -10,7 +10,7 @@ const {
   REMOVE_ADDRESS,
   RESET_ADDRESS_FORM,
   SET_SELECTED_ADDRESS_ID,
-} = addressTypes;
+} = addressActionTypes;
 
 export const initialAddressInput = {
   _id: "",

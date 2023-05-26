@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { useEffect } from "react";
-import addressTypes from "../../constants/addressTypes";
+import addressActionTypes from "../../constants/addressActionTypes";
 import { useAddress } from "../../contexts/address-context";
 import "./AddressModal.css";
 
@@ -27,7 +27,7 @@ const AddressModal = () => {
     SET_ADDRESS_DETAILS,
     RESET_ADDRESS_FORM,
     SET_DUMMY_ADDRESS,
-  } = addressTypes;
+  } = addressActionTypes;
 
   const addressFormInputHandler = (event) => {
     const { name, value } = event.target;

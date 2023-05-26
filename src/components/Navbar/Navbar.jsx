@@ -7,7 +7,7 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import { useAuth } from "../../contexts/auth-context";
-import filterTypes from "../../constants/filterTypes";
+import filterActionTypes from "../../constants/filterActionTypes";
 import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
@@ -18,7 +18,7 @@ const Navbar = () => {
   const { productState, productDispatch } = useProducts();
   const {wishlistState: {wishlist}} = useWishlist();
   const {cartState: {cart}} = useCart();
-  const { SEARCH } = filterTypes;
+  const { SEARCH } = filterActionTypes;
 
   const activeIconStyles = ({isActive}) => ({
     backgroundColor: isActive ? "lightgrey" : "transparent",

@@ -5,7 +5,7 @@ import {
   initialProductState,
   productReducer,
 } from "../reducers/productReducer";
-import filterTypes from "../constants/filterTypes";
+import filterActionTypes from "../constants/filterActionTypes";
 import getCategoriesService from "../services/products-services/getCategoriesService";
 
 export const ProductsContext = createContext();
@@ -18,7 +18,7 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES } = filterTypes;
+  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES } = filterActionTypes;
 
   const getProducts = async () => {
     setIsLoading(true);
