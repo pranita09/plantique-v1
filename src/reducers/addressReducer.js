@@ -36,7 +36,7 @@ const addressReducer = (state, { type, payload }) => {
       return {
         ...state,
         addresses: payload,
-        selectedAddressId: payload ? payload[0]._id : null,
+        selectedAddressId: payload ? payload[0]?._id : null,
       };
     case SHOW_ADDRESS_MODAL:
       return { ...state, showAddressModal: payload };
