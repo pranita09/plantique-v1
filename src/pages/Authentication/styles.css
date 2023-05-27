@@ -47,6 +47,14 @@ form .field{
     color: white;    
 }
 
+.signup-btn-disabled{
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 0.5rem;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 .signup-btn:hover,
 .login-btn:hover{
     cursor: pointer;
@@ -101,10 +109,6 @@ form .field{
     color: var(--danger-color);
     font-size: 0.8rem;
     padding-bottom: 0.5rem;
-}
-
-.class-for-margin{
-    margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 570px ) {

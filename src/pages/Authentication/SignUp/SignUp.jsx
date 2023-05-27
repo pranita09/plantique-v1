@@ -8,18 +8,32 @@ import { useAuth } from "../../../contexts/auth-context";
 const SignUp = () => {
   const { signupHandler } = useAuth();
 
-  const [userDetails, setUserDetails] = useState({
+  const [userSignupDetails, setUserSignupDetails] = useState({
     email: "",
     password: "",
     firstName: "",
     lastName: "",
+    confirmPassword: "",
     pwdMatch: true,
     hide: { pwd: true, confirmPwd: true },
   });
 
+  const signupFormInputHandler = (event) => {
+    const { name, value } = event.target;
+    if (name === "confirmPassword") {
+      setUserSignupDetails({
+        ...userSignupDetails,
+        [name]: value,
+        pwdMatch: value === userSignupDetails.password ? true : false,
+      });
+    } else {
+      setUserSignupDetails({ ...userSignupDetails, [name]: value });
+    }
+  };
+
   const signupFormSubmitHandler = (event) => {
     event.preventDefault();
-    signupHandler(userDetails);
+    signupHandler(userSignupDetails);
   };
 
   return (
@@ -35,13 +49,10 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="First Name"
+                  name="firstName"
+                  value={userSignupDetails.firstName || ""}
                   className="input"
-                  onChange={(event) =>
-                    setUserDetails({
-                      ...userDetails,
-                      firstName: event.target.value,
-                    })
-                  }
+                  onChange={signupFormInputHandler}
                   required
                 />
               </div>
@@ -49,13 +60,10 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Last Name"
+                  name="lastName"
+                  value={userSignupDetails.lastName || ""}
                   className="input"
-                  onChange={(event) =>
-                    setUserDetails({
-                      ...userDetails,
-                      lastName: event.target.value,
-                    })
-                  }
+                  onChange={signupFormInputHandler}
                   required
                 />
               </div>
@@ -63,51 +71,45 @@ const SignUp = () => {
                 <input
                   type="email"
                   placeholder="Email"
+                  name="email"
+                  value={userSignupDetails.email || ""}
                   className="input"
-                  onChange={(event) =>
-                    setUserDetails({
-                      ...userDetails,
-                      email: event.target.value,
-                    })
-                  }
+                  onChange={signupFormInputHandler}
                   required
                 />
               </div>
               <div className="field input-field">
                 <input
-                  type={userDetails.hide.pwd ? "password" : "text"}
+                  type={userSignupDetails.hide.pwd ? "password" : "text"}
                   placeholder="Password"
                   className="password"
-                  onChange={(event) =>
-                    setUserDetails({
-                      ...userDetails,
-                      password: event.target.value,
-                    })
-                  }
+                  name="password"
+                  value={userSignupDetails.password || ""}
+                  onChange={signupFormInputHandler}
                   required
                 />
-                {userDetails.hide.pwd ? (
-                  <VisibilityOutlinedIcon
+                {userSignupDetails.hide.pwd ? (
+                  <VisibilityOffOutlinedIcon
                     className="eye-icon"
                     onClick={() =>
-                      setUserDetails({
-                        ...userDetails,
+                      setUserSignupDetails({
+                        ...userSignupDetails,
                         hide: {
-                          ...userDetails.hide,
-                          pwd: !userDetails.hide.pwd,
+                          ...userSignupDetails.hide,
+                          pwd: !userSignupDetails.hide.pwd,
                         },
                       })
                     }
                   />
                 ) : (
-                  <VisibilityOffOutlinedIcon
+                  <VisibilityOutlinedIcon
                     className="eye-icon"
                     onClick={() =>
-                      setUserDetails({
-                        ...userDetails,
+                      setUserSignupDetails({
+                        ...userSignupDetails,
                         hide: {
-                          ...userDetails.hide,
-                          pwd: !userDetails.hide.pwd,
+                          ...userSignupDetails.hide,
+                          pwd: !userSignupDetails.hide.pwd,
                         },
                       })
                     }
@@ -116,48 +118,42 @@ const SignUp = () => {
               </div>
               <div className="field input-field">
                 <input
-                  type={userDetails.hide.confirmPwd ? "password" : "text"}
+                  type={userSignupDetails.hide.confirmPwd ? "password" : "text"}
                   placeholder="Confirm Password"
                   className="password"
-                  onChange={(event) =>
-                    setUserDetails({
-                      ...userDetails,
-                      pwdMatch:
-                        event.target.value === userDetails.password
-                          ? true
-                          : false,
-                    })
-                  }
+                  name="confirmPassword"
+                  value={userSignupDetails.confirmPassword || ""}
+                  onChange={signupFormInputHandler}
                   required
                 />
-                {userDetails.hide.confirmPwd ? (
-                  <VisibilityOutlinedIcon
+                {userSignupDetails.hide.confirmPwd ? (
+                  <VisibilityOffOutlinedIcon
                     className="eye-icon"
                     onClick={() =>
-                      setUserDetails({
-                        ...userDetails,
+                      setUserSignupDetails({
+                        ...userSignupDetails,
                         hide: {
-                          ...userDetails.hide,
-                          confirmPwd: !userDetails.hide.confirmPwd,
+                          ...userSignupDetails.hide,
+                          confirmPwd: !userSignupDetails.hide.confirmPwd,
                         },
                       })
                     }
                   />
                 ) : (
-                  <VisibilityOffOutlinedIcon
+                  <VisibilityOutlinedIcon
                     className="eye-icon"
                     onClick={() =>
-                      setUserDetails({
-                        ...userDetails,
+                      setUserSignupDetails({
+                        ...userSignupDetails,
                         hide: {
-                          ...userDetails.hide,
-                          confirmPwd: !userDetails.hide.confirmPwd,
+                          ...userSignupDetails.hide,
+                          confirmPwd: !userSignupDetails.hide.confirmPwd,
                         },
                       })
                     }
                   />
                 )}
-                {!userDetails.pwdMatch ? (
+                {!userSignupDetails.pwdMatch ? (
                   <div className="input-error-msg">Passwords do not match</div>
                 ) : null}
               </div>
@@ -165,8 +161,8 @@ const SignUp = () => {
                 <button
                   type="submit"
                   className={
-                    !userDetails.pwdMatch
-                      ? "signup-btn class-for-margin"
+                    !userSignupDetails.pwdMatch
+                      ? "signup-btn-disabled"
                       : "signup-btn"
                   }
                 >
