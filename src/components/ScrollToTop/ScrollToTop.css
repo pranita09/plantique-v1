@@ -1,13 +1,13 @@
 .scroll-btn{
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 1.7rem;
+    right: 1.7rem;
     background-color: var(--price-color);
     border: none;
     max-height: 3rem;
     max-width: 3rem;
     border-radius: 50%;
-    padding: 0.3rem;
+    padding: 0.5rem;
 }
 .scroll-btn div{
     display: flex;
