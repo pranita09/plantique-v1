@@ -41,7 +41,7 @@ export const WishlistProvider = ({children}) =>{
            const {status, data: {wishlist}} = response;
            if(status===201){
             wishlistDispatch({type: ADD_TO_WISHLIST, payload: wishlist});
-            toast.success('Plant added to favorites!');
+            toast.success(`${product.title} added to favorites!`);
            }
         } catch (error) {
             console.log(error);
