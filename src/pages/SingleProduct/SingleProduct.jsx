@@ -15,10 +15,9 @@ const SingleProduct = () => {
   const {
     productState: { products },
   } = useProducts();
-  const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
-    useWishlist();
-  const { addToCart, isPresentInCart } = useCart();
-  const {token} = useAuth();
+  const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
+  const { addToCart, itemInCart } = useCart();
+  const { token } = useAuth();
 
   const { productID } = useParams();
 
@@ -131,32 +130,31 @@ const SingleProduct = () => {
                 </div>
 
                 <div className="card-action">
-                  {isPresentInCart(currentProduct) === -1 ? (
-                    <button
-                      className="single-product-cart-btn"
-                      onClick={ token ? () => addToCart(currentProduct) : ()=> navigate('/login')}
-                    >
-                      Add to Cart
-                    </button>
-                  ) : (
-                    <button
-                      className="single-product-cart-btn"
-                      onClick={() => navigate("/cart")}
-                    >
-                      Go to Cart
-                    </button>
-                  )}
+                  <button
+                    className="single-product-cart-btn"
+                    onClick={() =>
+                      token
+                        ? itemInCart(_id)
+                          ? navigate("/cart")
+                          : addToCart(currentProduct)
+                        : navigate("/login")
+                    }
+                  >
+                    {token && itemInCart(_id) ? "Go to Cart" : "Add to Cart"}
+                  </button>
                   <button
                     className="single-product-wishlist-btn"
                     onClick={() =>
-                      isPresentInWishlist(currentProduct) === -1
-                        ? token ? addToWishlist(currentProduct) : navigate('/login')
-                        : removeFromWishlist(currentProduct)
+                      token
+                        ? itemInWishlist(_id)
+                          ? removeFromWishlist(currentProduct)
+                          : addToWishlist(currentProduct)
+                        : navigate("/login")
                     }
                   >
-                    {isPresentInWishlist(currentProduct) === -1
-                      ? "Add to Wishlist"
-                      : "Remove from Wishlist "}
+                    {token && itemInWishlist(_id)
+                      ? "Remove from Wishlist"
+                      : "Add to Wishlist "}
                   </button>
                 </div>
               </div>

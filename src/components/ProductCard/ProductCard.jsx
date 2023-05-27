@@ -9,9 +9,9 @@ import { useAuth } from "../../contexts/auth-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
   const navigate = useNavigate();
-  const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
+  const { addToWishlist, removeFromWishlist, itemInWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, updateQuantityInCart } = useCart();
+  const { addToCart, updateQuantityInCart, itemInCart } = useCart();
   const {token} = useAuth();
   const {
     _id,
@@ -24,6 +24,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
     fastDelivery,
     onSale,
   } = product;
+
   return (
     <div className="product-card">
       <Link to={`/product/${_id}`}>
@@ -37,13 +38,13 @@ const ProductCard = ({ product, addedToWishlist }) => {
         </div>
       )}
       <div className="wishlist-btn">
-        {isPresentInWishlist(product) === -1 ? (
-          <FavoriteBorderRoundedIcon onClick={ token ? () => addToWishlist(product) : () => navigate("/login")} />
-        ) : (
+        { token && itemInWishlist(_id) ? (
           <FavoriteIcon
             className="wishlist-fav-icon"
             onClick={() => removeFromWishlist(product)}
-          />
+          />  
+        ) : (
+          <FavoriteBorderRoundedIcon onClick={ token ? () => addToWishlist(product) : () => navigate("/login")} />
         )}
       </div>
       <div className="card-details">
@@ -63,21 +64,13 @@ const ProductCard = ({ product, addedToWishlist }) => {
             </div>
           )}
         </div>
-        {isPresentInCart(product) === -1 ? (
-          <button
+          { !addedToWishlist ? <button
             className="add-to-cart-btn"
-            onClick={ token ? () => addToCart(product): ()=> navigate("/login")}
+            onClick={ ()=> token ? (itemInCart(_id) ? navigate("/cart") : addToCart(product)) : navigate("/login")}
           >
-            Add To Cart
+            { token && itemInCart(_id) ? "Go to Cart" :  "Add To Cart" }
           </button>
-        ) : !addedToWishlist ? (
-          <button
-            className="add-to-cart-btn go-to-cart-btn"
-            onClick={() => navigate("/cart")}
-          >
-            Go To Cart
-          </button>
-        ) : (
+         :  (
           <button
             className="add-to-cart-btn go-to-cart-btn"
             onClick={() => updateQuantityInCart(product, "increment")}

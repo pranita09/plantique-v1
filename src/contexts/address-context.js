@@ -82,7 +82,9 @@ export const AddressProvider = ({ children }) => {
   }
 
   useEffect(()=>{
-    getAddresses();
+    if(token){
+      getAddresses();
+    }
   },[token])
 
   return (

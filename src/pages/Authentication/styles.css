@@ -78,6 +78,7 @@ form .field{
 .form-link .link{
     color: var(--primary-color);
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .form-link .link:hover{

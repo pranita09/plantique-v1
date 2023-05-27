@@ -21,8 +21,7 @@ const Navbar = () => {
   const { SEARCH } = filterActionTypes;
 
   const activeIconStyles = ({isActive}) => ({
-    backgroundColor: isActive ? "lightgrey" : "transparent",
-    borderRadius: "50%",
+    scale: isActive ? "1.125" : "1"
   })
 
   return (

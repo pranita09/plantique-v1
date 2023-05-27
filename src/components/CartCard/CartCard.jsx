@@ -4,7 +4,7 @@ import "./CartCard.css";
 import { Link } from "react-router-dom";
 
 const CartCard = ({ cartProduct }) => {
-  const { addToWishlist, isPresentInWishlist } = useWishlist();
+  const { addToWishlist, itemInWishlist } = useWishlist();
   const { removeFromCart, updateQuantityInCart } = useCart();
   const { _id, title, imgSrc, updatedPrice, qty } = cartProduct;
 
@@ -38,7 +38,7 @@ const CartCard = ({ cartProduct }) => {
               </div>
             </div>
           </div>
-          {isPresentInWishlist(cartProduct) === -1 ? (
+          {!itemInWishlist(_id) ? (
             <button
               className="move-to-wishlist-btn"
               onClick={() => addToWishlist(cartProduct)}

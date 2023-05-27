@@ -63,14 +63,16 @@ export const WishlistProvider = ({children}) =>{
         }
     }
 
-    const isPresentInWishlist = (product) => wishlistState.wishlist.findIndex(({_id})=> _id === product._id);
+    const itemInWishlist = (productId) => wishlistState.wishlist.find((product)=> product._id === productId);
 
     useEffect(()=>{
-        getWishlist();
+        if(token){
+            getWishlist();
+        }
     },[token])
 
     return(
-        <WishlistContext.Provider value={{wishlistState, wishlistDispatch, isLoading, addToWishlist,removeFromWishlist, isPresentInWishlist}}>
+        <WishlistContext.Provider value={{wishlistState, wishlistDispatch, isLoading, addToWishlist, removeFromWishlist, itemInWishlist}}>
             {children}
         </WishlistContext.Provider>
     )

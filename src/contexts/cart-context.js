@@ -81,7 +81,7 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    const isPresentInCart = (product) => cartState.cart.findIndex(({_id})=> _id === product._id);
+    const itemInCart = (productId) => cartState.cart.find((product)=> product._id === productId);
 
     const isQuantityZeroInCart = (product) => product.qty === 0;
 
@@ -90,11 +90,13 @@ export const CartProvider = ({children}) => {
     const totalCheckoutAmount = totalPriceWithoutDiscount + deliveryCharges - totalDiscount;
 
     useEffect(()=>{
-        getCart();
+        if(token){
+            getCart();
+        }
     },[token])
 
     return(
-        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, isPresentInCart, removeFromCart, updateQuantityInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
+        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, removeFromCart, updateQuantityInCart, itemInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
             {children}
         </CartContext.Provider>
     )
