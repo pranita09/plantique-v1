@@ -18,7 +18,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
     title,
     imgSrc,
     price,
-    discount,
+    updatedPrice,
     starRating,
     inStock,
     fastDelivery,
@@ -55,7 +55,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
         <div className="price-delivery-tags">
           <div className="prices">
             <p className="old-price">₹{price}</p>
-            <p className="new-price">₹{discount}</p>
+            <p className="new-price">₹{updatedPrice}</p>
           </div>
           {fastDelivery && (
             <div className="delivery">

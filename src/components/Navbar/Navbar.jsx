@@ -3,7 +3,7 @@ import "./Navbar.css";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import { useAuth } from "../../contexts/auth-context";
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="nav-right">
           <NavLink style={activeIconStyles} to="/store">
             <div className="nav-icon">
-              <LocalMallOutlinedIcon />
+              <ExploreOutlinedIcon />
             </div>
           </NavLink>
           <NavLink style={activeIconStyles} to="/wishlist">

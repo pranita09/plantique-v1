@@ -29,7 +29,7 @@ const SingleProduct = () => {
     title,
     imgSrc,
     price,
-    discount,
+    updatedPrice,
     starRating,
     size,
     inStock,
@@ -66,7 +66,7 @@ const SingleProduct = () => {
 
                 <div className="card-content">
                   <div className="single-product-price">
-                    <div className="price">&#8377; {discount}</div>
+                    <div className="price">&#8377; {updatedPrice}</div>
                     <div className="previous-price">&#8377; {price}</div>
                   </div>
                 </div>

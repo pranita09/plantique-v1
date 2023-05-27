@@ -38,13 +38,13 @@
 .filter-icon{
     padding: 0.1rem 0.5rem;
     border-radius: 3px;
-    border: 1px solid var(--ternary-color);
+    border: 1px solid var(--primary-color);
     background-color: var(--bg-grey);
 }
 
 .filter-icon svg{
     font-size: 1.8rem;
-    color: var(--ternary-color)
+    color: var(--primary-color)
 }
 
 .products-container{
@@ -67,11 +67,11 @@
 .products-listing-outer-container ::-webkit-scrollbar-track {
     border-radius: 5px;
     margin-block: 0.25em;
-    background: var(--secondary-color);
+    background: var(--ternary-color);
 }
   
 .products-listing-outer-container ::-webkit-scrollbar-thumb {
-    background: var(--price-color);
+    background: var(--secondary-color);
     border-radius: 5px;
 }
 

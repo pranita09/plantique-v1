@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CartCard = ({ cartProduct }) => {
   const { addToWishlist, isPresentInWishlist } = useWishlist();
   const { removeFromCart, updateQuantityInCart } = useCart();
-  const { _id, title, imgSrc, discount, qty } = cartProduct;
+  const { _id, title, imgSrc, updatedPrice, qty } = cartProduct;
 
   return (
     <div className="cart-card-wrapper card-horizontal">
@@ -18,7 +18,7 @@ const CartCard = ({ cartProduct }) => {
           </Link>
           <div className="cart-card-content">
             <div className="cart-card-price">
-              <p>&#8377; {discount}</p>
+              <p>&#8377; {updatedPrice}</p>
             </div>
             <div className="cart-card-quantity">
               <span>Quantity: </span>

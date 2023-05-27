@@ -30,7 +30,7 @@
     font-size: 1rem;
     padding: 0.1rem 0.4rem;
     border-radius: 3px;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
     text-transform: uppercase;
 }
@@ -38,8 +38,8 @@
 .clear-filter:hover{
     cursor: pointer;
     background-color: white;
-    outline: 1px solid var(--price-color);
-    color: var(--price-color);
+    outline: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
  /* hide filter icons on large screen */
@@ -51,7 +51,7 @@
 }
 
 .filter-wrapper{
-    border-top: 1px solid var(--price-color);
+    border-top: 1px solid var(--secondary-color);
     padding-bottom: 0.5rem;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .filter-rating span svg{
-    color: var(--primary-color);
+    color: var(--yellow-color);
 }
 
 .filter-rating + input{
@@ -102,7 +102,7 @@
 }
 
 .filter-value{
-    accent-color: var(--price-color);
+    accent-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 768px) {
@@ -134,7 +134,7 @@
         padding: 0.2rem;
         border: 1px solid;
         border-radius: 50%;
-        background-color: var(--secondary-color);
+        background-color: var(--ternary-color);
     }
 
     .show-filter{

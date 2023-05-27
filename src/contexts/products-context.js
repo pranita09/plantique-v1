@@ -95,8 +95,8 @@ export const ProductsProvider = ({ children }) => {
   const filteredByPrice = productState.sortPriceRadioInput
     ? filteredByAvailability.sort((product1, product2) =>
         productState.sortPriceRadioInput === "hightolow"
-          ? product2.discount - product1.discount
-          : product1.discount - product2.discount
+          ? product2.updatedPrice - product1.updatedPrice
+          : product1.updatedPrice - product2.updatedPrice
       )
     : filteredByAvailability;
 

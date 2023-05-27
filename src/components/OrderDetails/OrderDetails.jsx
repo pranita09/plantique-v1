@@ -24,9 +24,9 @@ const OrderDetails = () => {
         {cart?.map((cartItem) => (
           <div key={cartItem._id} className="item">
             <div>
-              {cartItem.title} (&#8377;{cartItem.discount} X {cartItem.qty})
+              {cartItem.title} (&#8377;{cartItem.updatedPrice} X {cartItem.qty})
             </div>
-            <div>&#8377;{cartItem.discount * cartItem.qty}</div>
+            <div>&#8377;{cartItem.updatedPrice * cartItem.qty}</div>
           </div>
         ))}
       </div>
@@ -37,7 +37,7 @@ const OrderDetails = () => {
           <div>&#8377;{totalPriceWithoutDiscount}</div>
         </div>
         <div className="item">
-          <div>Total Discount</div>
+          <div>Total updatedPrice</div>
           <div>&#8377;{totalDiscount}</div>
         </div>
         <div className="item">

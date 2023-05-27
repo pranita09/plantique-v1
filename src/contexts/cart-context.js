@@ -85,7 +85,7 @@ export const CartProvider = ({children}) => {
 
     const isQuantityZeroInCart = (product) => product.qty === 0;
 
-    const totalPriceWithoutDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.discount*curr.qty ,0);
+    const totalPriceWithoutDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.updatedPrice*curr.qty ,0);
     const totalDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.qty*fixedDiscount ,0);
     const totalCheckoutAmount = totalPriceWithoutDiscount + deliveryCharges - totalDiscount;
 

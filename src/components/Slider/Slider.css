@@ -18,7 +18,7 @@
     left: 8rem;
     border-radius: 0.4rem;
     border: none;
-    background-color: var(--ternary-color);
+    background-color: var(--primary-color);
     color: white;
 }
 @media(min-width: 768px){

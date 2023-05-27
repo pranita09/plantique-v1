@@ -12,7 +12,7 @@
     padding: 0.1rem 0.8rem;
     position: absolute;
     top: 0;
-    background-color: var(--primary-color);
+    background-color: var(--yellow-color);
     border-radius: 2px;
 }
 .wishlist-btn{
@@ -20,7 +20,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--ternary-color);
     border-radius: 0 0 0 5px;
 }
 .product-img{
@@ -51,10 +51,10 @@
     align-items: center;
 }
 .star svg{
-    color: var(--primary-color);
+    color: var(--yellow-color);
 }
 .star-value{
-    color: var(--price-color);
+    color: var(--secondary-color);
 }
 .price-delivery-tags{
     display: flex;
@@ -65,7 +65,7 @@
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    color: var(--price-color)
+    color: var(--secondary-color)
 }
 .old-price{
     font-size: small;
@@ -80,7 +80,7 @@
 .card-details button{
     margin: 0.5rem 0 0 0;
     padding: 0.3rem 0;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     text-transform: uppercase;
@@ -89,16 +89,16 @@
 }
 .card-details .add-to-cart-btn:hover{
     background-color: white;
-    outline: 1px solid var(--price-color);
-    color: var(--price-color);
+    outline: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
     cursor: pointer;
     font-weight: bold;
 }
 
 /* .go-to-cart-btn{
     background-color: white;;
-    outline: 1px solid var(--price-color); 
-    color: var(--price-color);
+    outline: 1px solid var(--secondary-color); 
+    color: var(--secondary-color);
 } */
 
 .product-card .out-of-stock-tag div{
@@ -109,7 +109,7 @@
     border-radius: 2px;
     text-align: center;
     color: white;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
 } 
 
 .product-card .out-of-stock-tag{

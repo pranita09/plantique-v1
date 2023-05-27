@@ -28,7 +28,7 @@
     padding: 0.25rem 1rem;
     margin: 0.5rem 0;
     border-radius: 0 5px 5px 0;
-    background-color: var(--primary-color);
+    background-color: var(--yellow-color);
 }
 
 .card-heading{
@@ -40,7 +40,7 @@
     padding: 0 1rem 0 1rem;
     border-radius: 5px;
     width: 5rem;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
 }
 
 .rating-block{
@@ -91,11 +91,11 @@
 
 .card-tags .tag .tag-icon svg{
     font-size: 1.3rem;
-    color: var(--price-color);
+    color: var(--secondary-color);
 }
 
 .card-body hr{
-    background-color:var(--price-color);
+    background-color:var(--secondary-color);
 }
 
 .card-description{
@@ -139,14 +139,14 @@
 }
 
 .card-action .single-product-cart-btn{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
 }
 
 .card-action .single-product-wishlist-btn{
     background-color: white;
-    color: var(--price-color);
-    outline: 1px solid var(--price-color);
+    color: var(--secondary-color);
+    outline: 1px solid var(--secondary-color);
 }
 
 @media screen and (min-width: 768px){
@@ -180,12 +180,12 @@
 
     .card-action .single-product-cart-btn:hover{
         background-color: white;
-        color: var(--price-color);
-        outline: 1px solid var(--price-color);
+        color: var(--secondary-color);
+        outline: 1px solid var(--secondary-color);
     }
     
     .card-action .single-product-wishlist-btn:hover{
-        background-color: var(--price-color);
+        background-color: var(--secondary-color);
         color: white;
         outline: none;
     }

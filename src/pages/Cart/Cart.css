@@ -37,13 +37,13 @@
     border-radius: 5px;
     background-color: white;
     margin: 0.8rem 0;
-    color: var(--price-color);
-    outline: 1px solid var(--price-color);
+    color: var(--secondary-color);
+    outline: 1px solid var(--secondary-color);
     font-size: 0.9rem;
 }
 
 .text-center button:hover{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
     cursor: pointer;
 }

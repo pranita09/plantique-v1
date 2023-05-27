@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 1.7rem;
     right: 1.7rem;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     border: none;
     max-height: 3rem;
     max-width: 3rem;

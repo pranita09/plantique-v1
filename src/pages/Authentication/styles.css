@@ -43,24 +43,24 @@ form .field{
 
 .signup-btn,
 .login-btn{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;    
 }
 
 .signup-btn:hover,
 .login-btn:hover{
     cursor: pointer;
-    background-color: var(--ternary-color);
+    background-color: var(--primary-color);
 }
 
 .guest-login-btn{
     background-color: white;
-    outline: 1px solid var(--price-color);
-    color: var(--price-color);
+    outline: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .guest-login-btn:hover{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
     outline: none;
     cursor: pointer;
@@ -76,7 +76,7 @@ form .field{
 }
 
 .form-link .link{
-    color: var(--ternary-color);
+    color: var(--primary-color);
     font-size: 0.9rem;
 }
 

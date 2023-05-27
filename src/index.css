@@ -13,22 +13,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 :root{
-  --primary-color: #fed02f;
-  --secondary-color: #f5dbcb;
-  --ternary-color: #1b4b33;
-  --price-color: #149253;
+  --primary-color: #1b4b33;
+  --secondary-color: #149253;
+  --ternary-color: #f5dbcb;
   --text-secondary-color: #545963;
-  --danger-color: #BF4342; 
   --blue-color:#60a5fa;
+  --yellow-color: #fed02f;
   --bg-grey: #f8f8f8;
+  --danger-color: #BF4342; 
 }
+
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
 a:-webkit-any-link {
   text-decoration: none;
   color: inherit;
