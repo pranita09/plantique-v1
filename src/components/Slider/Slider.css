@@ -1,6 +1,6 @@
 .slider-container{
     width: 100%;
-    min-height: 16rem;
+    min-height: 18rem;
     padding: 0.2rem;
     border-radius: 0.3rem;
     position: relative;
@@ -14,17 +14,16 @@
 .slider-container .slider-btn{
     padding: 0.5rem 1.5rem;
     position: absolute;
-    top: 13rem;
+    top: 14.5rem;
     left: 8rem;
     border-radius: 0.4rem;
     border: none;
     background-color: var(--ternary-color);
     color: white;
-    cursor: pointer;
 }
 @media(min-width: 768px){
     .slider-container{
-        min-height: 22rem;
+        min-height: 25rem;
         padding: 0.5rem;
         border-radius: 0.5rem;
     }
@@ -32,17 +31,21 @@
         border-radius: 0.5rem;
     }
     .slider-container .slider-btn{
-        padding: 1rem 2rem;
-        top: 17rem;
-        left: 23rem;
-        font-size: 1rem;
-        color: white;
+        padding: 0.8rem 1.8rem;
+        top: 20rem;
+        left: 21rem;
+        font-size: 1.1rem;
+    }
+    .slider-btn:hover{
+        transition: 0.4s; 
+        scale: 1.11;
+        cursor: pointer;  
     }
     
 }
 @media(min-width: 1024px){
     .slider-container{
-        min-height: 30rem;
+        min-height: 32rem;
         padding: 0.5rem;
         border-radius: 0.8rem;
     }
@@ -50,15 +53,8 @@
         border-radius: 0.8rem;
     }
     .slider-container .slider-btn{
-        padding: 1rem 2rem;
-        top: 25rem;
+        top: 26.5rem;
         left: 38rem;
-        font-size: 1rem;
         color: white;
-    }
-    .slider-btn:hover{
-        background-color: var(--primary-color);
-        transition: 0.4s;  
-        color: black;  
     }
 }

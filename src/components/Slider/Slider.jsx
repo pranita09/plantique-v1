@@ -13,7 +13,7 @@ function Slider() {
     return (
       <div className='slider-container'>
           <img src={slides[2]} alt='banner'/>
-          <Link to='/store'><button className='slider-btn'>Shop Now</button></Link>
+          <Link to='/store'><button className='slider-btn'>Explore Now</button></Link>
       </div>
    )
 }
