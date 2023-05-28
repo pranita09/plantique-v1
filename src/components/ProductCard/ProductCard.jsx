@@ -82,9 +82,11 @@ const ProductCard = ({ product, addedToWishlist }) => {
         )}
       </div>
       {!inStock ? (
+        <Link to={`/product/${_id}`}>
         <div className="out-of-stock-tag">
-          <div>Out of Stock</div>
+          <div onClick={()=> getProductById(_id)}>Out of Stock</div>
         </div>
+        </Link>
       ) : null}
     </div>
   );

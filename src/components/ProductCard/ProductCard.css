@@ -95,12 +95,6 @@
     font-weight: bold;
 }
 
-/* .go-to-cart-btn{
-    background-color: white;;
-    outline: 1px solid var(--secondary-color); 
-    color: var(--secondary-color);
-} */
-
 .product-card .out-of-stock-tag div{
     margin: 1rem;
     padding: 0.2rem 1rem;
@@ -110,6 +104,7 @@
     text-align: center;
     color: white;
     background-color: var(--secondary-color);
+    text-transform: uppercase;
 } 
 
 .product-card .out-of-stock-tag{
