@@ -224,7 +224,7 @@ export const products = [
   },
 
   {
-    _id: "bb019e8d-f5d9-483d-8260-04d1ab280e77",
+    _id: "bb019e8d-f5d9-483d-8260-04d1ab280e97",
     title: "Lemon Grass",
     imgSrc: "https://cdn.shopify.com/s/files/1/0579/7924/0580/products/lemon-grass-31793410343044.jpg?v=1675599126&width=375",
     description: "If you are a tea lover then you know exactly the kind of freshness the Lemongrass brings to any setting. Native to Southeast Asia, the Lemongrass is a treasure trove of benefits. Excellent addition to your home gardens for its tall grass-like appearance, fresh lemony smell, and its ability to keep insects away, also this baby will look lush with very little care. You can use it to make your own cleaning spray or use it as a room freshener.",
