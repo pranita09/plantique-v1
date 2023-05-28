@@ -6,9 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 import { useAuth } from "../../contexts/auth-context";
+import { useProducts } from "../../contexts/products-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
   const navigate = useNavigate();
+  const {getProductById} = useProducts();
   const { addToWishlist, removeFromWishlist, itemInWishlist } =
     useWishlist();
   const { addToCart, updateQuantityInCart, itemInCart } = useCart();
@@ -29,7 +31,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
     <div className="product-card">
       <Link to={`/product/${_id}`}>
         <div className="product-img">
-          <img src={imgSrc} alt={title} />
+          <img src={imgSrc} alt={title} onClick={()=> getProductById(_id)}/>
         </div>
       </Link>
       {onSale && (

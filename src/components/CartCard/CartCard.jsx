@@ -1,9 +1,11 @@
 import { useCart } from "../../contexts/cart-context";
+import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 import "./CartCard.css";
 import { Link } from "react-router-dom";
 
 const CartCard = ({ cartProduct }) => {
+  const {getProductById} = useProducts();
   const { addToWishlist, itemInWishlist } = useWishlist();
   const { removeFromCart, updateQuantityInCart } = useCart();
   const { _id, title, imgSrc, updatedPrice, qty } = cartProduct;
@@ -14,7 +16,7 @@ const CartCard = ({ cartProduct }) => {
         <img src={imgSrc} alt={title} className="cart-card-img" />
         <div className="cart-card-body">
           <Link to={`/product/${_id}`}>
-            <p className="cart-card-title">{title}</p>
+            <p className="cart-card-title" onClick={()=> getProductById(_id)}>{title}</p>
           </Link>
           <div className="cart-card-content">
             <div className="cart-card-price">

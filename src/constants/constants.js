@@ -29,6 +29,7 @@ const filterActionTypes = {
   SORT_BY_PRICE: "SORT_BY_PRICE",
   SORT_BY_RATING_RANGE: "SORT_BY_RATING_RANGE",
   CLEAR_FILTERS: "CLEAR_FILTERS",
+  GET_PRODUCT_DETAILS: "GET_PRODUCT_DETAILS",
 };
 
 const wishlistActionTypes = {

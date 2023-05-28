@@ -7,6 +7,7 @@ import {
 } from "../reducers/productReducer";
 import {filterActionTypes} from "../constants/constants";
 import getCategoriesService from "../services/products-services/getCategoriesService";
+import getProductByIdService from "../services/products-services/getProductByIdService";
 
 export const ProductsContext = createContext();
 
@@ -18,7 +19,7 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES } = filterActionTypes;
+  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES, GET_PRODUCT_DETAILS } = filterActionTypes;
 
   const getProducts = async () => {
     setIsLoading(true);
@@ -58,6 +59,21 @@ export const ProductsProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
+
+  const getProductById = async(productId) => {
+    setIsLoading(true);
+    try {
+      const response = await getProductByIdService(productId)
+      const {status, data: {product}} = response;
+      if(status === 200){
+        productDispatch({type: GET_PRODUCT_DETAILS, payload: product});
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   const toggleFilter = () => {
     setShowFilter((showFilter) => !showFilter);
@@ -120,6 +136,7 @@ export const ProductsProvider = ({ children }) => {
         showFilter,
         toggleFilter,
         filteredBySize,
+        getProductById
       }}
     >
       {children}
