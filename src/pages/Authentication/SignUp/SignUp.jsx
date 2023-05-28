@@ -4,6 +4,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { useState } from "react";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { useAuth } from "../../../contexts/auth-context";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const { signupHandler } = useAuth();
@@ -33,7 +34,11 @@ const SignUp = () => {
 
   const signupFormSubmitHandler = (event) => {
     event.preventDefault();
-    signupHandler(userSignupDetails);
+    if(!userSignupDetails.pwdMatch){
+      toast.error("Please enter valid inputs.")
+    }else{
+      signupHandler(userSignupDetails);
+    }
   };
 
   return (

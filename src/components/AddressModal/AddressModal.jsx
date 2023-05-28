@@ -1,8 +1,9 @@
 import { v4 as uuid } from "uuid";
 import { useEffect } from "react";
-import {addressActionTypes} from "../../constants/constants";
+import { addressActionTypes } from "../../constants/constants";
 import { useAddress } from "../../contexts/address-context";
 import "./AddressModal.css";
+import { toast } from "react-hot-toast";
 
 const dummyAddress = {
   name: "Aditi Shah",
@@ -16,7 +17,11 @@ const dummyAddress = {
 
 const AddressModal = () => {
   const {
-    addressState: { addresses, addressFormData },
+    addressState: {
+      addresses,
+      addressFormData,
+      addressFormError: { zipcodeError, mobileError },
+    },
     addressDispatch,
     addAddress,
     editAddress,
@@ -27,11 +32,27 @@ const AddressModal = () => {
     SET_ADDRESS_DETAILS,
     RESET_ADDRESS_FORM,
     SET_DUMMY_ADDRESS,
+    ZIPCODE_ERROR,
+    MOBILE_ERROR,
   } = addressActionTypes;
 
   const addressFormInputHandler = (event) => {
     const { name, value } = event.target;
+
     addressDispatch({ type: SET_ADDRESS_DETAILS, payload: { name, value } });
+
+    if (name === "zipcode") {
+      const zipcodeError =
+        value.length > 0 && !/^([1-9]{1}[0-9]{3}|[1-9]{1}[0-9]{5})$/.test(value)
+          ? true
+          : false;
+      addressDispatch({ type: ZIPCODE_ERROR, payload: { zipcodeError } });
+    }
+    if (name === "mobile") {
+      const mobileError =
+        value.length > 0 && !/^[1-9]{1}[0-9]{9}$/.test(value) ? true : false;
+      addressDispatch({ type: MOBILE_ERROR, payload: { mobileError } });
+    }
   };
 
   const fillDummyAddressHandler = () => {
@@ -40,15 +61,19 @@ const AddressModal = () => {
 
   const addAddressHandler = (event) => {
     event.preventDefault();
-    const addressExist = addresses.find(
-      (address) => address._id === addressFormData._id
-    );
-    if (addressExist) {
-      editAddress(addressFormData, addressExist._id);
+    if (zipcodeError || mobileError) {
+      toast.error("Please enter valid inputs.");
     } else {
-      addAddress({ ...addressFormData, _id: uuid() });
+      const addressExist = addresses.find(
+        (address) => address._id === addressFormData._id
+      );
+      if (addressExist) {
+        editAddress(addressFormData, addressExist._id);
+      } else {
+        addAddress({ ...addressFormData, _id: uuid() });
+      }
+      addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
     }
-    addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
   };
 
   useEffect(() => {
@@ -107,6 +132,9 @@ const AddressModal = () => {
             required
           />
         </div>
+        {zipcodeError ? (
+          <div className="address-input-error-msg">Invalid zipcode</div>
+        ) : null}
         <div className="field input-field">
           <input
             type="text"
@@ -140,9 +168,17 @@ const AddressModal = () => {
             required
           />
         </div>
+        {mobileError ? (
+          <div className="address-input-error-msg">Invalid mobile number</div>
+        ) : null}
         <div className="address-form-action-btns">
           <div className="field input-field">
-            <button className="add-btn" type="submit">
+            <button
+              className={
+                zipcodeError || mobileError ? "add-btn-disabled" : "add-btn"
+              }
+              type="submit"
+            >
               Add
             </button>
           </div>

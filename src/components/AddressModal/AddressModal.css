@@ -18,6 +18,13 @@
     background-color: var(--secondary-color);
 }
 
+.address-form-action-btns .add-btn-disabled{
+    color: white;
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .address-form-action-btns .add-btn:hover{
     background-color: var(--primary-color);
     cursor: pointer;
@@ -38,5 +45,9 @@
     color: white;
     background-color: var(--secondary-color);
     cursor: pointer;
+}
+.address-input-error-msg{
+    color: var(--danger-color);
+    font-size: 0.8rem;
 }
 

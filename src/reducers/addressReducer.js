@@ -9,6 +9,8 @@ const {
   SHOW_ADDRESS_MODAL,
   REMOVE_ADDRESS,
   RESET_ADDRESS_FORM,
+  ZIPCODE_ERROR,
+  MOBILE_ERROR,
   SET_SELECTED_ADDRESS_ID,
 } = addressActionTypes;
 
@@ -27,6 +29,10 @@ export const initialAddressState = {
   addresses: [],
   showAddressModal: false,
   addressFormData: initialAddressInput,
+  addressFormError: {
+    zipcodeError: false,
+    mobileError: false,
+  },
   selectedAddressId: null,
 };
 
@@ -58,6 +64,10 @@ const addressReducer = (state, { type, payload }) => {
       return { ...state, addresses: payload };
     case RESET_ADDRESS_FORM:
       return { ...state, addressFormData: payload };
+    case ZIPCODE_ERROR:
+      return {...state, addressFormError: {...state.addressFormError, zipcodeError: payload.zipcodeError}}
+    case MOBILE_ERROR:
+      return {...state, addressFormError: {...state.addressFormError, mobileError: payload.mobileError}}
     case SET_SELECTED_ADDRESS_ID:
         return {...state, selectedAddressId: payload};
     default:
