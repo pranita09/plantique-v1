@@ -39,7 +39,7 @@ const SingleProduct = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="single-product-outer-container">
+        <div className="single-product-outer-container page-wrapper">
           <div className="single-product-inner-container">
             <div className="single-product">
               <div className="img-div">
