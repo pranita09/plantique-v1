@@ -1,21 +1,81 @@
+import { toast } from "react-hot-toast";
 import { useAddress } from "../../contexts/address-context";
 import { useCart } from "../../contexts/cart-context";
 import "./OrderDetails.css";
+import { useAuth } from "../../contexts/auth-context";
+import { useProducts } from "../../contexts/products-context";
+import { filterActionTypes } from "../../constants/constants";
+import popper from "../../utils/Popper";
+import { useNavigate } from "react-router-dom";
 
 const OrderDetails = () => {
+
+  const navigate = useNavigate();
+
+  const {currentUser} = useAuth();
+
+  const {productDispatch} = useProducts();
+
   const {
     cartState: { cart },
     deliveryCharges,
     totalPriceWithoutDiscount,
     totalDiscount,
     totalCheckoutAmount,
+    clearCart,
   } = useCart();
 
   const {
     addressState: { addresses, selectedAddressId },
   } = useAddress();
 
+  const {SET_ORDER_LIST} = filterActionTypes;
+
   const currentAddress = addresses.find(({ _id }) => _id === selectedAddressId);
+
+  const handlePaymentSuccess = (response) => {
+    const orderDetail = {
+      id: response.razorpay_payment_id,
+      productsList: [...cart],
+      address: currentAddress,
+      amount: totalCheckoutAmount,
+      date: new Date(),
+    }
+    productDispatch({type: SET_ORDER_LIST, payload: orderDetail})
+    navigate("/order-successful");
+    popper();
+    clearCart();
+    setTimeout(()=>{
+      navigate("/profile/orders");
+    },4000)
+  }
+
+  const razorpayOptions = {
+    key: "rzp_test_00dP2uDP2yHZOB",
+    amount: (totalCheckoutAmount) * 100,
+    name: "Plantique",
+    description: "Thank You For Ordering",
+    image:
+      "https://cdn.shopify.com/s/files/1/0579/7924/0580/files/Bestseller-1_2x_9a883cf1-58ba-4c74-badf-f02924575b68_small.png?v=1656416175",
+    handler: (response) => handlePaymentSuccess(response),
+    prefill: {
+      name: currentUser?.firstName,
+      email: currentUser?.email,
+      contact: currentAddress?.mobile,
+    },
+    notes: {
+      address: currentAddress,
+    },
+  }
+
+  const placeOrderBtnHandler = () => {
+    if(currentAddress){
+      const razorpayInstance = new window.Razorpay(razorpayOptions);
+      razorpayInstance.open();
+    }else{
+      toast.error('Please select an address to proceed further.');
+    }
+  }
 
   return (
     <div className="order-details-container">
@@ -67,7 +127,7 @@ const OrderDetails = () => {
           <p>Add an Address to Proceed.</p>
         )}
       </div>
-      <button className="place-order-btn">Place Order</button>
+      <button className="place-order-btn" onClick={()=> placeOrderBtnHandler()}>Place Order</button>
     </div>
   );
 };
