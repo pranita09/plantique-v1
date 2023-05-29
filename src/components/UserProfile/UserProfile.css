@@ -22,7 +22,7 @@
 .profile-details span{
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--ternary-color);
+    color: var(--primary-color);
 }
 
 .profile-container .logout-btn{

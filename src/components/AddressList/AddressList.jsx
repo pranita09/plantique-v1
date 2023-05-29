@@ -2,13 +2,13 @@ import './AddressList.css';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddressModal from '../AddressModal/AddressModal';
 import { useAddress } from '../../contexts/address-context';
-import addressTypes from '../../constants/addressTypes';
+import {addressActionTypes} from '../../constants/constants';
 import Loader from '../../components/Loader/Loader';
 
 const AddressList = () =>{
 
     const {addressState: {addresses, showAddressModal}, addressDispatch, removeAddress, isLoading} = useAddress();
-    const {SHOW_ADDRESS_MODAL, EDIT_ADDRESS_DETAILS} = addressTypes;
+    const {SHOW_ADDRESS_MODAL, EDIT_ADDRESS_DETAILS} = addressActionTypes;
 
     const editAddressHandler = (addressToEdit) =>{
         addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: true});

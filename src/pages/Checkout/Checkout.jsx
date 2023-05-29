@@ -3,12 +3,12 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import AddressModal from '../../components/AddressModal/AddressModal';
 import { useAddress } from '../../contexts/address-context';
-import addressTypes from '../../constants/addressTypes';
+import {addressActionTypes} from '../../constants/constants';
 
 const Checkout = () =>{
 
     const {addressState: {addresses, showAddressModal, selectedAddressId}, addressDispatch} = useAddress();
-    const {SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID} = addressTypes;
+    const {SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID} = addressActionTypes;
 
     return(
         <div className="page-wrapper">

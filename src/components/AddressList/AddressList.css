@@ -7,16 +7,16 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.25rem 0.8rem;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
-    border: 1px solid var(--price-color);
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
 }
 
 .addresses-container .add-address-btn:hover{
     background-color: white;
-    color: var(--price-color);
-    border: 1px solid var(--price-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     cursor: pointer;
 }
@@ -32,7 +32,7 @@
 
 .addresses-container .addresses-list .address {
     padding: 0.5rem;
-    border-bottom: 1px solid var(--price-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 .addresses-container .addresses-list .address p:first-of-type{

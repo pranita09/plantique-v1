@@ -13,7 +13,7 @@ const ProductListing = () =>{
 
     return(
         <div className='products-listing-outer-container page-wrapper'>
-            { isLoading ? (<Loader />) :<>
+            { isLoading ? (<div className='loader-container'><Loader /></div>) :<>
             <div className='products-filters-container'>
                 <ProductFilters />
             </div>

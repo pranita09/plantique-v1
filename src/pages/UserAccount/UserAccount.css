@@ -29,8 +29,8 @@
 }
 
 .account-wrapper .account-tabs .active-tab{
-    color: var(--price-color);
-    border-bottom: 2px solid var(--price-color);
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .account-wrapper .account-data{

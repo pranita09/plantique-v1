@@ -15,14 +15,14 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.5rem 1rem;
-    outline: 1px solid var(--price-color);
+    outline: 1px solid var(--secondary-color);
     border-radius: 3px;
-    color: var(--price-color);
+    color: var(--secondary-color);
 }
 
 .page-action:hover{
     cursor: pointer;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     border: none;
     color: white;
 }

@@ -6,7 +6,7 @@ import getWishlistService from "../services/wishlist-services/getWishlistService
 import { useAuth } from "./auth-context";
 import { useReducer } from "react";
 import wishlistReducer, { initialWishlistState } from "../reducers/wishlistReducer";
-import wishlistTypes from "../constants/wishlistTypes";
+import {wishlistActionTypes} from "../constants/constants"
 import addToWishlistService from "../services/wishlist-services/addToWishlistService";
 import removeFromWishlistService from "../services/wishlist-services/removeFromWishlistService";
 
@@ -18,7 +18,7 @@ export const WishlistProvider = ({children}) =>{
     const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, initialWishlistState);
     const [isLoading, setIsLoading] = useState(false);
 
-    const {DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST} = wishlistTypes;
+    const {DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST} = wishlistActionTypes;
 
     const getWishlist = async() =>{
         setIsLoading(true);
@@ -41,7 +41,7 @@ export const WishlistProvider = ({children}) =>{
            const {status, data: {wishlist}} = response;
            if(status===201){
             wishlistDispatch({type: ADD_TO_WISHLIST, payload: wishlist});
-            toast.success('Plant added to favorites!');
+            toast.success(`${product.title} added to favorites!`);
            }
         } catch (error) {
             console.log(error);
@@ -63,14 +63,16 @@ export const WishlistProvider = ({children}) =>{
         }
     }
 
-    const isPresentInWishlist = (product) => wishlistState.wishlist.findIndex(({_id})=> _id === product._id);
+    const itemInWishlist = (productId) => wishlistState.wishlist.find((product)=> product._id === productId);
 
     useEffect(()=>{
-        getWishlist();
+        if(token){
+            getWishlist();
+        }
     },[token])
 
     return(
-        <WishlistContext.Provider value={{wishlistState, wishlistDispatch, isLoading, addToWishlist,removeFromWishlist, isPresentInWishlist}}>
+        <WishlistContext.Provider value={{wishlistState, wishlistDispatch, isLoading, addToWishlist, removeFromWishlist, itemInWishlist}}>
             {children}
         </WishlistContext.Provider>
     )

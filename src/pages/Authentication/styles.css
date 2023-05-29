@@ -43,24 +43,32 @@ form .field{
 
 .signup-btn,
 .login-btn{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;    
+}
+
+.signup-btn-disabled{
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 0.5rem;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .signup-btn:hover,
 .login-btn:hover{
     cursor: pointer;
-    background-color: var(--ternary-color);
+    background-color: var(--primary-color);
 }
 
 .guest-login-btn{
     background-color: white;
-    outline: 1px solid var(--price-color);
-    color: var(--price-color);
+    outline: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .guest-login-btn:hover{
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     color: white;
     outline: none;
     cursor: pointer;
@@ -76,8 +84,9 @@ form .field{
 }
 
 .form-link .link{
-    color: var(--ternary-color);
+    color: var(--primary-color);
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .form-link .link:hover{
@@ -100,10 +109,6 @@ form .field{
     color: var(--danger-color);
     font-size: 0.8rem;
     padding-bottom: 0.5rem;
-}
-
-.class-for-margin{
-    margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 570px ) {

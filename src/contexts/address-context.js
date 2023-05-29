@@ -6,7 +6,7 @@ import addressReducer, {
 } from "../reducers/addressReducer";
 import { useAuth } from "./auth-context";
 import getAddressesService from "../services/address-services/getAddressesService";
-import addressTypes from "../constants/addressTypes";
+import {addressActionTypes} from "../constants/constants";
 import addAddressService from "../services/address-services/addAddressService";
 import removeAddressService from '../services/address-services/removeAddressService';
 import editAddressService from '../services/address-services/editAddressService';
@@ -23,7 +23,7 @@ export const AddressProvider = ({ children }) => {
   );
   const [isLoading, setIsLoading] = useState(false);
 
-  const {DISPLAY_ADDRESSES, ADD_NEW_ADDRESS, REMOVE_ADDRESS} = addressTypes;
+  const {DISPLAY_ADDRESSES, ADD_NEW_ADDRESS, REMOVE_ADDRESS} = addressActionTypes;
 
   const getAddresses = async() =>{
     setIsLoading(true);
@@ -82,7 +82,9 @@ export const AddressProvider = ({ children }) => {
   }
 
   useEffect(()=>{
-    getAddresses();
+    if(token){
+      getAddresses();
+    }
   },[token])
 
   return (

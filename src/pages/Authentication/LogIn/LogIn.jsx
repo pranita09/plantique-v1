@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useAuth } from "../../../contexts/auth-context";
 
 const LogIn = () => {
-  const { loginHandler } = useAuth();
+  const { loginHandler} = useAuth();
 
   const [userLoginDetails, setUserLoginDetails] = useState({
     email: "",
@@ -18,6 +18,11 @@ const LogIn = () => {
     email: "monikashah@gmail.com",
     password: "monikashah",
   };
+
+  const loginFormInputHandler = (event) => {
+    const {name, value} = event.target;
+    setUserLoginDetails({...userLoginDetails, [name]: value});
+  }
 
   const loginFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -36,34 +41,30 @@ const LogIn = () => {
               <input
                 type="email"
                 placeholder="Email"
+                name="email"
+                value={userLoginDetails.email || ""}
                 className="input"
-                onChange={(event) =>
-                  setUserLoginDetails({
-                    ...userLoginDetails,
-                    email: event.target.value,
-                  })
-                }
+                onChange={loginFormInputHandler}
+                required
               />
             </div>
             <div className="field input-field">
               <input
                 type={userLoginDetails.hidePwd ? "password" : "text"}
                 placeholder="Password"
+                name="password"
+                value={userLoginDetails.password || ""}
                 className="password"
-                onChange={(event) =>
-                  setUserLoginDetails({
-                    ...userLoginDetails,
-                    password: event.target.value,
-                  })
-                }
+                onChange={loginFormInputHandler}
+                required
               />
               {userLoginDetails.hidePwd ? (
-                <VisibilityOutlinedIcon
+                <VisibilityOffOutlinedIcon
                   className="eye-icon"
                   onClick={() => setUserLoginDetails({...userLoginDetails, hidePwd: !userLoginDetails.hidePwd})}
                 />
               ) : (
-                <VisibilityOffOutlinedIcon
+                <VisibilityOutlinedIcon
                   className="eye-icon"
                   onClick={() => setUserLoginDetails({...userLoginDetails, hidePwd: !userLoginDetails.hidePwd})}
                 />

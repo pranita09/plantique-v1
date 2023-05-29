@@ -2,30 +2,36 @@ import "./ProductCard.css";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
+import { useAuth } from "../../contexts/auth-context";
+import { useProducts } from "../../contexts/products-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
-  const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
+  const navigate = useNavigate();
+  const {getProductById} = useProducts();
+  const { addToWishlist, removeFromWishlist, itemInWishlist } =
     useWishlist();
-  const { addToCart, isPresentInCart, navigate, updateQuantityInCart } = useCart();
+  const { addToCart, updateQuantityInCart, itemInCart } = useCart();
+  const {token} = useAuth();
   const {
     _id,
     title,
     imgSrc,
     price,
-    discount,
+    updatedPrice,
     starRating,
     inStock,
     fastDelivery,
     onSale,
   } = product;
+
   return (
     <div className="product-card">
       <Link to={`/product/${_id}`}>
         <div className="product-img">
-          <img src={imgSrc} alt={title} />
+          <img src={imgSrc} alt={title} onClick={()=> getProductById(_id)}/>
         </div>
       </Link>
       {onSale && (
@@ -34,13 +40,13 @@ const ProductCard = ({ product, addedToWishlist }) => {
         </div>
       )}
       <div className="wishlist-btn">
-        {isPresentInWishlist(product) === -1 ? (
-          <FavoriteBorderRoundedIcon onClick={() => addToWishlist(product)} />
-        ) : (
+        { token && itemInWishlist(_id) ? (
           <FavoriteIcon
             className="wishlist-fav-icon"
             onClick={() => removeFromWishlist(product)}
-          />
+          />  
+        ) : (
+          <FavoriteBorderRoundedIcon onClick={ token ? () => addToWishlist(product) : () => navigate("/login")} />
         )}
       </div>
       <div className="card-details">
@@ -52,7 +58,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
         <div className="price-delivery-tags">
           <div className="prices">
             <p className="old-price">₹{price}</p>
-            <p className="new-price">₹{discount}</p>
+            <p className="new-price">₹{updatedPrice}</p>
           </div>
           {fastDelivery && (
             <div className="delivery">
@@ -60,21 +66,13 @@ const ProductCard = ({ product, addedToWishlist }) => {
             </div>
           )}
         </div>
-        {isPresentInCart(product) === -1 ? (
-          <button
+          { !addedToWishlist ? <button
             className="add-to-cart-btn"
-            onClick={() => addToCart(product)}
+            onClick={ ()=> token ? (itemInCart(_id) ? navigate("/cart") : addToCart(product)) : navigate("/login")}
           >
-            Add To Cart
+            { token && itemInCart(_id) ? "Go to Cart" :  "Add To Cart" }
           </button>
-        ) : !addedToWishlist ? (
-          <button
-            className="add-to-cart-btn go-to-cart-btn"
-            onClick={() => navigate("/cart")}
-          >
-            Go To Cart
-          </button>
-        ) : (
+         :  (
           <button
             className="add-to-cart-btn go-to-cart-btn"
             onClick={() => updateQuantityInCart(product, "increment")}
@@ -84,9 +82,11 @@ const ProductCard = ({ product, addedToWishlist }) => {
         )}
       </div>
       {!inStock ? (
+        <Link to={`/product/${_id}`}>
         <div className="out-of-stock-tag">
-          <div>Out of Stock</div>
+          <div onClick={()=> getProductById(_id)}>Out of Stock</div>
         </div>
+        </Link>
       ) : null}
     </div>
   );

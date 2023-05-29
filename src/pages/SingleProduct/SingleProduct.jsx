@@ -1,5 +1,5 @@
 import { useProducts } from "../../contexts/products-context";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SingleProduct.css";
 import Loader from "../../components/Loader/Loader";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
@@ -8,25 +8,24 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
+import { useAuth } from "../../contexts/auth-context";
 
 const SingleProduct = () => {
-  const {
-    productState: { products },
-  } = useProducts();
-  const { addToWishlist, removeFromWishlist, isPresentInWishlist } =
-    useWishlist();
-  const { addToCart, isPresentInCart, navigate } = useCart();
+  const navigate = useNavigate();
+  const { productState, isLoading } = useProducts();
+  const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
+  const { addToCart, itemInCart } = useCart();
+  const { token } = useAuth();
 
-  const { productID } = useParams();
-
-  const currentProduct = products.find((item) => item._id === productID);
+  const currentProduct = productState.productDetail;
 
   const {
     _id,
     title,
     imgSrc,
+    description,
     price,
-    discount,
+    updatedPrice,
     starRating,
     size,
     inStock,
@@ -36,134 +35,146 @@ const SingleProduct = () => {
   } = currentProduct;
 
   return (
-    <div className="single-product-outer-container">
-      <div className="single-product-inner-container">
-        {currentProduct ? (
-          <div className="single-product">
-            <div className="img-div">
-              <img src={imgSrc} alt={title} className="single-product-img" />
-            </div>
-
-            {onSale && <div className="single-product-sale">On Sale</div>}
-
-            <div className="card-body">
-              <div>
-                <div className="card-heading">
-                  <h2>{title}</h2>
-                </div>
-
-                <div className="rating">
-                  <div className="rating-block">
-                    <span>{starRating}</span>
-                    <span className="star-icon">
-                      <StarRoundedIcon />
-                    </span>
-                  </div>
-                </div>
-
-                <div className="card-content">
-                  <div className="single-product-price">
-                    <div className="price">&#8377; {discount}</div>
-                    <div className="previous-price">&#8377; {price}</div>
-                  </div>
-                </div>
-
-                <div className="card-tags">
-                  <div className="tag">
-                    <div className="tag-icon">
-                      <CardGiftcardOutlinedIcon />
-                    </div>
-                    <div className="tag-text">
-                      <p>Send it as a gift</p>
-                    </div>
-                  </div>
-                  <div className="tag">
-                    <div className="tag-icon">
-                      <LocalShippingOutlinedIcon />
-                    </div>
-                    <div className="tag-text">
-                      <p>All India delivery</p>
-                    </div>
-                  </div>
-                  <div className="tag">
-                    <div className="tag-icon">
-                      <PaymentOutlinedIcon />
-                    </div>
-                    <div className="tag-text">
-                      <p>All cards accepted</p>
-                    </div>
-                  </div>
-                </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="single-product-outer-container page-wrapper">
+          <div className="single-product-inner-container">
+            <div className="single-product">
+              <div className="img-div">
+                <img src={imgSrc} alt={title} className="single-product-img" />
               </div>
 
-              <hr />
+              {onSale && <div className="single-product-sale">On Sale</div>}
 
-              <div className="card-description-container">
-                <div className="card-description">
-                  <ul className="spaced-list">
-                    <p className="list-head">Plant Details</p>
-                    <li>
-                      <p>Comes In:</p>
-                      <span className="list-value">
-                        {size === "Small" ? "Small Size" : "Medium Size"}
+              <div className="card-body">
+                <div>
+                  <div className="card-heading">
+                    <h2>{title}</h2>
+                  </div>
+
+                  <div className="rating">
+                    <div className="rating-block">
+                      <span>{starRating}</span>
+                      <span className="star-icon">
+                        <StarRoundedIcon />
                       </span>
-                    </li>
-                    <li>
-                      <p>Category:</p>
-                      <span className="list-value">{category}</span>
-                    </li>
-                    <li>
-                      <p>Availability:</p>
-                      <span className="list-value">
-                        {inStock ? "In Stock" : "Out of Stock"}
-                      </span>
-                    </li>
-                    <li>
-                      <p>Delivery:</p>
-                      <span className="list-value">
-                        {fastDelivery ? "Fast" : "5-7 Business days"}
-                      </span>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
+
+                  <div className="card-content">
+                    <div className="single-product-price">
+                      <div className="price">&#8377; {updatedPrice}</div>
+                      <div className="previous-price">&#8377; {price}</div>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div className="card-description">
+                    <div>{description}</div>
+                  </div>
+
+                  <hr />
+
+                  <div className="card-description-container">
+                    <div className="card-description">
+                      <ul className="spaced-list">
+                        <li>
+                          <p>Comes In:</p>
+                          <span className="list-value">
+                            {size === "Small" ? "Small Size" : "Medium Size"}
+                          </span>
+                        </li>
+                        <li>
+                          <p>Category:</p>
+                          <span className="list-value">{category}</span>
+                        </li>
+                        <li>
+                          <p>Availability:</p>
+                          <span className="list-value">
+                            {inStock ? "In Stock" : "Out of Stock"}
+                          </span>
+                        </li>
+                        <li>
+                          <p>Delivery:</p>
+                          <span className="list-value">
+                            {fastDelivery ? "Fast" : "5-7 Business days"}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div className="card-tags">
+                    <div className="tag">
+                      <div className="tag-icon">
+                        <CardGiftcardOutlinedIcon />
+                      </div>
+                      <div className="tag-text">
+                        <p>Send it as a gift</p>
+                      </div>
+                    </div>
+                    <div className="tag">
+                      <div className="tag-icon">
+                        <LocalShippingOutlinedIcon />
+                      </div>
+                      <div className="tag-text">
+                        <p>All India delivery</p>
+                      </div>
+                    </div>
+                    <div className="tag">
+                      <div className="tag-icon">
+                        <PaymentOutlinedIcon />
+                      </div>
+                      <div className="tag-text">
+                        <p>All cards accepted</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="card-action">
-                  {isPresentInCart(currentProduct) === -1 ? (
+                  <div>
                     <button
                       className="single-product-cart-btn"
-                      onClick={() => addToCart(currentProduct)}
+                      onClick={() =>
+                        token
+                          ? itemInCart(_id)
+                            ? navigate("/cart")
+                            : addToCart(currentProduct)
+                          : navigate("/login")
+                      }
                     >
-                      Add to Cart
+                      {token && itemInCart(_id) ? "Go to Cart" : "Add to Cart"}
                     </button>
-                  ) : (
+                  </div>
+                  <div>
                     <button
-                      className="single-product-cart-btn"
-                      onClick={() => navigate("/cart")}
+                      className="single-product-wishlist-btn"
+                      onClick={() =>
+                        token
+                          ? itemInWishlist(_id)
+                            ? removeFromWishlist(currentProduct)
+                            : addToWishlist(currentProduct)
+                          : navigate("/login")
+                      }
                     >
-                      Go to Cart
+                      {token && itemInWishlist(_id)
+                        ? "Remove from Wishlist"
+                        : "Add to Wishlist "}
                     </button>
-                  )}
-                  <button
-                    className="single-product-wishlist-btn"
-                    onClick={() =>
-                      isPresentInWishlist(currentProduct) === -1
-                        ? addToWishlist(currentProduct)
-                        : removeFromWishlist(currentProduct)
-                    }
-                  >
-                    {isPresentInWishlist(currentProduct) === -1
-                      ? "Add to Wishlist"
-                      : "Remove from Wishlist "}
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        ) : (
-          <Loader />
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -1,13 +1,13 @@
 import "./Categories.css";
 import { useProducts } from "../../contexts/products-context";
-import filterTypes from "../../constants/filterTypes";
+import {filterActionTypes} from "../../constants/constants";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const CategoryCard = ({ catImg, category }) => {
   const navigate = useNavigate();
   const { productState, productDispatch } = useProducts();
-  const { CATEGORY, CLEAR_FILTERS } = filterTypes;
+  const { CATEGORY, CLEAR_FILTERS } = filterActionTypes;
 
   useEffect(() => {
     productDispatch({
@@ -43,12 +43,11 @@ const Categories = () => {
   return (
     <>
       <div className="category-outer-container">
-        <h1>What are you looking for?</h1>
-        <p>
-          Gardening is not just a activity - for some, it is a stress release.
-          For others, it is an escape into a world filled with hope and joy. So,
-          choose your plants now!
-        </p>
+        <h1>Embrace the Green Oasis of Plantique</h1>
+        <div className="section-text-headings">
+          <p>Plants are a great addition to our homes and life for both their physical and psychological benefits.</p>
+          <p>Explore Plantique’s curated list of green and lovely plants.</p>
+        </div>
         <div className="category-cards">
           {productState?.allCategories?.map(({ _id, img, categoryName }) => (
             <CategoryCard key={_id} catImg={img} category={categoryName} />

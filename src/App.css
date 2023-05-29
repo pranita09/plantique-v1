@@ -9,24 +9,24 @@
     flex-grow: 1;
 }
 
-::-webkit-scrollbar {
-    width: 0.2rem;
+body::-webkit-scrollbar {
+    width: 0.4rem;
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     border-radius: 5px;
     margin-block: 0.25em;
-    background: var(--secondary-color);
+    background: var(--ternary-color);
 }
   
-::-webkit-scrollbar-thumb {
-    background: var(--price-color);
+body::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
     border-radius: 5px;
 }
   
 @supports (scrollbar-color: red blue) {
     * {
-      scrollbar-color: var(--secondary-color) var(--header-color);
+      scrollbar-color: var(--ternary-color) var(--header-color);
       scrollbar-width: thin;
     }
 }

@@ -1,6 +1,6 @@
-import cartTypes from "../constants/cartTypes";
+import {cartActionTypes} from "../constants/constants";
 
-const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartTypes;
+const {DISPLAY_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY_IN_CART} = cartActionTypes;
 
 export const initialCartState = {
     cart: [],

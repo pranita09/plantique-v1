@@ -1,18 +1,18 @@
 .category-outer-container{
     padding: 0.2rem 0.5rem;
-    text-align: start;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .category-outer-container h1{
-    padding: 1rem 0 0.5rem 1rem;
-    font-size: 1.7rem;
-    align-self: flex-start;
+    padding: 0.3rem 1.5rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
 }
-.category-outer-container p{
-    padding: 0 1rem 0 1rem ;
-    align-self: flex-start;
+.category-outer-container .section-text-headings{
+    padding: 0.5rem 1rem 0 1rem ;
+    font-size: 0.8rem;
 }
 .category-cards{
     margin: 0.5rem 0;
@@ -49,6 +49,12 @@
     .category-outer-container{
         padding: 0.3rem;
     }
+    .category-outer-container h1{
+        font-size: 1.7rem;
+    }
+    .category-outer-container .section-text-headings{
+        font-size: 1rem;
+    }
     .category-cards{
         margin-top: 1rem;
         width: 80%;
@@ -62,6 +68,9 @@
 @media(min-width: 1024px){
     .category-outer-container{
         padding: 1rem;
+    }
+    .category-outer-container h1{
+        font-size: 1.9rem;
     }
     .category-cards{
         margin-top: 1rem;

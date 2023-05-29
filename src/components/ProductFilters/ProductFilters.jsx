@@ -3,7 +3,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { products } from "../../backend/db/products";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { useProducts } from "../../contexts/products-context";
-import filterTypes from "../../constants/filterTypes";
+import {filterActionTypes} from "../../constants/constants";
 
 const ProductFilters = () => {
   const { productState, productDispatch, showFilter, toggleFilter } =
@@ -16,7 +16,7 @@ const ProductFilters = () => {
     AVAILABILITY,
     SORT_BY_PRICE,
     SORT_BY_RATING_RANGE,
-  } = filterTypes;
+  } = filterActionTypes;
 
   const productCategories = products.reduce(
     (acc, { category }) =>
@@ -156,7 +156,7 @@ const ProductFilters = () => {
             <label>
               <input
                 type="radio"
-                checked={productState.sortPriceRadioInput === "higntolow"}
+                checked={productState.sortPriceRadioInput === "hightolow"}
                 name="sort"
                 value="hightolow"
                 onChange={(event) =>
@@ -171,7 +171,7 @@ const ProductFilters = () => {
             <label>
               <input
                 type="radio"
-                checked={productState.sortPriceRadioInput === "higntolow"}
+                checked={productState.sortPriceRadioInput === "lowtohigh"}
                 name="sort"
                 value="lowtohigh"
                 onChange={(event) =>

@@ -15,28 +15,39 @@
 
 .address-form-action-btns .add-btn{
     color: white;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
+}
+
+.address-form-action-btns .add-btn-disabled{
+    color: white;
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .address-form-action-btns .add-btn:hover{
-    background-color: var(--ternary-color);
+    background-color: var(--primary-color);
     cursor: pointer;
 }
 
 .address-form-action-btns .cancel-btn:hover{
-    outline: 1px solid var(--price-color);
+    outline: 1px solid var(--secondary-color);
     cursor: pointer;
 }
 
 .fill-dummy-values-btn{
-    color: var(--price-color);
+    color: var(--secondary-color);
     background-color: white;
-    outline: 1px solid var(--price-color);
+    outline: 1px solid var(--secondary-color);
 }
 
 .fill-dummy-values-btn:hover{
     color: white;
-    background-color: var(--price-color);
+    background-color: var(--secondary-color);
     cursor: pointer;
+}
+.address-input-error-msg{
+    color: var(--danger-color);
+    font-size: 0.8rem;
 }
 
