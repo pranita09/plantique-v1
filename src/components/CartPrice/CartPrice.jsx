@@ -24,7 +24,7 @@ const CartPrice = () => {
           <div className="value">&#8377; {totalPriceWithoutDiscount}</div>
         </div>
         <div className="price">
-          <div className="text">updatedPrice</div>
+          <div className="text">Discount</div>
           <div className="value">- &#8377; {totalDiscount}</div>
         </div>
         <div className="price">

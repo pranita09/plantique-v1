@@ -85,6 +85,10 @@ export const CartProvider = ({children}) => {
 
     const isQuantityZeroInCart = (product) => product.qty === 0;
 
+    const clearCart = () => {
+        cartState.cart.length = 0;
+    }
+
     const totalPriceWithoutDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.updatedPrice*curr.qty ,0);
     const totalDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.qty*fixedDiscount ,0);
     const totalCheckoutAmount = totalPriceWithoutDiscount + deliveryCharges - totalDiscount;
@@ -96,7 +100,7 @@ export const CartProvider = ({children}) => {
     },[token])
 
     return(
-        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, removeFromCart, updateQuantityInCart, itemInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount}}>
+        <CartContext.Provider value={{cartState, cartDispatch, isLoading, addToCart, removeFromCart, updateQuantityInCart, itemInCart, isQuantityZeroInCart, deliveryCharges, totalPriceWithoutDiscount, totalDiscount, totalCheckoutAmount, clearCart}}>
             {children}
         </CartContext.Provider>
     )

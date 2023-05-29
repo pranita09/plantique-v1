@@ -51,9 +51,10 @@
 }
 
 .order-discSave-msg{
-    color: #2bd825;
+    color: var(--primary-color);
     padding: 0;
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {

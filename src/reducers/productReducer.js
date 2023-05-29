@@ -11,6 +11,7 @@ const {
   SORT_BY_RATING_RANGE,
   CLEAR_FILTERS,
   GET_PRODUCT_DETAILS,
+  SET_ORDER_LIST,
 } = filterActionTypes;
 
 export const initialProductState = {
@@ -23,6 +24,7 @@ export const initialProductState = {
   sortPriceRadioInput: "",
   ratingRange: 1,
   productDetail: {},
+  orderList: [],
 };
 
 export const productReducer = (state, { type, payload }) => {
@@ -67,7 +69,9 @@ export const productReducer = (state, { type, payload }) => {
         allCategories: payload.categories,
       };
     case GET_PRODUCT_DETAILS:
-      return {...state, productDetail: payload}
+      return {...state, productDetail: payload};
+    case SET_ORDER_LIST:
+      return {...state, orderList: [...state.orderList, payload]}
     default:
       return state;
   }
