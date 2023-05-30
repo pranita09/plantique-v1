@@ -1,53 +1,53 @@
-.address-form-wrapper{
-    width: 20rem;
-    padding: 1rem;
-    margin: 1rem;
-    max-height: 90vh;
-    overflow-y: auto;
-    background-color: var(--bg-grey);
-    border-radius: 5px;
+.address-form-wrapper {
+  width: 20rem;
+  padding: 1rem;
+  margin: 1rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--bg-grey);
+  border-radius: 5px;
 }
 
-.address-form-action-btns{
-    display: flex;
-    gap: 1.25rem;
+.address-form-action-btns {
+  display: flex;
+  gap: 1.25rem;
 }
 
-.address-form-action-btns .add-btn{
-    color: white;
-    background-color: var(--secondary-color);
+.address-form-action-btns .add-btn {
+  color: white;
+  background-color: var(--secondary-color);
 }
 
-.address-form-action-btns .add-btn-disabled{
-    color: white;
-    background-color: var(--secondary-color);
-    cursor: not-allowed;
-    opacity: 0.6;
+.address-form-action-btns .add-btn-disabled {
+  color: white;
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
-.address-form-action-btns .add-btn:hover{
-    background-color: var(--primary-color);
-    cursor: pointer;
+.address-form-action-btns .add-btn:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
 }
 
-.address-form-action-btns .cancel-btn:hover{
-    outline: 1px solid var(--secondary-color);
-    cursor: pointer;
+.address-form-action-btns .cancel-btn:hover {
+  outline: 1px solid var(--secondary-color);
+  cursor: pointer;
 }
 
-.fill-dummy-values-btn{
-    color: var(--secondary-color);
-    background-color: white;
-    outline: 1px solid var(--secondary-color);
+.fill-dummy-values-btn {
+  color: var(--secondary-color);
+  background-color: white;
+  outline: 1px solid var(--secondary-color);
 }
 
-.fill-dummy-values-btn:hover{
-    color: white;
-    background-color: var(--secondary-color);
-    cursor: pointer;
-}
-.address-input-error-msg{
-    color: var(--danger-color);
-    font-size: 0.8rem;
+.fill-dummy-values-btn:hover {
+  color: white;
+  background-color: var(--secondary-color);
+  cursor: pointer;
 }
 
+.address-input-error-msg {
+  color: var(--danger-color);
+  font-size: 0.8rem;
+}

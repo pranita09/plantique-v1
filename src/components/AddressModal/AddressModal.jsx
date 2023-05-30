@@ -26,6 +26,8 @@ const AddressModal = () => {
     addAddress,
     editAddress,
     initialAddressInput,
+    isEditBtn,
+    setIsEditBtn,
   } = useAddress();
 
   const {
@@ -68,6 +70,7 @@ const AddressModal = () => {
       );
       if (addressExist) {
         editAddress(addressFormData, addressExist._id);
+        setIsEditBtn(false);
       } else {
         addAddress({ ...addressFormData, _id: uuid() });
       }
@@ -178,7 +181,7 @@ const AddressModal = () => {
               }
               type="submit"
             >
-              Add
+              {isEditBtn ? "Save" : "Add"}
             </button>
           </div>
           <div className="field input-field">
@@ -193,14 +196,29 @@ const AddressModal = () => {
             </button>
           </div>
         </div>
-        <div className="field input-field">
-          <button
-            className="fill-dummy-values-btn"
-            type="button"
-            onClick={fillDummyAddressHandler}
-          >
-            Fill with Dummy Values
-          </button>
+        <div className="address-form-action-btns">
+          <div className="field input-field">
+            <button
+              className="fill-dummy-values-btn"
+              type="button"
+              onClick={fillDummyAddressHandler}
+            >
+              Dummy Inputs
+            </button>
+          </div>
+          <div className="field input-field">
+            <button
+              className="fill-dummy-values-btn"
+              onClick={() =>
+                addressDispatch({
+                  type: RESET_ADDRESS_FORM,
+                  payload: initialAddressInput,
+                })
+              }
+            >
+              Reset
+            </button>
+          </div>
         </div>
       </form>
     </div>

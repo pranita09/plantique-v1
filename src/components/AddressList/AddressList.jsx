@@ -11,11 +11,13 @@ const AddressList = () => {
     addressDispatch,
     removeAddress,
     isLoading,
+    setIsEditBtn,
   } = useAddress();
 
   const { SHOW_ADDRESS_MODAL, EDIT_ADDRESS_DETAILS } = addressActionTypes;
 
   const editAddressHandler = (addressToEdit) => {
+    setIsEditBtn(true);
     addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: true });
     addressDispatch({ type: EDIT_ADDRESS_DETAILS, payload: { addressToEdit } });
   };

@@ -28,6 +28,7 @@ export const AddressProvider = ({ children }) => {
     initialAddressState
   );
   const [isLoading, setIsLoading] = useState(false);
+  const [isEditBtn, setIsEditBtn] = useState(false);
 
   const { DISPLAY_ADDRESSES, ADD_NEW_ADDRESS, REMOVE_ADDRESS } =
     addressActionTypes;
@@ -114,6 +115,8 @@ export const AddressProvider = ({ children }) => {
         removeAddress,
         editAddress,
         initialAddressInput,
+        isEditBtn,
+        setIsEditBtn,
       }}
     >
       {children}
