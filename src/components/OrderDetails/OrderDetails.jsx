@@ -6,7 +6,7 @@ import { useCart } from "../../contexts/cart-context";
 import { useAuth } from "../../contexts/auth-context";
 import { useProducts } from "../../contexts/products-context";
 import { filterActionTypes } from "../../utils/constants";
-import popper from "../../utils/Popper";
+import popper from "../../utils/popper";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ const OrderDetails = () => {
           <div>&#8377;{totalPriceWithoutDiscount}</div>
         </div>
         <div className="item">
-          <div>Total updatedPrice</div>
+          <div>Total Discount</div>
           <div>&#8377;{totalDiscount}</div>
         </div>
         <div className="item">

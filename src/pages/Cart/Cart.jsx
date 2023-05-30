@@ -1,8 +1,8 @@
+import "./Cart.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../contexts/cart-context";
 import CartCard from "../../components/CartCard/CartCard";
 import CartPrice from "../../components/CartPrice/CartPrice";
-import "./Cart.css";
-import { useCart } from "../../contexts/cart-context";
 import Loader from "../../components/Loader/Loader";
 
 const Cart = () => {
@@ -10,6 +10,8 @@ const Cart = () => {
     cartState: { cart },
     isLoading,
   } = useCart();
+
+  document.title = "Cart";
 
   return (
     <div className="page-wrapper">

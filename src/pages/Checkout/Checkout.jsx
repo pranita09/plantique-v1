@@ -1,15 +1,17 @@
 import "./Checkout.css";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import OrderDetails from "../../components/OrderDetails/OrderDetails";
-import AddressModal from "../../components/AddressModal/AddressModal";
 import { useAddress } from "../../contexts/address-context";
 import { addressActionTypes } from "../../utils/constants";
+import OrderDetails from "../../components/OrderDetails/OrderDetails";
+import AddressModal from "../../components/AddressModal/AddressModal";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 
 const Checkout = () => {
   const {
     addressState: { addresses, showAddressModal, selectedAddressId },
     addressDispatch,
   } = useAddress();
+
+  document.title = "Checkout";
 
   const { SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID } = addressActionTypes;
 
@@ -21,33 +23,44 @@ const Checkout = () => {
           <div className="checkout-address">
             <div className="address-title">Select Address</div>
             <div className="address-list">
-              {addresses?.length ? (
-                addresses?.map((address) => (
-                  <label className="address" key={address._id}>
-                    <input
-                      type="radio"
-                      name="address"
-                      checked={selectedAddressId === address._id}
-                      onChange={() =>
-                        addressDispatch({
-                          type: SET_SELECTED_ADDRESS_ID,
-                          payload: address._id,
-                        })
-                      }
-                    />
-                    <div>
-                      <div className="address-name">{address.name}</div>
-                      <div>{address.street}</div>
+              {addresses.length ? (
+                addresses?.map(
+                  ({
+                    _id,
+                    name,
+                    street,
+                    city,
+                    zipcode,
+                    state,
+                    country,
+                    mobile,
+                  }) => (
+                    <label className="address" key={_id}>
+                      <input
+                        type="radio"
+                        name="address"
+                        checked={selectedAddressId === _id}
+                        onChange={() =>
+                          addressDispatch({
+                            type: SET_SELECTED_ADDRESS_ID,
+                            payload: _id,
+                          })
+                        }
+                      />
                       <div>
-                        {address.city} - {address.zipcode}
+                        <div className="address-name">{name}</div>
+                        <div>{street}</div>
+                        <div>
+                          {city} - {zipcode}
+                        </div>
+                        <div>
+                          {state}, {country}
+                        </div>
+                        <div>{mobile}</div>
                       </div>
-                      <div>
-                        {address.state}, {address.country}
-                      </div>
-                      <div>{address.mobile}</div>
-                    </div>
-                  </label>
-                ))
+                    </label>
+                  )
+                )
               ) : (
                 <p>No address available.</p>
               )}

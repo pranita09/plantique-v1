@@ -14,7 +14,7 @@ function Slider() {
   useEffect(() => {
     setInterval(() => {
       setSelectedImage((selectedImage) =>
-        selectedImage < 3 ? selectedImage + 1 : 0
+        selectedImage < 2 ? selectedImage + 1 : 0
       );
     }, 4000);
   }, []);
@@ -22,7 +22,7 @@ function Slider() {
   return (
     <div className="slider-container">
       <Link to="/store">
-        <img src={slides[selectedImage]} alt="banner" />
+        <img src={slides[selectedImage]} alt={`banner${selectedImage + 1}`} />
       </Link>
     </div>
   );
