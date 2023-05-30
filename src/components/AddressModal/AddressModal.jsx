@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { useEffect } from "react";
-import { addressActionTypes } from "../../constants/constants";
+import { addressActionTypes } from "../../utils/constants";
 import { useAddress } from "../../contexts/address-context";
 import "./AddressModal.css";
 import { toast } from "react-hot-toast";

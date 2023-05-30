@@ -1,4 +1,4 @@
-import {filterActionTypes} from "../constants/constants";
+import { filterActionTypes } from "../utils/constants";
 
 const {
   DISPLAY_PRODUCTS,
@@ -69,9 +69,9 @@ export const productReducer = (state, { type, payload }) => {
         allCategories: payload.categories,
       };
     case GET_PRODUCT_DETAILS:
-      return {...state, productDetail: payload};
+      return { ...state, productDetail: payload };
     case SET_ORDER_LIST:
-      return {...state, orderList: [...state.orderList, payload]}
+      return { ...state, orderList: [...state.orderList, payload] };
     default:
       return state;
   }

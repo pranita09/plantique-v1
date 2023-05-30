@@ -3,11 +3,11 @@ import "./Navbar.css";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import PersonIcon from '@mui/icons-material/Person';
+import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import PersonIcon from "@mui/icons-material/Person";
 import { useAuth } from "../../contexts/auth-context";
-import {filterActionTypes} from "../../constants/constants";
+import { filterActionTypes } from "../../utils/constants";
 import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
@@ -16,13 +16,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { productState, productDispatch } = useProducts();
-  const {wishlistState: {wishlist}} = useWishlist();
-  const {cartState: {cart}} = useCart();
+  const {
+    wishlistState: { wishlist },
+  } = useWishlist();
+  const {
+    cartState: { cart },
+  } = useCart();
   const { SEARCH } = filterActionTypes;
 
-  const activeIconStyles = ({isActive}) => ({
-    scale: isActive ? "1.125" : "1"
-  })
+  const activeIconStyles = ({ isActive }) => ({
+    scale: isActive ? "1.125" : "1",
+  });
 
   return (
     <>
@@ -53,18 +57,18 @@ const Navbar = () => {
           <NavLink style={activeIconStyles} to="/wishlist">
             <div className="nav-icon">
               <FavoriteBorderOutlinedIcon />
-              { token && wishlist.length > 0 && <p>{wishlist.length}</p>}
+              {token && wishlist.length > 0 && <p>{wishlist.length}</p>}
             </div>
           </NavLink>
           <NavLink style={activeIconStyles} to="/cart">
             <div className="nav-icon">
               <ShoppingCartOutlinedIcon />
-              { token && cart.length > 0 && <p>{cart.length}</p>}
+              {token && cart.length > 0 && <p>{cart.length}</p>}
             </div>
           </NavLink>
           <NavLink style={activeIconStyles} to={token ? "/profile" : "/login"}>
             <div className="nav-icon">
-              { token ? <PersonIcon /> : <LoginOutlinedIcon />}
+              {token ? <PersonIcon /> : <LoginOutlinedIcon />}
             </div>
           </NavLink>
         </div>

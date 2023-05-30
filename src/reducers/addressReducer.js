@@ -1,4 +1,4 @@
-import {addressActionTypes} from "../constants/constants";
+import { addressActionTypes } from "../utils/constants";
 
 const {
   DISPLAY_ADDRESSES,
@@ -65,11 +65,23 @@ const addressReducer = (state, { type, payload }) => {
     case RESET_ADDRESS_FORM:
       return { ...state, addressFormData: payload };
     case ZIPCODE_ERROR:
-      return {...state, addressFormError: {...state.addressFormError, zipcodeError: payload.zipcodeError}}
+      return {
+        ...state,
+        addressFormError: {
+          ...state.addressFormError,
+          zipcodeError: payload.zipcodeError,
+        },
+      };
     case MOBILE_ERROR:
-      return {...state, addressFormError: {...state.addressFormError, mobileError: payload.mobileError}}
+      return {
+        ...state,
+        addressFormError: {
+          ...state.addressFormError,
+          mobileError: payload.mobileError,
+        },
+      };
     case SET_SELECTED_ADDRESS_ID:
-        return {...state, selectedAddressId: payload};
+      return { ...state, selectedAddressId: payload };
     default:
       return state;
   }
