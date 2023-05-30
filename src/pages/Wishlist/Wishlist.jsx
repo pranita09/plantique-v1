@@ -32,7 +32,7 @@ const Wishlist = () => {
             </div>
           ) : (
             <div className="text-center">
-              <p>Oops! Your wishlist is empty.</p>
+              <p>Whoops! Your wishlist is empty.</p>
               <button>
                 <Link to="/store" className="wishlist-to-store-link">
                   Explore to store.
