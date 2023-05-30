@@ -53,7 +53,9 @@ const ProductCard = ({ product, addedToWishlist }) => {
         )}
       </div>
       <div className="card-details">
-        <h3>{title}</h3>
+        <Link to={`/product/${_id}`}>
+          <h3 onClick={() => getProductById(_id)}>{title}</h3>
+        </Link>
         <div className="star">
           <StarRoundedIcon />
           <p className="star-value"> {starRating}</p>
@@ -99,11 +101,11 @@ const ProductCard = ({ product, addedToWishlist }) => {
         )}
       </div>
       {!inStock ? (
-        <Link to={`/product/${_id}`}>
-          <div className="out-of-stock-tag">
+        <div className="out-of-stock-tag">
+          <Link to={`/product/${_id}`}>
             <div onClick={() => getProductById(_id)}>Out of Stock</div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ) : null}
     </div>
   );

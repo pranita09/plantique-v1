@@ -20,8 +20,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--ternary-color);
-  border-radius: 0 0 0 5px;
 }
 .product-img {
   width: 100%;
@@ -86,7 +84,6 @@
   border: none;
   text-transform: uppercase;
   border-radius: 2px;
-  /* transition: 0.4s ease; */
 }
 .card-details .add-to-cart-btn:hover {
   background-color: white;
@@ -98,7 +95,7 @@
 
 .product-card .out-of-stock-tag div {
   margin: 1rem;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 3rem;
   width: -webkit-fill-available;
   border: none;
   border-radius: 2px;
@@ -106,6 +103,10 @@
   color: white;
   background-color: var(--secondary-color);
   text-transform: uppercase;
+}
+
+.product-card .out-of-stock-tag div:hover {
+  background-color: var(--primary-color);
 }
 
 .product-card .out-of-stock-tag {
