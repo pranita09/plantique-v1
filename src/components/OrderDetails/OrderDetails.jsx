@@ -28,6 +28,19 @@ const OrderDetails = () => {
 
   const currentAddress = addresses.find(({ _id }) => _id === selectedAddressId);
 
+  const getDeliveryDate = () => {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 5);
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+    const formattedDate = currentDate.toLocaleDateString("en-US", options);
+    return formattedDate;
+  };
+
   const handlePaymentSuccess = (response) => {
     const orderDetail = {
       id: response.razorpay_payment_id,
@@ -35,6 +48,7 @@ const OrderDetails = () => {
       address: currentAddress,
       amount: totalCheckoutAmount,
       date: new Date(),
+      deliveryDate: getDeliveryDate(),
     };
     productDispatch({ type: SET_ORDER_LIST, payload: orderDetail });
     navigate("/order-successful");
@@ -42,7 +56,7 @@ const OrderDetails = () => {
     clearCart();
     setTimeout(() => {
       navigate("/profile/orders");
-    }, 4000);
+    }, 5000);
   };
 
   const razorpayOptions = {
