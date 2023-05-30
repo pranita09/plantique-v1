@@ -1,12 +1,13 @@
 import "./Categories.css";
-import { useProducts } from "../../contexts/products-context";
-import {filterActionTypes} from "../../constants/constants";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useProducts } from "../../contexts/products-context";
+import { filterActionTypes } from "../../utils/constants";
 
 const CategoryCard = ({ catImg, category }) => {
   const navigate = useNavigate();
   const { productState, productDispatch } = useProducts();
+
   const { CATEGORY, CLEAR_FILTERS } = filterActionTypes;
 
   useEffect(() => {
@@ -24,10 +25,10 @@ const CategoryCard = ({ catImg, category }) => {
       <div className="category-card">
         <img
           src={catImg}
-          alt="category-img"
+          alt={category}
           onClick={() => {
             productDispatch({ type: CATEGORY, payload: category });
-            window.scroll({ top: 0, behavior: "smooth"});
+            window.scroll({ top: 0, behavior: "smooth" });
             navigate("/store");
           }}
         />
@@ -45,7 +46,10 @@ const Categories = () => {
       <div className="category-outer-container">
         <h1>Embrace the Green Oasis of Plantique</h1>
         <div className="section-text-headings">
-          <p>Plants are a great addition to our homes and life for both their physical and psychological benefits.</p>
+          <p>
+            Plants are a great addition to our homes and life for both their
+            physical and psychological benefits.
+          </p>
           <p>Explore Plantique’s curated list of green and lovely plants.</p>
         </div>
         <div className="category-cards">

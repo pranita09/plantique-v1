@@ -1,13 +1,14 @@
 import "../styles.css";
-import { Link } from "react-router-dom";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { useState } from "react";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import { useAuth } from "../../../contexts/auth-context";
+import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useAuth } from "../../../contexts/auth-context";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 const SignUp = () => {
   const { signupHandler } = useAuth();
+  document.title = "Sign Up";
 
   const [userSignupDetails, setUserSignupDetails] = useState({
     email: "",
@@ -34,9 +35,9 @@ const SignUp = () => {
 
   const signupFormSubmitHandler = (event) => {
     event.preventDefault();
-    if(!userSignupDetails.pwdMatch){
-      toast.error("Please enter valid inputs.")
-    }else{
+    if (!userSignupDetails.pwdMatch) {
+      toast.error("Please enter valid inputs.");
+    } else {
       signupHandler(userSignupDetails);
     }
   };
@@ -55,7 +56,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="First Name"
                   name="firstName"
-                  value={userSignupDetails.firstName || ""}
+                  value={userSignupDetails.firstName}
                   className="input"
                   onChange={signupFormInputHandler}
                   required
@@ -66,7 +67,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="Last Name"
                   name="lastName"
-                  value={userSignupDetails.lastName || ""}
+                  value={userSignupDetails.lastName}
                   className="input"
                   onChange={signupFormInputHandler}
                   required
@@ -77,7 +78,7 @@ const SignUp = () => {
                   type="email"
                   placeholder="Email"
                   name="email"
-                  value={userSignupDetails.email || ""}
+                  value={userSignupDetails.email}
                   className="input"
                   onChange={signupFormInputHandler}
                   required
@@ -89,7 +90,7 @@ const SignUp = () => {
                   placeholder="Password"
                   className="password"
                   name="password"
-                  value={userSignupDetails.password || ""}
+                  value={userSignupDetails.password}
                   onChange={signupFormInputHandler}
                   required
                 />
@@ -127,7 +128,7 @@ const SignUp = () => {
                   placeholder="Confirm Password"
                   className="password"
                   name="confirmPassword"
-                  value={userSignupDetails.confirmPassword || ""}
+                  value={userSignupDetails.confirmPassword}
                   onChange={signupFormInputHandler}
                   required
                 />
@@ -175,7 +176,7 @@ const SignUp = () => {
                 </button>
               </div>
               <div className="form-link">
-                <span>Already have an account?</span>{" "}
+                <span>Already have an account?</span>
                 <Link to="/login">
                   <span className="link">Login</span>
                 </Link>

@@ -1,11 +1,10 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
 import "./UserAccount.css";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const UserAccount = () => {
-
-    const location = useLocation();
-
-    const isActiveProfile = location.pathname === '/profile';
+  const location = useLocation();
+  const isActiveProfile = location.pathname === "/profile";
+  document.title = "User Profile";
 
   return (
     <div className="page-wrapper">

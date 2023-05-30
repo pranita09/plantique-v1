@@ -34,6 +34,8 @@ const SingleProduct = () => {
     category,
   } = currentProduct;
 
+  document.title = "Plantique - " + title;
+
   return (
     <>
       {isLoading ? (

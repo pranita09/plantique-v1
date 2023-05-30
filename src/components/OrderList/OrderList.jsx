@@ -12,13 +12,15 @@ const OrderList = () => {
     <div className="order-list-container">
       {orderList.length > 0 ? (
         [...orderList]
-          .reverse()
-          .map(
+          ?.reverse()
+          ?.map(
             ({
               id,
               productsList,
               address: { name, street, city, zipcode, state, country, mobile },
               amount,
+              date,
+              deliveryDate,
             }) => (
               <div key={id} className="order-container">
                 <p>
@@ -35,6 +37,10 @@ const OrderList = () => {
                 <p>
                   <span>Mobile No. : </span>
                   {mobile}
+                </p>
+                <p>
+                  <span>Expected Delivery On : </span>
+                  {deliveryDate}
                 </p>
                 <p>
                   <span>Plants Ordered :</span>

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import "./CartPrice.css";
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/cart-context";
 
 const CartPrice = () => {
@@ -10,6 +10,7 @@ const CartPrice = () => {
     totalCheckoutAmount,
     deliveryCharges,
   } = useCart();
+
   return (
     <div className="cart-pricing-card">
       <div className="pricing-card-title">
@@ -41,7 +42,9 @@ const CartPrice = () => {
       <Link to="/checkout">
         <button className="cart-checkout-btn">checkout</button>
       </Link>
-      <p className="order-discSave-msg">You will save &#8377; {totalDiscount} on this order</p>
+      <p className="order-discSave-msg">
+        You will save &#8377; {totalDiscount} on this order
+      </p>
     </div>
   );
 };

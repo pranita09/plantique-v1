@@ -1,21 +1,17 @@
+import "./OrderDetails.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAddress } from "../../contexts/address-context";
 import { useCart } from "../../contexts/cart-context";
-import "./OrderDetails.css";
 import { useAuth } from "../../contexts/auth-context";
 import { useProducts } from "../../contexts/products-context";
-import { filterActionTypes } from "../../constants/constants";
-import popper from "../../utils/Popper";
-import { useNavigate } from "react-router-dom";
+import { filterActionTypes } from "../../utils/constants";
+import popper from "../../utils/popper";
 
 const OrderDetails = () => {
-
   const navigate = useNavigate();
-
-  const {currentUser} = useAuth();
-
-  const {productDispatch} = useProducts();
-
+  const { currentUser } = useAuth();
+  const { productDispatch } = useProducts();
   const {
     cartState: { cart },
     deliveryCharges,
@@ -24,14 +20,26 @@ const OrderDetails = () => {
     totalCheckoutAmount,
     clearCart,
   } = useCart();
-
   const {
     addressState: { addresses, selectedAddressId },
   } = useAddress();
 
-  const {SET_ORDER_LIST} = filterActionTypes;
+  const { SET_ORDER_LIST } = filterActionTypes;
 
   const currentAddress = addresses.find(({ _id }) => _id === selectedAddressId);
+
+  const getDeliveryDate = () => {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 5);
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+    const formattedDate = currentDate.toLocaleDateString("en-US", options);
+    return formattedDate;
+  };
 
   const handlePaymentSuccess = (response) => {
     const orderDetail = {
@@ -40,19 +48,20 @@ const OrderDetails = () => {
       address: currentAddress,
       amount: totalCheckoutAmount,
       date: new Date(),
-    }
-    productDispatch({type: SET_ORDER_LIST, payload: orderDetail})
+      deliveryDate: getDeliveryDate(),
+    };
+    productDispatch({ type: SET_ORDER_LIST, payload: orderDetail });
     navigate("/order-successful");
     popper();
     clearCart();
-    setTimeout(()=>{
+    setTimeout(() => {
       navigate("/profile/orders");
-    },4000)
-  }
+    }, 5000);
+  };
 
   const razorpayOptions = {
     key: "rzp_test_00dP2uDP2yHZOB",
-    amount: (totalCheckoutAmount) * 100,
+    amount: totalCheckoutAmount * 100,
     name: "Plantique",
     description: "Thank You For Ordering",
     image:
@@ -66,16 +75,16 @@ const OrderDetails = () => {
     notes: {
       address: currentAddress,
     },
-  }
+  };
 
   const placeOrderBtnHandler = () => {
-    if(currentAddress){
+    if (currentAddress) {
       const razorpayInstance = new window.Razorpay(razorpayOptions);
       razorpayInstance.open();
-    }else{
-      toast.error('Please select an address to proceed further.');
+    } else {
+      toast.error("Please select an address to proceed further.");
     }
-  }
+  };
 
   return (
     <div className="order-details-container">
@@ -97,7 +106,7 @@ const OrderDetails = () => {
           <div>&#8377;{totalPriceWithoutDiscount}</div>
         </div>
         <div className="item">
-          <div>Total updatedPrice</div>
+          <div>Total Discount</div>
           <div>&#8377;{totalDiscount}</div>
         </div>
         <div className="item">
@@ -127,7 +136,12 @@ const OrderDetails = () => {
           <p>Add an Address to Proceed.</p>
         )}
       </div>
-      <button className="place-order-btn" onClick={()=> placeOrderBtnHandler()}>Place Order</button>
+      <button
+        className="place-order-btn"
+        onClick={() => placeOrderBtnHandler()}
+      >
+        Place Order
+      </button>
     </div>
   );
 };

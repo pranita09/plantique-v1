@@ -1,13 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import getProductsService from "../services/products-services/getProductsService";
-import { useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useReducer,
+} from "react";
 import {
   initialProductState,
   productReducer,
 } from "../reducers/productReducer";
-import {filterActionTypes} from "../constants/constants";
-import getCategoriesService from "../services/products-services/getCategoriesService";
-import getProductByIdService from "../services/products-services/getProductByIdService";
+import {
+  getProductsService,
+  getCategoriesService,
+  getProductByIdService,
+} from "../services/productsService";
+import { filterActionTypes } from "../utils/constants";
 
 export const ProductsContext = createContext();
 
@@ -19,7 +26,8 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES, GET_PRODUCT_DETAILS } = filterActionTypes;
+  const { DISPLAY_PRODUCTS, DISPLAY_CATEGORIES, GET_PRODUCT_DETAILS } =
+    filterActionTypes;
 
   const getProducts = async () => {
     setIsLoading(true);
@@ -54,26 +62,29 @@ export const ProductsProvider = ({ children }) => {
         productDispatch({ type: DISPLAY_CATEGORIES, payload: categories });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const getProductById = async(productId) => {
+  const getProductById = async (productId) => {
     setIsLoading(true);
     try {
-      const response = await getProductByIdService(productId)
-      const {status, data: {product}} = response;
-      if(status === 200){
-        productDispatch({type: GET_PRODUCT_DETAILS, payload: product});
+      const response = await getProductByIdService(productId);
+      const {
+        status,
+        data: { product },
+      } = response;
+      if (status === 200) {
+        productDispatch({ type: GET_PRODUCT_DETAILS, payload: product });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   const toggleFilter = () => {
     setShowFilter((showFilter) => !showFilter);
@@ -117,7 +128,7 @@ export const ProductsProvider = ({ children }) => {
     : filteredByAvailability;
 
   const filteredByRating = filteredByPrice.filter(
-    (product) => product.starRating >= productState.ratingRange
+    (product) => product.starRating <= productState.ratingRange
   );
 
   const filteredBySize =
@@ -136,7 +147,7 @@ export const ProductsProvider = ({ children }) => {
         showFilter,
         toggleFilter,
         filteredBySize,
-        getProductById
+        getProductById,
       }}
     >
       {children}

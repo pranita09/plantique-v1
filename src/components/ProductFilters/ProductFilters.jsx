@@ -1,9 +1,9 @@
 import "./ProductFilters.css";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { products } from "../../backend/db/products";
+
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { useProducts } from "../../contexts/products-context";
-import {filterActionTypes} from "../../constants/constants";
+import { filterActionTypes } from "../../utils/constants";
 
 const ProductFilters = () => {
   const { productState, productDispatch, showFilter, toggleFilter } =
@@ -18,13 +18,13 @@ const ProductFilters = () => {
     SORT_BY_RATING_RANGE,
   } = filterActionTypes;
 
-  const productCategories = products.reduce(
+  const productCategories = productState.products.reduce(
     (acc, { category }) =>
       acc.includes(category) ? [...acc] : [...acc, category],
     []
   );
 
-  const productSizes = products.reduce(
+  const productSizes = productState.products.reduce(
     (acc, { size }) => (acc.includes(size) ? [...acc] : [...acc, size]),
     []
   );
@@ -60,9 +60,44 @@ const ProductFilters = () => {
 
       <div className="filters">
         <div className="filter-wrapper">
+          <p className="filter-title">Rating</p>
+          <div className="filter-value">
+            <div className="filter-rating">
+              <span>
+                1 <StarRoundedIcon />
+              </span>
+              <span>
+                5 <StarRoundedIcon />
+              </span>
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              list="steplist"
+              value={productState.ratingRange}
+              onChange={(event) =>
+                productDispatch({
+                  type: SORT_BY_RATING_RANGE,
+                  payload: event.target.value,
+                })
+              }
+            />
+            <datalist id="steplist">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </datalist>
+          </div>
+        </div>
+
+        <div className="filter-wrapper">
           <p className="filter-title">Categories</p>
           <div className="filter-value filter-category">
-            {productCategories.map((category, index) => (
+            {productCategories?.map((category, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
@@ -84,7 +119,7 @@ const ProductFilters = () => {
         <div className="filter-wrapper">
           <p className="filter-title">Size</p>
           <div className="filter-value filter-category">
-            {productSizes.map((size, index) => (
+            {productSizes?.map((size, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
@@ -183,41 +218,6 @@ const ProductFilters = () => {
               />
               Price = Low to High
             </label>
-          </div>
-        </div>
-
-        <div className="filter-wrapper">
-          <p className="filter-title">Rating</p>
-          <div className="filter-value">
-            <div className="filter-rating">
-              <span>
-                1 <StarRoundedIcon />
-              </span>
-              <span>
-                5 <StarRoundedIcon />
-              </span>
-            </div>
-            <input
-              type="range"
-              min="1"
-              max="5"
-              step="1"
-              list="steplist"
-              value={productState.ratingRange}
-              onChange={(event) =>
-                productDispatch({
-                  type: SORT_BY_RATING_RANGE,
-                  payload: event.target.value,
-                })
-              }
-            />
-            <datalist id="steplist">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </datalist>
           </div>
         </div>
       </div>
