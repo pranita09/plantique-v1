@@ -22,7 +22,7 @@ export const initialProductState = {
   sizeInput: [],
   availabilityInput: ["inStock"],
   sortPriceRadioInput: "",
-  ratingRange: 1,
+  ratingRange: 5,
   productDetail: {},
   orderList: [],
 };

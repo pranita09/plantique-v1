@@ -1,6 +1,6 @@
 import "./ProductFilters.css";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { products } from "../../backend/db/products";
+
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { useProducts } from "../../contexts/products-context";
 import { filterActionTypes } from "../../utils/constants";
@@ -18,13 +18,13 @@ const ProductFilters = () => {
     SORT_BY_RATING_RANGE,
   } = filterActionTypes;
 
-  const productCategories = products.reduce(
+  const productCategories = productState.products.reduce(
     (acc, { category }) =>
       acc.includes(category) ? [...acc] : [...acc, category],
     []
   );
 
-  const productSizes = products.reduce(
+  const productSizes = productState.products.reduce(
     (acc, { size }) => (acc.includes(size) ? [...acc] : [...acc, size]),
     []
   );
@@ -62,7 +62,7 @@ const ProductFilters = () => {
         <div className="filter-wrapper">
           <p className="filter-title">Categories</p>
           <div className="filter-value filter-category">
-            {productCategories.map((category, index) => (
+            {productCategories?.map((category, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
@@ -84,7 +84,7 @@ const ProductFilters = () => {
         <div className="filter-wrapper">
           <p className="filter-title">Size</p>
           <div className="filter-value filter-category">
-            {productSizes.map((size, index) => (
+            {productSizes?.map((size, index) => (
               <label key={index}>
                 <input
                   type="checkbox"

@@ -1,20 +1,17 @@
+import "./OrderDetails.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAddress } from "../../contexts/address-context";
 import { useCart } from "../../contexts/cart-context";
-import "./OrderDetails.css";
 import { useAuth } from "../../contexts/auth-context";
 import { useProducts } from "../../contexts/products-context";
 import { filterActionTypes } from "../../utils/constants";
 import popper from "../../utils/Popper";
-import { useNavigate } from "react-router-dom";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
-
   const { currentUser } = useAuth();
-
   const { productDispatch } = useProducts();
-
   const {
     cartState: { cart },
     deliveryCharges,
@@ -23,7 +20,6 @@ const OrderDetails = () => {
     totalCheckoutAmount,
     clearCart,
   } = useCart();
-
   const {
     addressState: { addresses, selectedAddressId },
   } = useAddress();

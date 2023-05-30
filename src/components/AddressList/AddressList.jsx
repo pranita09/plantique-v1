@@ -1,9 +1,9 @@
 import "./AddressList.css";
+import { useAddress } from "../../contexts/address-context";
+import { addressActionTypes } from "../../utils/constants";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import AddressModal from "../AddressModal/AddressModal";
 import Loader from "../../components/Loader/Loader";
-import { useAddress } from "../../contexts/address-context";
-import { addressActionTypes } from "../../utils/constants";
 
 const AddressList = () => {
   const {

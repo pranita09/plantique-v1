@@ -1,17 +1,21 @@
-import { useEffect, useReducer, useState } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
+import {
+  useEffect,
+  useReducer,
+  useState,
+  useContext,
+  createContext,
+} from "react";
+import { toast } from "react-hot-toast";
+import { useAuth } from "./auth-context";
 import addressReducer, {
   initialAddressState,
   initialAddressInput,
 } from "../reducers/addressReducer";
-import { useAuth } from "./auth-context";
-import getAddressesService from "../services/address-services/getAddressesService";
 import { addressActionTypes } from "../utils/constants";
+import getAddressesService from "../services/address-services/getAddressesService";
 import addAddressService from "../services/address-services/addAddressService";
 import removeAddressService from "../services/address-services/removeAddressService";
 import editAddressService from "../services/address-services/editAddressService";
-import { toast } from "react-hot-toast";
 
 export const AddressContext = createContext();
 

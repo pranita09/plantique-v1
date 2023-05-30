@@ -1,11 +1,12 @@
+import "./Footer.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
-import "./Footer.css";
 import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <>
@@ -16,17 +17,17 @@ const Footer = () => {
             Fill your house and workplace with pleaseant and beautiful plants.
           </p>
           <div className="socials">
-            <Link to='https://github.com/pranita09'>
+            <Link to="https://github.com/pranita09">
               <p>
                 <GitHubIcon />
               </p>
             </Link>
-            <Link to='https://twitter.com/pranita0709'>
+            <Link to="https://twitter.com/pranita0709">
               <p>
                 <TwitterIcon />
               </p>
             </Link>
-            <Link to='https://www.linkedin.com/in/pranita-fulsundar-8952711a6/'>
+            <Link to="https://www.linkedin.com/in/pranita-fulsundar-8952711a6/">
               <p>
                 <LinkedInIcon />
               </p>
@@ -36,13 +37,13 @@ const Footer = () => {
         <div className="footer-middle">
           <p className="title">Quick Links</p>
           <div className="listItems">
-            <Link to='/store'>
+            <Link to="/store">
               <p>Products</p>
             </Link>
-            <Link to='/wishlist'>
+            <Link to="/wishlist">
               <p>Wishlist</p>
             </Link>
-            <Link to='/cart'>
+            <Link to="/cart">
               <p>Cart</p>
             </Link>
           </div>

@@ -12,8 +12,8 @@ const OrderList = () => {
     <div className="order-list-container">
       {orderList.length > 0 ? (
         [...orderList]
-          .reverse()
-          .map(
+          ?.reverse()
+          ?.map(
             ({
               id,
               productsList,

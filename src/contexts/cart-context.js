@@ -114,7 +114,9 @@ export const CartProvider = ({ children }) => {
   const isQuantityZeroInCart = (product) => product.qty === 0;
 
   const clearCart = () => {
-    cartState.cart.splice(0, cartState.cart.length);
+    cartState.cart.forEach((product) => {
+      removeFromCart(product);
+    });
   };
 
   const totalPriceWithoutDiscount = cartState.cart.reduce(

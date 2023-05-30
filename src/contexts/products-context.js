@@ -121,7 +121,7 @@ export const ProductsProvider = ({ children }) => {
     : filteredByAvailability;
 
   const filteredByRating = filteredByPrice.filter(
-    (product) => product.starRating >= productState.ratingRange
+    (product) => product.starRating <= productState.ratingRange
   );
 
   const filteredBySize =
