@@ -1,16 +1,21 @@
-import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  createContext,
+  useReducer,
+} from "react";
 import { toast } from "react-hot-toast";
-import getWishlistService from "../services/wishlist-services/getWishlistService";
 import { useAuth } from "./auth-context";
-import { useReducer } from "react";
 import wishlistReducer, {
   initialWishlistState,
 } from "../reducers/wishlistReducer";
+import {
+  getWishlistService,
+  addToWishlistService,
+  removeFromWishlistService,
+} from "../services/wishlistService";
 import { wishlistActionTypes } from "../utils/constants";
-import addToWishlistService from "../services/wishlist-services/addToWishlistService";
-import removeFromWishlistService from "../services/wishlist-services/removeFromWishlistService";
 
 export const WishlistContext = createContext();
 
@@ -20,6 +25,7 @@ export const WishlistProvider = ({ children }) => {
     wishlistReducer,
     initialWishlistState
   );
+
   const [isLoading, setIsLoading] = useState(false);
 
   const { DISPLAY_WISHLIST, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } =
