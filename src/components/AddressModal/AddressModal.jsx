@@ -70,12 +70,12 @@ const AddressModal = () => {
       );
       if (addressExist) {
         editAddress(addressFormData, addressExist._id);
-        setIsEditBtn(false);
       } else {
         addAddress({ ...addressFormData, _id: uuid() });
       }
       addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
     }
+    setIsEditBtn(false);
   };
 
   useEffect(() => {
@@ -188,9 +188,10 @@ const AddressModal = () => {
             <button
               className="cancel-btn"
               type="button"
-              onClick={() =>
-                addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false })
-              }
+              onClick={() => {
+                addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
+                setIsEditBtn(false);
+              }}
             >
               Cancel
             </button>
