@@ -1,194 +1,184 @@
-.single-product{
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.single-product {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.img-div{
-    width: 100%;
+.img-div {
+  width: 100%;
 }
 
-.img-div .single-product-img{
-    width: 100%;
-    height: 100%;
-    object-fit: none;
+.img-div .single-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
 }
 
-.card-body{
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem 1rem 1rem;
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
 }
 
-.single-product-sale{
-    position: absolute;
-    display: inline-block;
-    padding: 0.25rem 1rem;
-    margin: 0.5rem 0;
-    border-radius: 0 5px 5px 0;
-    background-color: var(--yellow-color);
+.single-product-sale {
+  position: absolute;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--yellow-color);
 }
 
-.card-heading{
-    padding: 0.5rem 0;
+.card-heading {
+  padding: 0.5rem 0;
 }
 
-.rating{
-    display: inline-block;
-    padding: 0 1rem 0 1rem;
-    border-radius: 5px;
-    width: 5rem;
-    background-color: var(--secondary-color);
+.rating {
+  display: inline-block;
+  padding: 0 1rem 0 1rem;
+  border-radius: 5px;
+  width: 5rem;
+  background-color: var(--secondary-color);
 }
 
-.rating-block{
-    display: flex;
-    align-items: center;
+.rating-block {
+  display: flex;
+  align-items: center;
 }
 
-.rating-block span{
-    color: white;
+.rating-block span {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.star-icon {
+  margin-left: 0.5rem;
+}
+
+.star-icon svg {
+  font-size: 1.3rem;
+}
+
+.single-product-price {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.single-product-price .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.single-product-price .previous-price {
+  text-decoration: line-through;
+  color: var(--text-secondary-color);
+}
+
+.card-tags {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.card-tags .tag {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-tags .tag .tag-icon svg {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+.card-body hr {
+  background-color: var(--secondary-color);
+}
+
+.card-description {
+  padding: 1rem 0;
+}
+
+.card-description .spaced-list .list-head {
+  font-size: 1.4rem;
+  padding: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.card-description ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-description ul li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-description p {
+  font-weight: bold;
+}
+
+.card-action {
+  display: flex;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.card-action button {
+  padding: 0.6rem 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-action .single-product-cart-btn,
+.card-action .single-product-wishlist-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .single-product {
+    flex-direction: row;
+    width: 90%;
+    margin: 2rem auto;
     font-size: 0.9rem;
-}
+  }
+  .img-div {
+    padding: 0 0.5rem;
+    width: 130rem;
+  }
 
-.star-icon{
-    margin-left: 0.5rem;
-}
-
-.star-icon svg{
-    font-size: 1.3rem;
-}
-
-.single-product-price{
-    display: flex;
-    gap: 0.6rem;
-    padding: 0.5rem 0;
-    align-items: center;
-}
-
-.single-product-price .price{
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-.single-product-price .previous-price{
-    text-decoration: line-through;
-    color: var(--text-secondary-color);
-}
-
-.card-tags{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0 0.5rem 0;
-}
-
-.card-tags .tag{
-    display: flex;
-    gap: 0.5rem;
-}
-
-.card-tags .tag .tag-icon svg{
-    font-size: 1.3rem;
-    color: var(--secondary-color);
-}
-
-.card-body hr{
-    background-color:var(--secondary-color);
-}
-
-.card-description{
-    padding: 1rem 0;
-}
-
-.card-description .spaced-list .list-head{
-    font-size: 1.4rem;
-    padding: 0 0 0.5rem 0;
-    font-weight: bold;
-}
-
-.card-description ul{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-description ul li{
-    display: flex;
-    gap: 0.5rem;
-}
-
-.card-description p{
-    font-weight: bold;
-}
-
-.card-action{
-    display: flex;
-    padding: 0.5rem 0;
-    gap: 0.5rem;
-}
-
-.card-action button{
-    padding: 0.6rem 1.2rem;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.card-action .single-product-cart-btn{
+  .card-body hr {
     background-color: var(--secondary-color);
-    color: white;
-}
+  }
 
-.card-action .single-product-wishlist-btn{
-    background-color: white;
-    color: var(--secondary-color);
-    outline: 1px solid var(--secondary-color);
-}
+  .card-action {
+    gap: 2rem;
+  }
 
-@media screen and (min-width: 768px){
+  .card-action .single-product-cart-btn:hover {
+    background-color: var(--primary-color);
+  }
 
-    .single-product{
-        flex-direction: row;
-        width: 90%;
-        margin: 2rem auto;
-        font-size: 0.9rem;
-    }
-    .img-div{
-        padding: 0 0.5rem;
-        width: 130rem;
-    }
-
-    .card-body hr{
-        background-color:var(--secondary-color);
-    }
-
-    .card-action{
-        gap: 2rem;
-    }
-
-    .card-action .single-product-cart-btn:hover{
-        background-color: white;
-        color: var(--secondary-color);
-        outline: 1px solid var(--secondary-color);
-    }
-    
-    .card-action .single-product-wishlist-btn:hover{
-        background-color: var(--secondary-color);
-        color: white;
-        outline: none;
-    }
+  .card-action .single-product-wishlist-btn:hover {
+    background-color: var(--primary-color);
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .single-product-inner-container{
-        padding: 3rem 6rem;
-    }
-    .single-product{
-        width: 80%;
-        margin: auto;
-        font-size: 0.9rem;
-    }
+  .single-product-inner-container {
+    padding: 3rem 6rem;
+  }
+  .single-product {
+    width: 80%;
+    margin: auto;
+    font-size: 0.9rem;
+  }
 }

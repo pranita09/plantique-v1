@@ -38,12 +38,7 @@ const CartCard = ({ cartProduct }) => {
                 >
                   -
                 </button>
-                <input
-                  type="number"
-                  value={qty}
-                  readOnly
-                  className="qty-input"
-                />
+                <p className="qty-input">{qty}</p>
                 <button
                   className="plus"
                   onClick={(e) => {
