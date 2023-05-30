@@ -1,13 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import getProductsService from "../services/products-services/getProductsService";
-import { useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useReducer,
+} from "react";
 import {
   initialProductState,
   productReducer,
 } from "../reducers/productReducer";
+import {
+  getProductsService,
+  getCategoriesService,
+  getProductByIdService,
+} from "../services/productsService";
 import { filterActionTypes } from "../utils/constants";
-import getCategoriesService from "../services/products-services/getCategoriesService";
-import getProductByIdService from "../services/products-services/getProductByIdService";
 
 export const ProductsContext = createContext();
 
