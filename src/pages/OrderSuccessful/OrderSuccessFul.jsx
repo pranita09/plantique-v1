@@ -4,6 +4,7 @@ const OrderSuccessful = () => {
     margin: "10rem auto",
     textAlign: "center",
   };
+  document.title = "Order Placed";
 
   return (
     <div className="page-wrapper">

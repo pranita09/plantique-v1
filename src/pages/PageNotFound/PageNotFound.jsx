@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
 
 const PageNotFound = () => {
+  document.title = "404 Page Not Found";
   return (
     <div className="page-not-found">
       <img src="/assets/404-error.svg" alt="Page Not Found" />
