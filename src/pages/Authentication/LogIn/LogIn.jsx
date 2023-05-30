@@ -16,7 +16,7 @@ const LogIn = () => {
 
   const guestUserDetails = {
     email: "monikashah@gmail.com",
-    password: "monikashah",
+    password: "Monika@123Shah",
   };
 
   const loginFormInputHandler = (event) => {

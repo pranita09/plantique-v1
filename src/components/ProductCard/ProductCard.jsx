@@ -10,11 +10,10 @@ import { useProducts } from "../../contexts/products-context";
 
 const ProductCard = ({ product, addedToWishlist }) => {
   const navigate = useNavigate();
-  const {getProductById} = useProducts();
-  const { addToWishlist, removeFromWishlist, itemInWishlist } =
-    useWishlist();
+  const { getProductById } = useProducts();
+  const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
   const { addToCart, updateQuantityInCart, itemInCart } = useCart();
-  const {token} = useAuth();
+  const { token } = useAuth();
   const {
     _id,
     title,
@@ -31,7 +30,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
     <div className="product-card">
       <Link to={`/product/${_id}`}>
         <div className="product-img">
-          <img src={imgSrc} alt={title} onClick={()=> getProductById(_id)}/>
+          <img src={imgSrc} alt={title} onClick={() => getProductById(_id)} />
         </div>
       </Link>
       {onSale && (
@@ -40,13 +39,17 @@ const ProductCard = ({ product, addedToWishlist }) => {
         </div>
       )}
       <div className="wishlist-btn">
-        { token && itemInWishlist(_id) ? (
+        {token && itemInWishlist(_id) ? (
           <FavoriteIcon
             className="wishlist-fav-icon"
             onClick={() => removeFromWishlist(product)}
-          />  
+          />
         ) : (
-          <FavoriteBorderRoundedIcon onClick={ token ? () => addToWishlist(product) : () => navigate("/login")} />
+          <FavoriteBorderRoundedIcon
+            onClick={
+              token ? () => addToWishlist(product) : () => navigate("/login")
+            }
+          />
         )}
       </div>
       <div className="card-details">
@@ -66,26 +69,40 @@ const ProductCard = ({ product, addedToWishlist }) => {
             </div>
           )}
         </div>
-          { !addedToWishlist ? <button
+        {!addedToWishlist ? (
+          <button
             className="add-to-cart-btn"
-            onClick={ ()=> token ? (itemInCart(_id) ? navigate("/cart") : addToCart(product)) : navigate("/login")}
+            onClick={() =>
+              token
+                ? itemInCart(_id)
+                  ? navigate("/cart")
+                  : addToCart(product)
+                : navigate("/login")
+            }
           >
-            { token && itemInCart(_id) ? "Go to Cart" :  "Add To Cart" }
+            {token && itemInCart(_id) ? "Go to Cart" : "Add To Cart"}
           </button>
-         :  (
+        ) : itemInCart(_id) ? (
           <button
             className="add-to-cart-btn go-to-cart-btn"
             onClick={() => updateQuantityInCart(product, "increment")}
           >
             Added To Cart +
           </button>
+        ) : (
+          <button
+            className="add-to-cart-btn"
+            onClick={() => addToCart(product)}
+          >
+            Add to Cart
+          </button>
         )}
       </div>
       {!inStock ? (
         <Link to={`/product/${_id}`}>
-        <div className="out-of-stock-tag">
-          <div onClick={()=> getProductById(_id)}>Out of Stock</div>
-        </div>
+          <div className="out-of-stock-tag">
+            <div onClick={() => getProductById(_id)}>Out of Stock</div>
+          </div>
         </Link>
       ) : null}
     </div>

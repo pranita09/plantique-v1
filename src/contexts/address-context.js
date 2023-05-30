@@ -34,7 +34,7 @@ export const AddressProvider = ({ children }) => {
             addressDispatch({type: DISPLAY_ADDRESSES, payload: address});
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     } finally{
         setIsLoading(false);
     }
@@ -49,7 +49,7 @@ export const AddressProvider = ({ children }) => {
             toast.success("Added new address successfully!");
         }
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
   }
 
@@ -62,22 +62,20 @@ export const AddressProvider = ({ children }) => {
             toast.success("Removed address succesfully!");
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
   }
 
   const editAddress = async(addressInput, addressId) => {
     try {
         const response = await editAddressService(addressInput, addressId, token);
-        console.log(response);
         const {status, data: {address}} = response;
         if(status === 201){
-            console.log(address);
             addressDispatch({type: DISPLAY_ADDRESSES, payload: address});
             toast.success("Updated the address successfully!")
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
   }
 

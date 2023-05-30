@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) =>{
                 navigate("/", {replace: true});
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("There was an error signing you up.")
         }
     }
@@ -48,7 +48,7 @@ export const AuthProvider = ({children}) =>{
                 navigate(location?.state?.from?.pathname || "/" , {replace: true});
             }
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('User does not exist! Please sign up.');
         }
     }

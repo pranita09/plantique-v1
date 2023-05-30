@@ -16,7 +16,7 @@
     width: 1fr;
     padding: 0.2rem;
     margin: 0.5rem;
-    border: 1px solid;
+    border: 1px solid var(--text-secondary-color);
     border-radius: 5px;
     display: flex;
 }

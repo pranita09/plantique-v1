@@ -29,7 +29,7 @@ export const WishlistProvider = ({children}) =>{
                 wishlistDispatch({ type: DISPLAY_WISHLIST, payload: wishlist});
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally{
             setIsLoading(false);
         }
@@ -44,7 +44,7 @@ export const WishlistProvider = ({children}) =>{
             toast.success(`${product.title} added to favorites!`);
            }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Not able to add to favorites.");
         }
     }
@@ -58,7 +58,7 @@ export const WishlistProvider = ({children}) =>{
                 toast.success('No longer favorite plant!');
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Unable to remove from favorites.");
         }
     }

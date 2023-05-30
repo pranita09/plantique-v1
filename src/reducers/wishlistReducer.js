@@ -16,7 +16,6 @@ const wishlistReducer = (state, {type, payload}) => {
         case REMOVE_FROM_WISHLIST:
             return {...state, wishlist: payload}
         default:
-            console.log('default');
             return state;
     }
 }

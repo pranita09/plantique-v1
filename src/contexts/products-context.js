@@ -54,7 +54,7 @@ export const ProductsProvider = ({ children }) => {
         productDispatch({ type: DISPLAY_CATEGORIES, payload: categories });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
@@ -69,7 +69,7 @@ export const ProductsProvider = ({ children }) => {
         productDispatch({type: GET_PRODUCT_DETAILS, payload: product});
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsLoading(false);
     }

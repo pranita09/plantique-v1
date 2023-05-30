@@ -24,7 +24,7 @@ const CategoryCard = ({ catImg, category }) => {
       <div className="category-card">
         <img
           src={catImg}
-          alt="category-img"
+          alt={category}
           onClick={() => {
             productDispatch({ type: CATEGORY, payload: category });
             window.scroll({ top: 0, behavior: "smooth"});

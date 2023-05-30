@@ -50,7 +50,7 @@ const AddressModal = () => {
     }
     if (name === "mobile") {
       const mobileError =
-        value.length > 0 && !/^[1-9]{1}[0-9]{9}$/.test(value) ? true : false;
+        value.length > 0 && !/^[6-9]{1}[0-9]{9}$/.test(value) ? true : false;
       addressDispatch({ type: MOBILE_ERROR, payload: { mobileError } });
     }
   };

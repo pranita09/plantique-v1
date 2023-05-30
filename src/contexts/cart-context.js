@@ -33,7 +33,7 @@ export const CartProvider = ({children}) => {
                 cartDispatch({type: DISPLAY_CART, payload: cart});
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }finally{
             setIsLoading(false);
         }
@@ -48,7 +48,7 @@ export const CartProvider = ({children}) => {
                 toast.success(`${product.title} added to cart successfully!`);
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Not able to add to cart.")
         }
     }
@@ -62,7 +62,7 @@ export const CartProvider = ({children}) => {
                 toast.success(`${title} removed from cart successfully!`);
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Unable to remove from cart.")
         }
     }
@@ -76,7 +76,7 @@ export const CartProvider = ({children}) => {
                 toast.success( actionType === "increment" ? `Added one more ${title} to the cart sucessfully!` : `Removed one ${title} from cart successfully!`);    
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Unable to update quantity.");
         }
     }
@@ -86,7 +86,7 @@ export const CartProvider = ({children}) => {
     const isQuantityZeroInCart = (product) => product.qty === 0;
 
     const clearCart = () => {
-        cartState.cart.length = 0;
+        cartState.cart.splice(0, cartState.cart.length);
     }
 
     const totalPriceWithoutDiscount = cartState.cart.reduce((acc, curr)=> acc + curr.updatedPrice*curr.qty ,0);
