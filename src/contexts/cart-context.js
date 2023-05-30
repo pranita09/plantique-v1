@@ -1,16 +1,20 @@
-import { useReducer } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
-import cartReducer, { initialCartState } from "../reducers/cartReducer";
-import { useState } from "react";
-import getCartService from "../services/cart-services/getCartService";
-import removeFromCartService from "../services/cart-services/removeFromCartService";
-import updateQuantityService from "../services/cart-services/updateQuantityService";
-import { useAuth } from "./auth-context";
-import { useEffect } from "react";
-import { cartActionTypes } from "../utils/constants";
-import addToCartService from "../services/cart-services/addToCartService";
+import {
+  useReducer,
+  useContext,
+  createContext,
+  useState,
+  useEffect,
+} from "react";
 import { toast } from "react-hot-toast";
+import { useAuth } from "./auth-context";
+import {
+  getCartService,
+  addToCartService,
+  removeFromCartService,
+  updateQuantityService,
+} from "../services/cartService";
+import cartReducer, { initialCartState } from "../reducers/cartReducer";
+import { cartActionTypes } from "../utils/constants";
 
 export const CartContext = createContext();
 
