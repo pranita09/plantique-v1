@@ -11,11 +11,13 @@ import addressReducer, {
   initialAddressState,
   initialAddressInput,
 } from "../reducers/addressReducer";
+import {
+  getAddressesService,
+  addAddressService,
+  removeAddressService,
+  editAddressService,
+} from "../services/addressService";
 import { addressActionTypes } from "../utils/constants";
-import getAddressesService from "../services/address-services/getAddressesService";
-import addAddressService from "../services/address-services/addAddressService";
-import removeAddressService from "../services/address-services/removeAddressService";
-import editAddressService from "../services/address-services/editAddressService";
 
 export const AddressContext = createContext();
 
