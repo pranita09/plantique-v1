@@ -2,6 +2,9 @@
 
 [Plantique](https://plantique-v1.netlify.app/) - An E-Commerce website for serene and lovely plants.
 
+https://github.com/pranita09/plantique-v1/assets/66015794/6a76a911-71ff-4ef2-b3ec-d64482a99f89
+
+
 ## How to install and run locally?
 
 ```
@@ -42,5 +45,3 @@ $ npm start
 - Razorpay payment gateway
 - mockBee backend
 - React Hot Toast
-
-## Demo -
