@@ -18,6 +18,7 @@ const CategoryCard = ({ catImg, category }) => {
         products: productState.products,
       },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

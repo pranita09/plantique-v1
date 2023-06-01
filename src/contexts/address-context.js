@@ -103,6 +103,7 @@ export const AddressProvider = ({ children }) => {
     if (token) {
       getAddresses();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (

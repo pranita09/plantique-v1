@@ -84,6 +84,7 @@ const AddressModal = () => {
         type: RESET_ADDRESS_FORM,
         payload: initialAddressInput,
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
