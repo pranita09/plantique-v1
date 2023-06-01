@@ -11,7 +11,7 @@ const Cart = () => {
     isLoading,
   } = useCart();
 
-  document.title = "Cart";
+  document.title = "Cart | Plantique";
 
   return (
     <div className="page-wrapper">

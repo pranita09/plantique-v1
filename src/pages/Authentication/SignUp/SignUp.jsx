@@ -8,7 +8,7 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 
 const SignUp = () => {
   const { signupHandler } = useAuth();
-  document.title = "Sign Up";
+  document.title = "Sign Up | Plantique";
 
   const [userSignupDetails, setUserSignupDetails] = useState({
     email: "",

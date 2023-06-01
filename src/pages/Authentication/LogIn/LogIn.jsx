@@ -14,7 +14,7 @@ const LogIn = () => {
     hidePwd: true,
   });
 
-  document.title = "Login";
+  document.title = "Login | Plantique";
 
   const guestUserDetails = {
     email: "monikashah@gmail.com",

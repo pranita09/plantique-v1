@@ -11,7 +11,7 @@ const Checkout = () => {
     addressDispatch,
   } = useAddress();
 
-  document.title = "Checkout";
+  document.title = "Checkout | Plantique";
 
   const { SHOW_ADDRESS_MODAL, SET_SELECTED_ADDRESS_ID } = addressActionTypes;
 

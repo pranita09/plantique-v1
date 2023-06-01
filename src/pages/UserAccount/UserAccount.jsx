@@ -4,7 +4,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 const UserAccount = () => {
   const location = useLocation();
   const isActiveProfile = location.pathname === "/profile";
-  document.title = "User Profile";
+  document.title = "User Profile | Plantique";
 
   return (
     <div className="page-wrapper">

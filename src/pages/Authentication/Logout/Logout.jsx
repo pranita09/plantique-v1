@@ -4,7 +4,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
 
 const Logout = () => {
-  document.title = "Logout";
+  document.title = "Logout | Plantique";
 
   return (
     <div className="page-wrapper">

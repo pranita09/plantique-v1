@@ -9,7 +9,7 @@ const Wishlist = () => {
     wishlistState: { wishlist },
     isLoading,
   } = useWishlist();
-  document.title = "Wishlist";
+  document.title = "Wishlist | Plantique";
 
   return (
     <div className="page-wrapper">

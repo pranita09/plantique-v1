@@ -4,7 +4,7 @@ const OrderSuccessful = () => {
     margin: "10rem auto",
     textAlign: "center",
   };
-  document.title = "Order Placed";
+  document.title = "Order Placed | Plantique";
 
   return (
     <div className="page-wrapper">
