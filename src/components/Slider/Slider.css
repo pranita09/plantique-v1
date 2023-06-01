@@ -31,7 +31,7 @@
     border-radius: 0.8rem;
   }
 }
-@media (min-width: 1360px) {
+@media (min-width: 1560px) {
   .slider-container {
     min-height: 35rem;
   }
