@@ -25,10 +25,14 @@
 @media (min-width: 1024px) {
   .slider-container {
     min-height: 33rem;
-    padding: 0.5rem;
     border-radius: 0.8rem;
   }
   .slider-container img {
     border-radius: 0.8rem;
+  }
+}
+@media (min-width: 1360px) {
+  .slider-container {
+    min-height: 35rem;
   }
 }
