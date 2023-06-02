@@ -75,6 +75,9 @@ const OrderDetails = () => {
     notes: {
       address: currentAddress,
     },
+    theme: {
+      color: "#1b4b33",
+    },
   };
 
   const placeOrderBtnHandler = () => {
