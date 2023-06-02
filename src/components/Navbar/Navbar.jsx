@@ -42,10 +42,10 @@ const Navbar = () => {
         <input
           placeholder="Search"
           value={productState.searchInput}
-          onChange={(event) =>
-            productDispatch({ type: SEARCH, payload: event.target.value })
-          }
-          onKeyDown={(event) => event.key === "Enter" && navigate("/store")}
+          onChange={(event) => {
+            productDispatch({ type: SEARCH, payload: event.target.value });
+            navigate("/store");
+          }}
         />
       </div>
       <div className="nav-right">
