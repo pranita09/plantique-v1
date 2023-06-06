@@ -54,18 +54,22 @@ const Navbar = () => {
             <ExploreOutlinedIcon />
           </div>
         </NavLink>
-        <NavLink style={activeIconStyles} to="/wishlist">
-          <div className="nav-icon">
-            <FavoriteBorderOutlinedIcon />
-            {token && wishlist.length > 0 && <p>{wishlist.length}</p>}
-          </div>
-        </NavLink>
-        <NavLink style={activeIconStyles} to="/cart">
-          <div className="nav-icon">
-            <ShoppingCartOutlinedIcon />
-            {token && cart.length > 0 && <p>{cart.length}</p>}
-          </div>
-        </NavLink>
+        {token && (
+          <NavLink style={activeIconStyles} to="/wishlist">
+            <div className="nav-icon">
+              <FavoriteBorderOutlinedIcon />
+              {token && wishlist.length > 0 && <p>{wishlist.length}</p>}
+            </div>
+          </NavLink>
+        )}
+        {token && (
+          <NavLink style={activeIconStyles} to="/cart">
+            <div className="nav-icon">
+              <ShoppingCartOutlinedIcon />
+              {token && cart.length > 0 && <p>{cart.length}</p>}
+            </div>
+          </NavLink>
+        )}
         <NavLink style={activeIconStyles} to={token ? "/profile" : "/login"}>
           <div className="nav-icon">
             {token ? <PersonIcon /> : <LoginOutlinedIcon />}

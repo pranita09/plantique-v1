@@ -9,6 +9,7 @@ import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 import { useAuth } from "../../contexts/auth-context";
+import { toast } from "react-hot-toast";
 
 const SingleProduct = () => {
   const navigate = useNavigate();
@@ -48,7 +49,13 @@ const SingleProduct = () => {
                 <img src={imgSrc} alt={title} className="single-product-img" />
               </div>
 
-              {onSale && <div className="single-product-sale">On Sale</div>}
+              {!inStock ? (
+                <div className="single-product-sale">Out of Stock</div>
+              ) : onSale ? (
+                <div className="single-product-sale">On Sale</div>
+              ) : (
+                <></>
+              )}
 
               <div className="card-body">
                 <div>
@@ -56,19 +63,18 @@ const SingleProduct = () => {
                     <h2>{title}</h2>
                   </div>
 
-                  <div className="rating">
-                    <div className="rating-block">
-                      <span>{starRating}</span>
-                      <span className="star-icon">
-                        <StarRoundedIcon />
-                      </span>
-                    </div>
-                  </div>
-
                   <div className="card-content">
                     <div className="single-product-price">
                       <div className="price">&#8377; {updatedPrice}</div>
                       <div className="previous-price">&#8377; {price}</div>
+                      <div className="rating">
+                        <div className="rating-block">
+                          <span>{starRating}</span>
+                          <span className="star-icon">
+                            <StarRoundedIcon />
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -102,7 +108,9 @@ const SingleProduct = () => {
                         <li>
                           <p>Delivery:</p>
                           <span className="list-value">
-                            {fastDelivery ? "Fast" : "5-7 Business days"}
+                            {fastDelivery
+                              ? "2-3 Business Days"
+                              : "5-7 Business Days"}
                           </span>
                         </li>
                       </ul>
@@ -141,18 +149,31 @@ const SingleProduct = () => {
 
                 <div className="card-action">
                   <div>
-                    <button
-                      className="single-product-cart-btn"
-                      onClick={() =>
-                        token
-                          ? itemInCart(_id)
-                            ? navigate("/cart")
-                            : addToCart(currentProduct)
-                          : navigate("/login")
-                      }
-                    >
-                      {token && itemInCart(_id) ? "Go to Cart" : "Add to Cart"}
-                    </button>
+                    {inStock ? (
+                      <button
+                        className="single-product-cart-btn"
+                        onClick={() =>
+                          token
+                            ? itemInCart(_id)
+                              ? navigate("/cart")
+                              : addToCart(currentProduct)
+                            : navigate("/login")
+                        }
+                      >
+                        {token && itemInCart(_id)
+                          ? "Go to Cart"
+                          : "Add to Cart"}
+                      </button>
+                    ) : (
+                      <button
+                        className="single-product-cart-btn out-of-stock-cart-btn"
+                        onClick={() =>
+                          toast.error(`Oops, ${title} is out of stock!`)
+                        }
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                   <div>
                     <button

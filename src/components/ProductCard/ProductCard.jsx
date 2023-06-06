@@ -62,8 +62,8 @@ const ProductCard = ({ product, addedToWishlist }) => {
         </div>
         <div className="price-delivery-tags">
           <div className="prices">
-            <p className="old-price">₹{price}</p>
             <p className="new-price">₹{updatedPrice}</p>
+            <p className="old-price">₹{price}</p>
           </div>
           {fastDelivery && (
             <div className="delivery">

@@ -78,6 +78,10 @@
   color: var(--text-secondary-color);
 }
 
+.single-product-price .rating {
+  margin-left: 3rem;
+}
+
 .card-tags {
   display: flex;
   flex-direction: column;
@@ -112,6 +116,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
+  line-height: 1.8;
 }
 
 .card-description ul li {
@@ -134,13 +139,17 @@
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .card-action .single-product-cart-btn,
 .card-action .single-product-wishlist-btn {
   background-color: var(--secondary-color);
   color: white;
+  cursor: pointer;
+}
+
+.card-action .out-of-stock-cart-btn {
+  cursor: not-allowed;
 }
 
 @media screen and (min-width: 768px) {
