@@ -19,7 +19,7 @@ const AddressList = () => {
   const editAddressHandler = (addressToEdit) => {
     setIsEditBtn(true);
     addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: true });
-    addressDispatch({ type: EDIT_ADDRESS_DETAILS, payload: { addressToEdit } });
+    addressDispatch({ type: EDIT_ADDRESS_DETAILS, payload: addressToEdit });
   };
 
   return (

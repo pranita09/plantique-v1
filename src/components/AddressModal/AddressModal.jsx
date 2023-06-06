@@ -56,8 +56,13 @@ const AddressModal = () => {
     }
   };
 
-  const fillDummyAddressHandler = () => {
-    addressDispatch({ type: SET_DUMMY_ADDRESS, payload: dummyAddress });
+  const fillDummyAddressHandler = (id) => {
+    addressDispatch({
+      type: SET_DUMMY_ADDRESS,
+      payload: id
+        ? { ...dummyAddress, _id: id }
+        : { ...dummyAddress, _id: uuid() },
+    });
   };
 
   const addAddressHandler = (event) => {
@@ -203,7 +208,7 @@ const AddressModal = () => {
             <button
               className="fill-dummy-values-btn"
               type="button"
-              onClick={fillDummyAddressHandler}
+              onClick={() => fillDummyAddressHandler(addressFormData._id)}
             >
               Dummy Inputs
             </button>

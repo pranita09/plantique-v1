@@ -55,7 +55,7 @@ const addressReducer = (state, { type, payload }) => {
         },
       };
     case EDIT_ADDRESS_DETAILS:
-      return { ...state, addressFormData: payload.addressToEdit };
+      return { ...state, addressFormData: payload };
     case ADD_NEW_ADDRESS:
       return { ...state, addresses: payload };
     case SET_DUMMY_ADDRESS:
