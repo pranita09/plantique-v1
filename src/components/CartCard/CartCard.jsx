@@ -5,8 +5,8 @@ import { useProducts } from "../../contexts/products-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartCard = ({ cartProduct }) => {
-  const { getProductById } = useProducts();
-  const { addToWishlist, itemInWishlist } = useWishlist();
+  const { getProductById, handleCardBtnsClick } = useProducts();
+  const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
   const { removeFromCart, updateQuantityInCart } = useCart();
 
   const { _id, title, imgSrc, updatedPrice, qty } = cartProduct;
@@ -32,7 +32,12 @@ const CartCard = ({ cartProduct }) => {
                   className="minus"
                   onClick={(e) => {
                     e.preventDefault();
-                    updateQuantityInCart(cartProduct, "decrement");
+                    handleCardBtnsClick(
+                      600,
+                      updateQuantityInCart,
+                      cartProduct,
+                      "decrement"
+                    );
                   }}
                   disabled={qty <= 1}
                 >
@@ -43,7 +48,12 @@ const CartCard = ({ cartProduct }) => {
                   className="plus"
                   onClick={(e) => {
                     e.preventDefault();
-                    updateQuantityInCart(cartProduct, "increment");
+                    handleCardBtnsClick(
+                      600,
+                      updateQuantityInCart,
+                      cartProduct,
+                      "increment"
+                    );
                   }}
                 >
                   +
@@ -54,16 +64,27 @@ const CartCard = ({ cartProduct }) => {
           {!itemInWishlist(_id) ? (
             <button
               className="move-to-wishlist-btn"
-              onClick={() => addToWishlist(cartProduct)}
+              onClick={() =>
+                handleCardBtnsClick(600, addToWishlist, cartProduct)
+              }
             >
               Add to Wishlist
             </button>
           ) : (
-            <button className="move-to-wishlist-btn">Added to Wishlist</button>
+            <button
+              className="move-to-wishlist-btn"
+              onClick={() =>
+                handleCardBtnsClick(600, removeFromWishlist, cartProduct)
+              }
+            >
+              Remove from Wishlist
+            </button>
           )}
           <button
             className="remove-from-cart-btn"
-            onClick={() => removeFromCart(cartProduct)}
+            onClick={() =>
+              handleCardBtnsClick(600, removeFromCart, cartProduct)
+            }
           >
             Remove from Cart
           </button>

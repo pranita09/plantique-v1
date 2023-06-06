@@ -13,7 +13,7 @@ import { toast } from "react-hot-toast";
 
 const SingleProduct = () => {
   const navigate = useNavigate();
-  const { productState, isLoading } = useProducts();
+  const { productState, isLoading, handleCardBtnsClick } = useProducts();
   const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
   const { addToCart, itemInCart } = useCart();
   const { token } = useAuth();
@@ -156,7 +156,11 @@ const SingleProduct = () => {
                           token
                             ? itemInCart(_id)
                               ? navigate("/cart")
-                              : addToCart(currentProduct)
+                              : handleCardBtnsClick(
+                                  600,
+                                  addToCart,
+                                  currentProduct
+                                )
                             : navigate("/login")
                         }
                       >
@@ -181,8 +185,16 @@ const SingleProduct = () => {
                       onClick={() =>
                         token
                           ? itemInWishlist(_id)
-                            ? removeFromWishlist(currentProduct)
-                            : addToWishlist(currentProduct)
+                            ? handleCardBtnsClick(
+                                600,
+                                removeFromWishlist,
+                                currentProduct
+                              )
+                            : handleCardBtnsClick(
+                                600,
+                                addToWishlist,
+                                currentProduct
+                              )
                           : navigate("/login")
                       }
                     >

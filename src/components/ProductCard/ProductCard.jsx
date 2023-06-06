@@ -10,7 +10,7 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 
 const ProductCard = ({ product, addedToWishlist }) => {
   const navigate = useNavigate();
-  const { getProductById } = useProducts();
+  const { getProductById, handleCardBtnsClick } = useProducts();
   const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
   const { addToCart, updateQuantityInCart, itemInCart } = useCart();
   const { token } = useAuth();
@@ -42,12 +42,16 @@ const ProductCard = ({ product, addedToWishlist }) => {
         {token && itemInWishlist(_id) ? (
           <FavoriteIcon
             className="wishlist-fav-icon"
-            onClick={() => removeFromWishlist(product)}
+            onClick={() =>
+              handleCardBtnsClick(600, removeFromWishlist, product)
+            }
           />
         ) : (
           <FavoriteBorderRoundedIcon
             onClick={
-              token ? () => addToWishlist(product) : () => navigate("/login")
+              token
+                ? () => handleCardBtnsClick(600, addToWishlist, product)
+                : () => navigate("/login")
             }
           />
         )}
@@ -78,7 +82,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
               token
                 ? itemInCart(_id)
                   ? navigate("/cart")
-                  : addToCart(product)
+                  : handleCardBtnsClick(600, addToCart, product)
                 : navigate("/login")
             }
           >
@@ -87,14 +91,21 @@ const ProductCard = ({ product, addedToWishlist }) => {
         ) : itemInCart(_id) ? (
           <button
             className="add-to-cart-btn go-to-cart-btn"
-            onClick={() => updateQuantityInCart(product, "increment")}
+            onClick={() =>
+              handleCardBtnsClick(
+                600,
+                updateQuantityInCart,
+                product,
+                "increment"
+              )
+            }
           >
             Added To Cart +
           </button>
         ) : (
           <button
             className="add-to-cart-btn"
-            onClick={() => addToCart(product)}
+            onClick={() => handleCardBtnsClick(600, addToCart, product)}
           >
             Add to Cart
           </button>

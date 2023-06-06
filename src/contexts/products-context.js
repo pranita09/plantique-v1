@@ -4,6 +4,7 @@ import {
   useEffect,
   useState,
   useReducer,
+  useRef,
 } from "react";
 import {
   initialProductState,
@@ -19,6 +20,7 @@ import { filterActionTypes } from "../utils/constants";
 export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
+  const cardTimerId = useRef();
   const [productState, productDispatch] = useReducer(
     productReducer,
     initialProductState
@@ -90,6 +92,13 @@ export const ProductsProvider = ({ children }) => {
     setShowFilter((showFilter) => !showFilter);
   };
 
+  const handleCardBtnsClick = (delay, callback, ...args) => {
+    clearTimeout(cardTimerId.current);
+    cardTimerId.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+
   useEffect(() => {
     getProducts();
     getCategories();
@@ -149,6 +158,7 @@ export const ProductsProvider = ({ children }) => {
         toggleFilter,
         filteredBySize,
         getProductById,
+        handleCardBtnsClick,
       }}
     >
       {children}

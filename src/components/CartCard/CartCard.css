@@ -79,6 +79,10 @@
   color: white;
 }
 
+.move-to-wishlist-btn:hover {
+  background-color: var(--primary-color);
+}
+
 .remove-from-cart-btn {
   outline: 1px solid var(--secondary-color);
   color: var(--secondary-color);

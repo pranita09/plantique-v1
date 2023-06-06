@@ -138,7 +138,7 @@ export const CartProvider = ({ children }) => {
     if (token) {
       getCart();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (
