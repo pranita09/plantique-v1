@@ -40,6 +40,7 @@ const Navbar = () => {
       <div className="nav-search">
         <SearchOutlinedIcon className="nav-icon search-icon" />
         <input
+          type="search"
           placeholder="Search"
           value={productState.searchInput}
           onChange={(event) => {
@@ -49,13 +50,13 @@ const Navbar = () => {
         />
       </div>
       <div className="nav-right">
-        <NavLink style={activeIconStyles} to="/store">
+        <NavLink style={activeIconStyles} to="/store" title="Explore">
           <div className="nav-icon">
             <ExploreOutlinedIcon />
           </div>
         </NavLink>
         {token && (
-          <NavLink style={activeIconStyles} to="/wishlist">
+          <NavLink style={activeIconStyles} to="/wishlist" title="Wishlist">
             <div className="nav-icon">
               <FavoriteBorderOutlinedIcon />
               {token && wishlist.length > 0 && <p>{wishlist.length}</p>}
@@ -63,14 +64,18 @@ const Navbar = () => {
           </NavLink>
         )}
         {token && (
-          <NavLink style={activeIconStyles} to="/cart">
+          <NavLink style={activeIconStyles} to="/cart" title="Cart">
             <div className="nav-icon">
               <ShoppingCartOutlinedIcon />
               {token && cart.length > 0 && <p>{cart.length}</p>}
             </div>
           </NavLink>
         )}
-        <NavLink style={activeIconStyles} to={token ? "/profile" : "/login"}>
+        <NavLink
+          style={activeIconStyles}
+          to={token ? "/profile" : "/login"}
+          title={token ? "Profile" : "Login"}
+        >
           <div className="nav-icon">
             {token ? <PersonIcon /> : <LoginOutlinedIcon />}
           </div>

@@ -27,7 +27,7 @@ const CartCard = ({ cartProduct }) => {
             </div>
             <div className="cart-card-quantity">
               <span>Quantity: </span>
-              <div className="qunatity-fields">
+              <div className="quantity-fields">
                 <button
                   className="minus"
                   onClick={(e) => {

@@ -1,32 +1,44 @@
-.App{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 
-.page-wrapper{
-    flex-grow: 1;
+.page-wrapper {
+  flex-grow: 1;
+}
+
+button {
+  transition: all transform 0.5s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:hover {
+  transition: 0.5s ease-in-out;
 }
 
 body::-webkit-scrollbar {
-    width: 0.4rem;
+  width: 0.4rem;
 }
 
 body::-webkit-scrollbar-track {
-    border-radius: 5px;
-    margin-block: 0.25em;
-    background: var(--ternary-color);
+  border-radius: 5px;
+  margin-block: 0.25em;
+  background: var(--ternary-color);
 }
-  
+
 body::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    border-radius: 5px;
+  background: var(--secondary-color);
+  border-radius: 5px;
 }
-  
+
 @supports (scrollbar-color: red blue) {
-    * {
-      scrollbar-color: var(--ternary-color) var(--header-color);
-      scrollbar-width: thin;
-    }
+  * {
+    scrollbar-color: var(--ternary-color) var(--header-color);
+    scrollbar-width: thin;
+  }
 }

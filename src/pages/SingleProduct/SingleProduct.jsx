@@ -14,7 +14,7 @@ import { toast } from "react-hot-toast";
 const SingleProduct = () => {
   const navigate = useNavigate();
   const { productState, isLoading, handleCardBtnsClick } = useProducts();
-  const { addToWishlist, removeFromWishlist, itemInWishlist } = useWishlist();
+  const { addToWishlist, itemInWishlist } = useWishlist();
   const { addToCart, itemInCart } = useCart();
   const { token } = useAuth();
 
@@ -185,11 +185,7 @@ const SingleProduct = () => {
                       onClick={() =>
                         token
                           ? itemInWishlist(_id)
-                            ? handleCardBtnsClick(
-                                600,
-                                removeFromWishlist,
-                                currentProduct
-                              )
+                            ? navigate("/wishlist")
                             : handleCardBtnsClick(
                                 600,
                                 addToWishlist,
@@ -199,7 +195,7 @@ const SingleProduct = () => {
                       }
                     >
                       {token && itemInWishlist(_id)
-                        ? "Remove from Wishlist"
+                        ? "Go to Wishlist"
                         : "Add to Wishlist "}
                     </button>
                   </div>

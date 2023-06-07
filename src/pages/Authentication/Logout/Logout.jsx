@@ -17,12 +17,12 @@ const Logout = () => {
             You have been successfully logged out!
           </div>
           <Link to="/">
-            <div className="logout-card-action">
+            <button className="logout-card-action">
               <div className="back-to-home-icon">
                 <KeyboardDoubleArrowLeftOutlinedIcon />
               </div>
               <div className="back-action-name">Back to Home</div>
-            </div>
+            </button>
           </Link>
         </div>
       </section>

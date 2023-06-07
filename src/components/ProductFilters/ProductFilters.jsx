@@ -38,7 +38,7 @@ const ProductFilters = () => {
           <p className="filter-heading">Filters</p>
         </div>
         <div className="clear-wrapper-container">
-          <p
+          <button
             className="clear-filter"
             onClick={() =>
               productDispatch({
@@ -51,7 +51,7 @@ const ProductFilters = () => {
             }
           >
             Clear
-          </p>
+          </button>
           <div className="close-btn">
             <CloseRoundedIcon onClick={() => toggleFilter()} />
           </div>

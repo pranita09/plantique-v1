@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="footer-left">
           <span>Plantique</span>
           <p>
-            Fill your house and workplace with pleaseant and beautiful plants.
+            Fill your house and workplace with pleasant and beautiful plants.
           </p>
           <div className="socials">
             <Link to="https://github.com/pranita09">

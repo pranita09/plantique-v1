@@ -30,6 +30,10 @@
   cursor: pointer;
 }
 
+.address-form-action-btns .cancel-btn {
+  background-color: #ddd;
+}
+
 .address-form-action-btns .cancel-btn:hover {
   outline: 1px solid var(--secondary-color);
   cursor: pointer;
