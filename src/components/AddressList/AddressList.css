@@ -1,87 +1,103 @@
-.addresses-container{
-    padding: 0 1rem;
+.addresses-container {
+  padding: 0 1rem;
 }
 
-.addresses-container .add-address-btn{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.8rem;
-    background-color: var(--secondary-color);
-    color: white;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
+.addresses-container .add-address-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.8rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
 }
 
-.addresses-container .add-address-btn:hover{
-    background-color: white;
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    cursor: pointer;
+.addresses-container .add-address-btn:hover {
+  background-color: white;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.addresses-container .add-address-btn .add-address-icon{
-    display: flex;
-    align-items: center;
+.addresses-container .add-address-btn .add-address-icon {
+  display: flex;
+  align-items: center;
 }
 
-.addresses-container .addresses-list{
-    padding: 0.5rem 0;
+.addresses-container .addresses-list {
+  padding: 0.5rem 0;
 }
 
 .addresses-container .addresses-list .address {
-    padding: 0.5rem;
-    border-bottom: 1px solid var(--secondary-color);
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
-.addresses-container .addresses-list .address p:first-of-type{
-    font-size: 1.1rem;
-    font-weight: bold;
+.addresses-container .addresses-list .address p:first-of-type {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
-.addresses-container .addresses-list .address .address-action{
-    padding: 0.5rem 0;
-    display: flex;
-    gap: 1rem;
+.addresses-container .addresses-list .address .address-action {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 1rem;
 }
 
-.addresses-container .addresses-list .address .address-action button{
-    padding: 0.1rem 0.8rem;
-    border-radius: 3px;
-    background-color: white;
+.addresses-container .addresses-list .address .address-action button {
+  padding: 0.1rem 0.8rem;
+  border-radius: 3px;
+  background-color: white;
 }
 
-.addresses-container .addresses-list .address .address-action .address-edit-btn{
-    color: var(--blue-color);
-    border: 1px solid var(--blue-color);
+.addresses-container
+  .addresses-list
+  .address
+  .address-action
+  .address-edit-btn {
+  color: var(--blue-color);
+  border: 1px solid var(--blue-color);
 }
 
-.addresses-container .addresses-list .address .address-action .address-delete-btn{
-    color: var(--danger-color);
-    border: 1px solid var(--danger-color);
+.addresses-container
+  .addresses-list
+  .address
+  .address-action
+  .address-delete-btn {
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
 }
 
-.addresses-container .addresses-list .address .address-action .address-edit-btn:hover{
-    background-color: var(--blue-color);
-    color: white;
-    cursor: pointer;
+.addresses-container
+  .addresses-list
+  .address
+  .address-action
+  .address-edit-btn:hover {
+  background-color: var(--blue-color);
+  color: white;
+  cursor: pointer;
 }
 
-.addresses-container .addresses-list .address .address-action .address-delete-btn:hover{
-    background-color: var(--danger-color);
-    color: white;
-    cursor: pointer;
+.addresses-container
+  .addresses-list
+  .address
+  .address-action
+  .address-delete-btn:hover {
+  background-color: var(--danger-color);
+  color: white;
+  cursor: pointer;
 }
 
 /* these styles are geting applied in Checkout page also */
 
-.address-modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: rgba(0,0,0,0.5);
+.address-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
 }

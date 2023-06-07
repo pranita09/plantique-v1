@@ -33,7 +33,7 @@ const CartCard = ({ cartProduct }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     handleCardBtnsClick(
-                      600,
+                      500,
                       updateQuantityInCart,
                       cartProduct,
                       "decrement"
@@ -49,7 +49,7 @@ const CartCard = ({ cartProduct }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     handleCardBtnsClick(
-                      600,
+                      500,
                       updateQuantityInCart,
                       cartProduct,
                       "increment"
@@ -65,7 +65,7 @@ const CartCard = ({ cartProduct }) => {
             <button
               className="move-to-wishlist-btn"
               onClick={() =>
-                handleCardBtnsClick(600, addToWishlist, cartProduct)
+                handleCardBtnsClick(500, addToWishlist, cartProduct)
               }
             >
               Add to Wishlist
@@ -74,7 +74,7 @@ const CartCard = ({ cartProduct }) => {
             <button
               className="move-to-wishlist-btn"
               onClick={() =>
-                handleCardBtnsClick(600, removeFromWishlist, cartProduct)
+                handleCardBtnsClick(500, removeFromWishlist, cartProduct)
               }
             >
               Remove from Wishlist
@@ -83,7 +83,7 @@ const CartCard = ({ cartProduct }) => {
           <button
             className="remove-from-cart-btn"
             onClick={() =>
-              handleCardBtnsClick(600, removeFromCart, cartProduct)
+              handleCardBtnsClick(500, removeFromCart, cartProduct)
             }
           >
             Remove from Cart

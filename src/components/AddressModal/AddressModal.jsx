@@ -93,7 +93,10 @@ const AddressModal = () => {
   }, []);
 
   return (
-    <div className="address-form-wrapper">
+    <div
+      className="address-form-wrapper"
+      onClick={(event) => event.stopPropagation()}
+    >
       <h3>Add New Address</h3>
       <form className="address-form-fields-group" onSubmit={addAddressHandler}>
         <div className="field input-field">

@@ -43,14 +43,14 @@ const ProductCard = ({ product, addedToWishlist }) => {
           <FavoriteIcon
             className="wishlist-fav-icon"
             onClick={() =>
-              handleCardBtnsClick(600, removeFromWishlist, product)
+              handleCardBtnsClick(500, removeFromWishlist, product)
             }
           />
         ) : (
           <FavoriteBorderRoundedIcon
             onClick={
               token
-                ? () => handleCardBtnsClick(600, addToWishlist, product)
+                ? () => handleCardBtnsClick(500, addToWishlist, product)
                 : () => navigate("/login")
             }
           />
@@ -82,7 +82,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
               token
                 ? itemInCart(_id)
                   ? navigate("/cart")
-                  : handleCardBtnsClick(600, addToCart, product)
+                  : handleCardBtnsClick(500, addToCart, product)
                 : navigate("/login")
             }
           >
@@ -93,7 +93,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
             className="add-to-cart-btn go-to-cart-btn"
             onClick={() =>
               handleCardBtnsClick(
-                600,
+                500,
                 updateQuantityInCart,
                 product,
                 "increment"
@@ -105,7 +105,7 @@ const ProductCard = ({ product, addedToWishlist }) => {
         ) : (
           <button
             className="add-to-cart-btn"
-            onClick={() => handleCardBtnsClick(600, addToCart, product)}
+            onClick={() => handleCardBtnsClick(500, addToCart, product)}
           >
             Add to Cart
           </button>

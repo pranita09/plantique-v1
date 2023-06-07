@@ -85,7 +85,12 @@ const AddressList = () => {
             )}
           </div>
           {showAddressModal ? (
-            <div className="address-modal">
+            <div
+              className="address-modal"
+              onClick={() =>
+                addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false })
+              }
+            >
               <AddressModal />
             </div>
           ) : null}

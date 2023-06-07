@@ -157,7 +157,7 @@ const SingleProduct = () => {
                             ? itemInCart(_id)
                               ? navigate("/cart")
                               : handleCardBtnsClick(
-                                  600,
+                                  500,
                                   addToCart,
                                   currentProduct
                                 )
@@ -187,7 +187,7 @@ const SingleProduct = () => {
                           ? itemInWishlist(_id)
                             ? navigate("/wishlist")
                             : handleCardBtnsClick(
-                                600,
+                                500,
                                 addToWishlist,
                                 currentProduct
                               )
