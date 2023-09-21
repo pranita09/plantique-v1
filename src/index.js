@@ -11,7 +11,7 @@ import { CartProvider } from "./contexts/cart-context";
 import { AddressProvider } from "./contexts/address-context";
 
 // Call make Server
-makeServer();
+// makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +21,7 @@ ReactDOM.render(
           <WishlistProvider>
             <CartProvider>
               <AddressProvider>
-                  <App />
+                <App />
               </AddressProvider>
             </CartProvider>
           </WishlistProvider>

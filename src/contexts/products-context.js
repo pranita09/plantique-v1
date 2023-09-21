@@ -125,7 +125,7 @@ export const ProductsProvider = ({ children }) => {
   const filteredByAvailability =
     productState.availabilityInput.length > 0
       ? filteredByCategories.filter((product) =>
-          productState.availabilityInput.every((type) => product[type])
+          productState.availabilityInput.every((type) => product[type] === true)
         )
       : filteredByCategories;
 
