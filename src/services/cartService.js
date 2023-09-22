@@ -1,18 +1,16 @@
 import axios from "axios";
+import { API_URL } from "../utils/constants";
 
 const getCartService = async (encodedToken) =>
-  await axios.get(
-    "https://plantique-e-commerce-backend.onrender.com/user/cart",
-    {
-      headers: {
-        authorization: encodedToken,
-      },
-    }
-  );
+  await axios.get(`${API_URL}/user/cart`, {
+    headers: {
+      authorization: encodedToken,
+    },
+  });
 
 const addToCartService = async (product, encodedToken) =>
   await axios.post(
-    "https://plantique-e-commerce-backend.onrender.com/user/cart",
+    `${API_URL}/user/cart`,
     { product },
     {
       headers: { authorization: encodedToken },
@@ -20,16 +18,13 @@ const addToCartService = async (product, encodedToken) =>
   );
 
 const removeFromCartService = async (productId, encodedToken) =>
-  await axios.delete(
-    `https://plantique-e-commerce-backend.onrender.com/user/cart/${productId}`,
-    {
-      headers: { authorization: encodedToken },
-    }
-  );
+  await axios.delete(`${API_URL}/user/cart/${productId}`, {
+    headers: { authorization: encodedToken },
+  });
 
 const updateQuantityService = async (productId, type, encodedToken) =>
   await axios.post(
-    `https://plantique-e-commerce-backend.onrender.com/user/cart/${productId}`,
+    `${API_URL}/user/cart/${productId}`,
     { action: { type } },
     { headers: { authorization: encodedToken } }
   );

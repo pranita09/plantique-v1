@@ -1,16 +1,14 @@
 import axios from "axios";
+import { API_URL } from "../utils/constants";
 
 const getAddressesService = async (encodedToken) =>
-  await axios.get(
-    "https://plantique-e-commerce-backend.onrender.com/user/address",
-    {
-      headers: { authorization: encodedToken },
-    }
-  );
+  await axios.get(`${API_URL}/user/address`, {
+    headers: { authorization: encodedToken },
+  });
 
 const addAddressService = async (address, encodedToken) =>
   await axios.post(
-    "https://plantique-e-commerce-backend.onrender.com/user/address",
+    `${API_URL}/user/address`,
     {
       address: address,
     },
@@ -19,18 +17,15 @@ const addAddressService = async (address, encodedToken) =>
 
 const editAddressService = async (address, addressId, encodedToken) =>
   await axios.post(
-    `https://plantique-e-commerce-backend.onrender.com/user/address/${addressId}`,
+    `${API_URL}/user/address/${addressId}`,
     { address: address },
     { headers: { authorization: encodedToken } }
   );
 
 const removeAddressService = async (addressId, encodedToken) =>
-  await axios.delete(
-    `https://plantique-e-commerce-backend.onrender.com/user/address/${addressId}`,
-    {
-      headers: { authorization: encodedToken },
-    }
-  );
+  await axios.delete(`${API_URL}/user/address/${addressId}`, {
+    headers: { authorization: encodedToken },
+  });
 
 export {
   getAddressesService,

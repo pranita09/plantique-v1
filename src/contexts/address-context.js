@@ -53,7 +53,6 @@ export const AddressProvider = ({ children }) => {
 
   const addAddress = async (addressInput) => {
     try {
-      console.log(addressInput);
       const response = await addAddressService(addressInput, token);
       const {
         status,
