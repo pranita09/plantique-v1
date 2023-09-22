@@ -4,7 +4,6 @@
 
 https://github.com/pranita09/plantique-v1/assets/66015794/6a76a911-71ff-4ef2-b3ec-d64482a99f89
 
-
 ## How to install and run locally?
 
 ```
@@ -43,5 +42,8 @@ $ npm start
 - Vanilla CSS
 - MUI Icons
 - Razorpay payment gateway
-- mockBee backend
 - React Hot Toast
+
+### Backend
+
+- Backend Repository: [https://github.com/pranita09/plantique-backend](https://github.com/pranita09/plantique-backend)
