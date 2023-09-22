@@ -1,5 +1,4 @@
 import "./AddressModal.css";
-import { v4 as uuid } from "uuid";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 import { addressActionTypes } from "../../utils/constants";
@@ -56,12 +55,10 @@ const AddressModal = () => {
     }
   };
 
-  const fillDummyAddressHandler = (id) => {
+  const fillDummyAddressHandler = () => {
     addressDispatch({
       type: SET_DUMMY_ADDRESS,
-      payload: id
-        ? { ...dummyAddress, _id: id }
-        : { ...dummyAddress, _id: uuid() },
+      payload: dummyAddress,
     });
   };
 
@@ -76,7 +73,7 @@ const AddressModal = () => {
       if (addressExist) {
         editAddress(addressFormData, addressExist._id);
       } else {
-        addAddress({ ...addressFormData, _id: uuid() });
+        addAddress(addressFormData);
       }
       addressDispatch({ type: SHOW_ADDRESS_MODAL, payload: false });
     }
@@ -211,7 +208,7 @@ const AddressModal = () => {
             <button
               className="fill-dummy-values-btn"
               type="button"
-              onClick={() => fillDummyAddressHandler(addressFormData._id)}
+              onClick={() => fillDummyAddressHandler()}
             >
               Dummy Inputs
             </button>

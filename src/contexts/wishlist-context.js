@@ -90,7 +90,7 @@ export const WishlistProvider = ({ children }) => {
     if (token) {
       getWishlist();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (

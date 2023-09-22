@@ -39,6 +39,8 @@ const wishlistActionTypes = {
   REMOVE_FROM_WISHLIST: "REMOVE_FROM_WISHLIST",
 };
 
+export const API_URL = "https://plantique-e-commerce-backend.onrender.com";
+
 export {
   addressActionTypes,
   cartActionTypes,
