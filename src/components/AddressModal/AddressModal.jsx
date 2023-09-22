@@ -1,5 +1,4 @@
 import "./AddressModal.css";
-import { v4 as uuid } from "uuid";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 import { addressActionTypes } from "../../utils/constants";
