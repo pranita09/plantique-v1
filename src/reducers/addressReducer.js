@@ -15,7 +15,6 @@ const {
 } = addressActionTypes;
 
 export const initialAddressInput = {
-  _id: "",
   name: "",
   street: "",
   city: "",

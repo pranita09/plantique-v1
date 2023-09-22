@@ -53,6 +53,7 @@ export const AddressProvider = ({ children }) => {
 
   const addAddress = async (addressInput) => {
     try {
+      console.log(addressInput);
       const response = await addAddressService(addressInput, token);
       const {
         status,
@@ -64,6 +65,7 @@ export const AddressProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+      toast.error("Unable to add new address.");
     }
   };
 
@@ -80,6 +82,7 @@ export const AddressProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+      toast.error("Unable to delete the address.");
     }
   };
 
@@ -96,6 +99,7 @@ export const AddressProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+      console.log("Unable to update the address.");
     }
   };
 
